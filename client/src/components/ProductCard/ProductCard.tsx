@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./index.scss";
 
@@ -14,10 +14,18 @@ interface Props {
 const ProductCard: React.FC<Props> = (props) => {
   const { title, price, inStock, id, color, image } = props;
 
+  const [imagePath, setImagePath] = useState();
+
+  if (image) {
+    import(`../../assets/images/${image}`).then((image) =>
+      setImagePath(image.default)
+    );
+  }
+
   return (
     <div className="product-card">
       <img
-        src={`../../assets/images/${image}`}
+        src={imagePath}
         alt={`${title} Pepper.`}
         className="product-card--image"
       />
