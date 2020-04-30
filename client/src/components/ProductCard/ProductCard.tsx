@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Dinero from "dinero.js";
 import "./index.scss";
 
 interface Props {
@@ -18,9 +17,7 @@ const ProductCard: React.FC<Props> = (props) => {
       <h1 className="product-card--title" style={{ color: color }}>
         {title}
       </h1>
-      <h3 className="product-card--price">
-        ${Dinero({ amount: 500 }).getLocale()}
-      </h3>
+      <h3 className="product-card--price">${price}</h3>
       <h5 className="product-card--availability">
         {inStock ? "available" : "unavailable"}
       </h5>
