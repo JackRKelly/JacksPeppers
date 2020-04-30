@@ -8,16 +8,23 @@ interface Props {
   inStock: boolean;
   id: number;
   color: string;
+  image?: string;
 }
 
 const ProductCard: React.FC<Props> = (props) => {
-  const { title, price, inStock, id, color } = props;
+  const { title, price, inStock, id, color, image } = props;
+
   return (
     <div className="product-card">
+      <img
+        src={`../../assets/images/${image}`}
+        alt={`${title} Pepper.`}
+        className="product-card--image"
+      />
       <h1 className="product-card--title" style={{ color: color }}>
         {title}
       </h1>
-      <h3 className="product-card--price">${price}</h3>
+      <h3 className="product-card--price">${price.toFixed(2)}</h3>
       <h5 className="product-card--availability">
         {inStock ? "available" : "unavailable"}
       </h5>

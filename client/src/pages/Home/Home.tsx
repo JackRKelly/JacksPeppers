@@ -16,14 +16,15 @@ const Home: React.FC = () => {
         <ProductCard
           id={53}
           title="Habanero Orange Lightning"
-          price={54.0}
+          price={54}
           inStock={true}
           color="#333333"
+          image="habanero.jpg"
         />
         <ProductCard
           id={55}
           title="Pink Tiger"
-          price={23.0}
+          price={23}
           inStock={false}
           color="#333333"
         />

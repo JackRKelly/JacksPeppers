@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   BrowserRouter as Router,
   Switch,
@@ -12,8 +12,6 @@ import Product from "./pages/Product/Product";
 import Contact from "./pages/Contact/Contact";
 
 const App: React.FC = () => {
-  const [currency, setCurrency] = useState("USD");
-
   return (
     <Router>
       <div>
@@ -27,11 +25,6 @@ const App: React.FC = () => {
             </li>
             <li>
               <NavLink to="/contact">Contact</NavLink>
-            </li>
-            <li>
-              <select name="currency">
-                <option value="USD">USD</option>
-              </select>
             </li>
           </ul>
         </nav>
