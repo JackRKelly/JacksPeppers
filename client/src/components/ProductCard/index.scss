@@ -1,2 +1,30 @@
 .product-card {
+  position: relative;
+  display: inline-block;
+  margin: 10px;
+  padding: 25px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  width: 320px;
+  height: 300px;
+  &--title {
+    margin: 0;
+    font-size: 25px;
+    font-family: "Hoccen";
+  }
+  &--price {
+    margin: 0;
+  }
+  &--availability {
+    margin: 0;
+  }
+  &--link {
+    text-decoration: none;
+    padding: 5px;
+    border-radius: 2px;
+    background-color: black;
+    color: white;
+    position: absolute;
+    bottom: 25px;
+  }
 }

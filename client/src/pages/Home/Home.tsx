@@ -13,13 +13,26 @@ const Home: React.FC = () => {
 
       <h5>Featured Products:</h5>
       <div className="featured-products">
-        <ProductCard id={53} title="Cayenne" price={54} inStock={true} />
-        <ProductCard id={55} title="Jalapeno" price={23} inStock={true} />
+        <ProductCard
+          id={53}
+          title="Habanero Orange Lightning"
+          price={54.0}
+          inStock={true}
+          color="#333333"
+        />
+        <ProductCard
+          id={55}
+          title="Pink Tiger"
+          price={23.0}
+          inStock={false}
+          color="#333333"
+        />
         <ProductCard
           id={24}
-          title="Carolina Reaper"
-          price={42}
+          title="Taj Mahal Pink & Pink Minion"
+          price={42.5}
           inStock={true}
+          color="#333333"
         />
       </div>
     </main>
