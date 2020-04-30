@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import ProductCard from "../../components/ProductCard/ProductCard";
 
 const Home: React.FC = () => {
   return (
@@ -11,17 +12,16 @@ const Home: React.FC = () => {
       </header>
 
       <h5>Featured Products:</h5>
-      <ul>
-        <li>
-          <Link to="/product/53">Product 53</Link>
-        </li>
-        <li>
-          <Link to="/product/64">Product 64</Link>
-        </li>
-        <li>
-          <Link to="/product/74">Product 75</Link>
-        </li>
-      </ul>
+      <div className="featured-products">
+        <ProductCard id={53} title="Cayenne" price={54} inStock={true} />
+        <ProductCard id={55} title="Jalapeno" price={23} inStock={true} />
+        <ProductCard
+          id={24}
+          title="Carolina Reaper"
+          price={42}
+          inStock={true}
+        />
+      </div>
     </main>
   );
 };
