@@ -8,8 +8,8 @@ import {
 import "./App.scss";
 import Home from "./pages/Home/Home";
 import Shop from "./pages/Shop/Shop";
-import About from "./pages/About/About";
 import Product from "./pages/Product/Product";
+import Contact from "./pages/Contact/Contact";
 
 const App: React.FC = () => {
   return (
@@ -24,20 +24,20 @@ const App: React.FC = () => {
               <NavLink to="/shop">Shop</NavLink>
             </li>
             <li>
-              <NavLink to="/about">About</NavLink>
+              <NavLink to="/contact">Contact</NavLink>
             </li>
           </ul>
         </nav>
 
         <Switch>
+          <Route path="/contact">
+            <Contact />
+          </Route>
           <Route path="/shop">
             <Shop />
           </Route>
           <Route path="/product/:id">
             <Product />
-          </Route>
-          <Route path="/about">
-            <About />
           </Route>
           <Route path="/">
             <Home />

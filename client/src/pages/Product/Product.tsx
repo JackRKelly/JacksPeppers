@@ -5,9 +5,9 @@ const Product: React.FC = () => {
   const { id } = useParams();
 
   return (
-    <div>
+    <main className="product">
       <h1>Product {id}</h1>
-    </div>
+    </main>
   );
 };
 
