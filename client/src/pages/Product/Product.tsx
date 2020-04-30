@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 
 const Product: React.FC = () => {
   const { id } = useParams();
+
   return (
     <div>
       <h1>Product {id}</h1>
