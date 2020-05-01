@@ -1,4 +1,5 @@
 import React from "react";
+import "./index.scss";
 
 const Contact: React.FC = () => {
   document.title = "Contact | Jack's Peppers";
