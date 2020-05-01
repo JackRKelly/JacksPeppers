@@ -1,3 +1,7 @@
+$gray: #333;
+$lightgray: #808080;
+$red: #c1272d;
+
 @mixin main {
   position: absolute;
   left: 50%;
@@ -13,6 +17,6 @@
   }
 }
 
-$gray: #333;
-$lightgray: #808080;
-$red: #c1272d;
+@mixin bezier($duration) {
+  transition: all $duration cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}

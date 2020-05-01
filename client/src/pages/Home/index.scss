@@ -24,6 +24,10 @@ main.home {
       color: white;
       border-radius: 3px;
       width: max-content;
+      @include bezier(200ms);
+      &:hover {
+        transform: scale(1.1);
+      }
     }
   }
   .featured-products {
