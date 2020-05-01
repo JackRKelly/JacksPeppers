@@ -5,6 +5,7 @@ import {
   Route,
   NavLink,
 } from "react-router-dom";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
 import "./App.scss";
 import Home from "./pages/Home/Home";
 import Shop from "./pages/Shop/Shop";
@@ -29,20 +30,28 @@ const App: React.FC = () => {
           </ul>
         </nav>
 
-        <Switch>
-          <Route path="/contact">
-            <Contact />
-          </Route>
-          <Route path="/shop">
-            <Shop />
-          </Route>
-          <Route path="/product/:id">
-            <Product />
-          </Route>
-          <Route path="/">
-            <Home />
-          </Route>
-        </Switch>
+        <Route
+          render={({ location }) => (
+            <TransitionGroup>
+              <CSSTransition key={location.key} timeout={300} classNames="fade">
+                <Switch location={location}>
+                  <Route path="/contact">
+                    <Contact />
+                  </Route>
+                  <Route path="/shop">
+                    <Shop />
+                  </Route>
+                  <Route path="/product/:id">
+                    <Product />
+                  </Route>
+                  <Route path="/">
+                    <Home />
+                  </Route>
+                </Switch>
+              </CSSTransition>
+            </TransitionGroup>
+          )}
+        />
       </div>
     </Router>
   );
