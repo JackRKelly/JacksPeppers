@@ -5,11 +5,12 @@ import "./index.scss";
 const Product: React.FC = () => {
   const { id } = useParams();
 
-  document.title = `Product #${id} | Jack's Peppers`;
+  document.title = `Pepper Name | Jack's Peppers`;
+  console.log(id);
 
   return (
     <main className="product">
-      <h1>Product {id}</h1>
+      <h1>Product</h1>
     </main>
   );
 };

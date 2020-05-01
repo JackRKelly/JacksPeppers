@@ -4,6 +4,8 @@ import "./index.scss";
 
 const Shop: React.FC = () => {
   document.title = "Shop | Jack's Peppers";
+  console.log("shop");
+
   return (
     <main className="shop">
       <h1>Shop</h1>

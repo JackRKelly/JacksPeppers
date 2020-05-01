@@ -5,27 +5,43 @@
   margin: 0 20px 20px 0;
   border-radius: 5px;
   min-width: 200px;
+  max-width: 250px;
+  transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  @media (max-width: 500px) {
+    margin: 0 0 20px 0;
+  }
   &--image {
     width: 100%;
   }
   &--title {
-    margin: 0;
+    margin: 7.5px 0;
     font-size: 25px;
     font-family: "Hoccen";
   }
   &--price {
     margin: 0;
+    font-size: 20px;
   }
   &--availability {
     margin: 0;
   }
   &--link {
     text-decoration: none;
-    margin-top: 5px;
+    margin: 10px 10px 0 0;
     padding: 5px 10px;
     border-radius: 2px;
     background-color: black;
     color: white;
     display: inline-block;
+    transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    font-weight: bold;
+    letter-spacing: 1px;
+    box-shadow: 0 0 7px rgba(0, 0, 0, 0.3);
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+  &:hover {
+    transform: translateY(-5px);
   }
 }

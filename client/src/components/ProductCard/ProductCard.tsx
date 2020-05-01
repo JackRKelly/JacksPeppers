@@ -9,10 +9,11 @@ interface Props {
   id: number;
   color: string;
   image?: string;
+  invert?: boolean;
 }
 
 const ProductCard: React.FC<Props> = (props) => {
-  const { title, price, inStock, id, color, image } = props;
+  const { title, price, inStock, id, color, image, invert } = props;
 
   const [imagePath, setImagePath] = useState();
 
@@ -29,19 +30,36 @@ const ProductCard: React.FC<Props> = (props) => {
         alt={`${title} Pepper.`}
         className="product-card--image"
       />
-      <h1 className="product-card--title" style={{ color: color }}>
+      <h1
+        className="product-card--title"
+        style={{
+          color: invert ? "#333" : color,
+        }}
+      >
         {title}
       </h1>
-      <h3 className="product-card--price">${price.toFixed(2)}</h3>
-      <h5 className="product-card--availability">
-        {inStock ? "available" : "unavailable"}
-      </h5>
+      <h4 className="product-card--price">
+        ${price.toFixed(2)} -{" "}
+        <span
+          className="product-card--availability"
+          style={{ color: inStock ? "green" : "red" }}
+        >
+          {inStock ? "In stock" : "Out of stock"}
+        </span>
+      </h4>
       <Link
         className="product-card--link"
         to={`/product/${id}`}
-        style={{ backgroundColor: color }}
+        style={{ backgroundColor: color, color: invert ? "#333" : "white" }}
       >
-        Go to page
+        Details
+      </Link>
+      <Link
+        className="product-card--link"
+        to={`/product/${id}`}
+        style={{ backgroundColor: color, color: invert ? "#333" : "white" }}
+      >
+        Add to cart
       </Link>
     </div>
   );

@@ -4,6 +4,7 @@ import {
   Switch,
   Route,
   NavLink,
+  Redirect,
 } from "react-router-dom";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import "./App.scss";
@@ -19,13 +20,19 @@ const App: React.FC = () => {
         <nav>
           <ul>
             <li>
-              <NavLink to="/">Home</NavLink>
+              <NavLink to="/home" activeClassName="active">
+                Home
+              </NavLink>
             </li>
             <li>
-              <NavLink to="/shop">Shop</NavLink>
+              <NavLink to="/shop" activeClassName="active">
+                Shop
+              </NavLink>
             </li>
             <li>
-              <NavLink to="/contact">Contact</NavLink>
+              <NavLink to="/contact" activeClassName="active">
+                Contact
+              </NavLink>
             </li>
           </ul>
         </nav>
@@ -44,8 +51,11 @@ const App: React.FC = () => {
                   <Route path="/product/:id">
                     <Product />
                   </Route>
-                  <Route path="/">
+                  <Route path="/home">
                     <Home />
+                  </Route>
+                  <Route path="/">
+                    <Redirect to="home" />
                   </Route>
                 </Switch>
               </CSSTransition>

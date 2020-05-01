@@ -3,6 +3,8 @@ import "./index.scss";
 
 const Contact: React.FC = () => {
   document.title = "Contact | Jack's Peppers";
+  console.log("contact");
+
   return (
     <main className="contact">
       <h1>Contact</h1>
