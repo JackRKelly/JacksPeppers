@@ -1,6 +1,7 @@
 import React from "react";
 
 const Contact: React.FC = () => {
+  document.title = "Contact | Jack's Peppers";
   return (
     <main className="contact">
       <h1>Contact</h1>

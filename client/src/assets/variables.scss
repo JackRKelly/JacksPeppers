@@ -1,0 +1,12 @@
+@mixin main {
+  margin: auto;
+  @media (max-width: 500px) {
+    width: 90%;
+  }
+  @media (max-width: 800px) {
+    width: 85%;
+  }
+  @media (min-width: 800px) {
+    width: 80%;
+  }
+}
