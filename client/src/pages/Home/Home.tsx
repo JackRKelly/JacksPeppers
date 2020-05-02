@@ -36,14 +36,6 @@ const Home: React.FC = () => {
             color="#722E47"
             image="pinktiger.jpg"
           />
-          {/* <ProductCard
-            id={24}
-            title="Taj Mahal Pink & Pink Minion"
-            price={4}
-            inStock={true}
-            color="#C44960"
-            image="tajminion.jpg"
-          /> */}
           <ProductCard
             id={24}
             title="7 Pot White"
