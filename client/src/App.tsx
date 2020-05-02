@@ -16,53 +16,63 @@ import Contact from "./pages/Contact/Contact";
 const App: React.FC = () => {
   return (
     <Router>
-      <div>
-        <nav>
-          <ul>
-            <li>
-              <NavLink to="/home" activeClassName="active">
-                Home
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/shop" activeClassName="active">
-                Shop
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/contact" activeClassName="active">
-                Contact
-              </NavLink>
-            </li>
-          </ul>
-        </nav>
+      <nav className="navigation desktop">
+        <ul className="navigation-list">
+          <li className="navigation-list--item">
+            <NavLink
+              className="navigation-list--link"
+              to="/home"
+              activeClassName="active"
+            >
+              Home
+            </NavLink>
+          </li>
+          <li className="navigation-list--item">
+            <NavLink
+              className="navigation-list--link"
+              to="/shop"
+              activeClassName="active"
+            >
+              Shop
+            </NavLink>
+          </li>
+          <li className="navigation-list--item">
+            <NavLink
+              className="navigation-list--link"
+              to="/contact"
+              activeClassName="active"
+            >
+              Contact
+            </NavLink>
+          </li>
+        </ul>
+      </nav>
 
-        <Route
-          render={({ location }) => (
-            <TransitionGroup>
-              <CSSTransition key={location.key} timeout={300} classNames="fade">
-                <Switch location={location}>
-                  <Route path="/contact">
-                    <Contact />
-                  </Route>
-                  <Route path="/shop">
-                    <Shop />
-                  </Route>
-                  <Route path="/product/:id">
-                    <Product />
-                  </Route>
-                  <Route path="/home">
-                    <Home />
-                  </Route>
-                  <Route path="/">
-                    <Redirect to="home" />
-                  </Route>
-                </Switch>
-              </CSSTransition>
-            </TransitionGroup>
-          )}
-        />
-      </div>
+      <Route
+        render={({ location }) => (
+          <TransitionGroup>
+            <CSSTransition key={location.key} timeout={300} classNames="fade">
+              <Switch location={location}>
+                <Route path="/contact">
+                  <Contact />
+                </Route>
+                <Route path="/shop">
+                  <Shop />
+                </Route>
+                <Route path="/product/:id">
+                  <Product />
+                </Route>
+                <Route path="/home">
+                  <Home />
+                </Route>
+                <Route path="/">
+                  <Redirect to="home" />
+                </Route>
+              </Switch>
+            </CSSTransition>
+          </TransitionGroup>
+        )}
+      />
     </Router>
   );
 };

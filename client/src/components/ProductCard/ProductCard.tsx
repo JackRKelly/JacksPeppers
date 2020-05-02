@@ -50,14 +50,26 @@ const ProductCard: React.FC<Props> = (props) => {
       <Link
         className="product-card--link"
         to={`/product/${id}`}
-        style={{ backgroundColor: color, color: invert ? "#333" : "white" }}
+        style={{
+          backgroundColor: color,
+          color: invert ? "#333" : "white",
+          boxShadow: invert
+            ? "0 0 7px rgba(0, 0, 0, 0.2)"
+            : "0 0 7px rgba(0, 0, 0, 0.3)",
+        }}
       >
         Details
       </Link>
       <Link
         className="product-card--link"
         to={`/product/${id}`}
-        style={{ backgroundColor: color, color: invert ? "#333" : "white" }}
+        style={{
+          backgroundColor: color,
+          color: invert ? "#333" : "white",
+          boxShadow: invert
+            ? "0 0 7px rgba(0, 0, 0, 0.2)"
+            : "0 0 7px rgba(0, 0, 0, 0.3)",
+        }}
       >
         Add to cart
       </Link>

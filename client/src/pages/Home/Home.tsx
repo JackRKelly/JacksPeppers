@@ -9,10 +9,12 @@ const Home: React.FC = () => {
 
   return (
     <main className="home">
-      <header>
-        <h1>Jack's Peppers</h1>
-        <h3>Pepper Seed Supplier</h3>
-        <Link to="/shop">Shop</Link>
+      <header className="hero-section">
+        <h1 className="hero-section--title">Jack's Peppers</h1>
+        <h3 className="hero-section--description">Pepper Seed Supplier</h3>
+        <Link className="hero-section--link" to="/shop">
+          Shop
+        </Link>
       </header>
 
       <div className="featured-products">
@@ -34,14 +36,14 @@ const Home: React.FC = () => {
             color="#722E47"
             image="pinktiger.jpg"
           />
-          <ProductCard
+          {/* <ProductCard
             id={24}
             title="Taj Mahal Pink & Pink Minion"
             price={4}
             inStock={true}
             color="#C44960"
             image="tajminion.jpg"
-          />
+          /> */}
           <ProductCard
             id={24}
             title="7 Pot White"
@@ -50,6 +52,14 @@ const Home: React.FC = () => {
             color="#F8F5E0"
             image="7potwhite.jpg"
             invert={true}
+          />
+          <ProductCard
+            id={24}
+            title="Roxa Lantern Black"
+            price={3.5}
+            inStock={true}
+            color="#94315D"
+            image="roxa-black.jpg"
           />
         </div>
       </div>

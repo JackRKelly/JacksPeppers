@@ -2,23 +2,32 @@
 
 main.home {
   @include main;
-  header {
-    min-height: 25vh;
+  .hero-section {
     display: flex;
     flex-direction: column;
-    align-items: left;
+    align-items: flex-start;
     justify-content: center;
-    h1 {
-      font-family: "Hoccen", sans-serif;
+    padding: 50px 0 50px 0;
+    &--title {
+      font: 40px "Hoccen";
       margin: 0;
+      @media (max-width: 500px) {
+        font-size: 30px;
+      }
     }
-    h3 {
+    &--description {
+      font-size: 25px;
+      margin: 20px 0;
       text-transform: uppercase;
       color: $lightgray;
+      @media (max-width: 500px) {
+        font-size: 20px;
+      }
     }
-    a {
+    &--link {
       display: inline-block;
       padding: 4px 25px;
+      font-size: 22px;
       background-color: $red;
       text-decoration: none;
       color: white;
@@ -27,6 +36,9 @@ main.home {
       @include bezier(200ms);
       &:hover {
         transform: scale(1.1);
+      }
+      @media (max-width: 500px) {
+        font-size: 18px;
       }
     }
   }
