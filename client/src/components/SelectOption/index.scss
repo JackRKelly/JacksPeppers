@@ -1,1 +1,15 @@
 @import "../../assets/variables.scss";
+
+.select-option {
+  display: inline;
+  position: relative;
+  &--dropdown {
+    position: absolute;
+    height: 10px;
+    width: inherit;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+  }
+}

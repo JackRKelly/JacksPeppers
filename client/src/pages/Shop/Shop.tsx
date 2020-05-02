@@ -18,24 +18,22 @@ const Shop: React.FC = () => {
               name="filter-select"
               options={["All Products", "7 Pot", "Sugar Rush"]}
             />
-            {/* <select name="filter-select">
-              <SelectOption option="All Products" />
-              <SelectOption option="7 Pot" />
-              <SelectOption option="Sugar Rush" />
-            </select> */}
           </div>
           <div className="search-settings--sort">
             <label htmlFor="sort-select">Sort By</label>
-            {/* <select name="sort-select">
-              <SelectOption option="Featured" />
-              <SelectOption option="Best Selling" />
-              <SelectOption option="Alphabetically, A-Z" />
-              <SelectOption option="Alphabetically, Z-A" />
-              <SelectOption option="Price, low to high" />
-              <SelectOption option="Price, high to low" />
-              <SelectOption option="Date, old to new" />
-              <SelectOption option="Date, new to old" />
-            </select> */}
+            <SelectOption
+              name="filter-select"
+              options={[
+                "Featured",
+                "Best Selling",
+                "Alphabetically, A-Z",
+                "Alphabetically, Z-A",
+                "Price, low to high",
+                "Price, high to low",
+                "Date, old to new",
+                "Date, new to old",
+              ]}
+            />
           </div>
           <span className="search-settings--quantity">123 Products</span>
         </div>
