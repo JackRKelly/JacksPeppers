@@ -2,13 +2,20 @@ import React from "react";
 import "./index.scss";
 
 interface Props {
-  option: string;
+  name: string;
+  options: Array<string>;
 }
 
 const SelectOption: React.FC<Props> = (props) => {
-  const { option } = props;
+  const { options, name } = props;
 
-  return <option value={option}>{option}</option>;
+  return (
+    <select name={name}>
+      {options.map((option) => (
+        <option value={option}>{option}</option>
+      ))}
+    </select>
+  );
 };
 
 export default SelectOption;

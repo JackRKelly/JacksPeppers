@@ -2,4 +2,53 @@
 
 main.shop {
   @include main;
+  header {
+    padding: 50px 0 50px 0;
+    h1 {
+      font: 40px "Hoccen";
+      margin: 0;
+    }
+    .search-settings {
+      margin-top: 25px;
+      & > * {
+        text-transform: uppercase;
+        color: $lightgray;
+        display: inline-block;
+        font-size: 20px;
+      }
+      &--filter {
+        select {
+          margin-left: 10px;
+          font: 20px "Neutra";
+          border: none;
+          -moz-appearance: none;
+          -webkit-appearance: none;
+          appearance: none;
+          padding: 10px;
+          position: relative;
+        }
+      }
+      &--sort {
+        margin-left: 20px;
+        select {
+          margin-left: 10px;
+          font-size: 20px;
+          font: 20px "Neutra";
+          border: none;
+        }
+      }
+      &--quantity {
+        float: right;
+      }
+    }
+  }
+  .search-results {
+    &--list {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+  }
 }

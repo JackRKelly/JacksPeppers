@@ -30,7 +30,7 @@ main.home {
       font-size: 22px;
       background-color: $red;
       text-decoration: none;
-      color: white;
+      color: $white;
       border-radius: 3px;
       width: max-content;
       @include bezier(200ms);

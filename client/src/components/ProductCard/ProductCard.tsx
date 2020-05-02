@@ -29,6 +29,7 @@ const ProductCard: React.FC<Props> = (props) => {
         src={imagePath}
         alt={`${title} Pepper.`}
         className="product-card--image"
+        style={{ opacity: inStock ? 1 : 0.5 }}
       />
       <h1
         className="product-card--title"
@@ -39,12 +40,9 @@ const ProductCard: React.FC<Props> = (props) => {
         {title}
       </h1>
       <h4 className="product-card--price">
-        ${price.toFixed(2)} -{" "}
-        <span
-          className="product-card--availability"
-          style={{ color: inStock ? "green" : "red" }}
-        >
-          {inStock ? "In stock" : "Out of stock"}
+        ${price.toFixed(2)}
+        <span className="product-card--availability">
+          {!inStock ? " - Out of stock" : ""}
         </span>
       </h4>
       <Link
@@ -69,6 +67,7 @@ const ProductCard: React.FC<Props> = (props) => {
           boxShadow: invert
             ? "0 0 7px rgba(0, 0, 0, 0.2)"
             : "0 0 7px rgba(0, 0, 0, 0.3)",
+          opacity: inStock ? 1 : 0.5,
         }}
       >
         Add to cart

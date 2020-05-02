@@ -26,14 +26,15 @@
   }
   &--availability {
     margin: 0;
+    color: $lightgray;
   }
   &--link {
     text-decoration: none;
     margin: 10px 10px 0 0;
     padding: 5px 10px;
     border-radius: 2px;
-    background-color: black;
-    color: white;
+    background-color: $black;
+    color: $white;
     display: inline-block;
     @include bezier(200ms);
     font-weight: bold;
