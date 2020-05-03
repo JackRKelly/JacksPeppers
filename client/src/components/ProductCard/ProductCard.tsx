@@ -68,6 +68,7 @@ const ProductCard: React.FC<Props> = (props) => {
             ? "0 0 7px rgba(0, 0, 0, 0.2)"
             : "0 0 7px rgba(0, 0, 0, 0.3)",
           opacity: inStock ? 1 : 0.5,
+          pointerEvents: inStock ? "auto" : "none",
         }}
       >
         Add to cart
