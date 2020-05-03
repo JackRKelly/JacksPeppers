@@ -16,12 +16,12 @@ main.home {
       }
     }
     &--description {
-      font-size: 25px;
+      font-size: 20px;
       margin: 20px 0;
       text-transform: uppercase;
       color: $lightgray;
       @media (max-width: 500px) {
-        font-size: 20px;
+        font-size: 18px;
       }
     }
     &--link {

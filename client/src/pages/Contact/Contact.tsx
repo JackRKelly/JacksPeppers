@@ -7,7 +7,11 @@ const Contact: React.FC = () => {
 
   return (
     <main className="contact">
-      <h1>Contact</h1>
+      <header>
+        <h1>Contact</h1>
+        <h3>Fill out the form below to get in contact</h3>
+      </header>
+
       <form>
         <input type="text" placeholder="Name" />
         <input type="text" placeholder="Email" />

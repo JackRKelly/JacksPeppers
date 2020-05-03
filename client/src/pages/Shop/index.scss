@@ -9,6 +9,7 @@ main.shop {
       margin: 0;
     }
     .search-settings {
+      position: relative;
       margin-top: 25px;
       & > * {
         text-transform: uppercase;
@@ -44,7 +45,10 @@ main.shop {
         }
       }
       &--quantity {
-        float: right;
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
       }
     }
   }

@@ -14,8 +14,10 @@ const SelectOption: React.FC<Props> = (props) => {
   return (
     <div className="select-option">
       <select name={name}>
-        {options.map((option) => (
-          <option value={option}>{option}</option>
+        {options.map((option, key) => (
+          <option key={key} value={option}>
+            {option}
+          </option>
         ))}
       </select>
       <SVG className="select-option--dropdown" src={Dropdown} />
