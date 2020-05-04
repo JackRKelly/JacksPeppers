@@ -3,20 +3,18 @@
 main.product {
   @include main;
   .product-info {
-    padding: 50px 0 50px 0;
-    @media (min-width: 1500px) {
+    @media (min-width: $large) {
       display: flex;
       justify-content: space-evenly;
     }
     &--preview {
       width: 100%;
-      @media (min-width: 1000px) {
-        width: 70%;
-        margin: auto;
+      padding: 50px 0 0 0;
+      @media (max-width: $small) {
+        padding: 25px 0 0 0;
       }
-      @media (min-width: 1500px) {
+      @media (min-width: $large) {
         width: 40%;
-        margin: 0;
       }
       &-main {
         width: 100%;
@@ -33,6 +31,9 @@ main.product {
         &--item {
           width: 100%;
           padding-right: 20px;
+          @media (max-width: $small) {
+            padding-right: 10px;
+          }
           &:last-child {
             padding-right: 0;
           }
@@ -43,8 +44,43 @@ main.product {
       }
     }
     &--main {
-      @media (min-width: 1500px) {
-        width: 40%;
+      padding: 20px 0 50px 0;
+      @media (min-width: $large) {
+        width: 45%;
+        padding: 50px 0 0 0;
+      }
+      &-title {
+        @include h1;
+        margin: 0;
+      }
+      &-price {
+        @include h3;
+        margin: 10px 0;
+      }
+      &-shipping {
+        @include h5;
+        margin: 0;
+        color: $lightgray;
+        font-weight: lighter;
+      }
+      &-description {
+        @include p;
+        margin: 10px 0;
+      }
+      &-add {
+        text-decoration: none;
+        padding: 5px 10px;
+        border-radius: 2px;
+        background-color: $black;
+        color: $white;
+        display: inline-block;
+        @include bezier(200ms);
+        font-weight: bold;
+        letter-spacing: 1px;
+        box-shadow: 0 0 7px rgba(0, 0, 0, 0.3);
+        &:hover {
+          transform: scale(1.1);
+        }
       }
     }
   }
