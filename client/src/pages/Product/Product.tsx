@@ -78,15 +78,16 @@ const Product: React.FC = () => {
             </li>
           </ul>
         </div>
-
-        <h1 className="product-info--title">{pepper.title}</h1>
-        <h3 className="product-info--price">
-          ${pepper.price} - {pepper.seedCount}+ Seeds
-        </h3>
-        <h4 className="product-info--shipping">
-          <span>Shipping</span> calculated at checkout.
-        </h4>
-        <p className="product-info--description">{pepper.description}</p>
+        <div className="product-info--main">
+          <h1 className="product-info--main-title">{pepper.title}</h1>
+          <h3 className="product-info--main-price">
+            ${pepper.price} - {pepper.seedCount}+ Seeds
+          </h3>
+          <h4 className="product-info--main-shipping">
+            <span>Shipping</span> calculated at checkout.
+          </h4>
+          <p className="product-info--main-description">{pepper.description}</p>
+        </div>
       </div>
     </main>
   );

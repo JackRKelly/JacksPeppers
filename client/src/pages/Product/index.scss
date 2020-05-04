@@ -3,8 +3,21 @@
 main.product {
   @include main;
   .product-info {
+    padding: 50px 0 50px 0;
+    @media (min-width: 1500px) {
+      display: flex;
+      justify-content: space-evenly;
+    }
     &--preview {
       width: 100%;
+      @media (min-width: 1000px) {
+        width: 70%;
+        margin: auto;
+      }
+      @media (min-width: 1500px) {
+        width: 40%;
+        margin: 0;
+      }
       &-main {
         width: 100%;
         img {
@@ -27,6 +40,11 @@ main.product {
             width: 100%;
           }
         }
+      }
+    }
+    &--main {
+      @media (min-width: 1500px) {
+        width: 40%;
       }
     }
   }
