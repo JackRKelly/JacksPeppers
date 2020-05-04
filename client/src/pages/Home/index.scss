@@ -13,13 +13,10 @@ main.home {
       margin: 0;
     }
     &--description {
-      font-size: 20px;
+      @include h3;
       margin: 20px 0;
       text-transform: uppercase;
       color: $lightgray;
-      @media (max-width: 500px) {
-        font-size: 18px;
-      }
     }
     &--link {
       display: inline-block;
