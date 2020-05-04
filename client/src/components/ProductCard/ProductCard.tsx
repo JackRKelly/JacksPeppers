@@ -28,6 +28,7 @@ const ProductCard: React.FC<Props> = (props) => {
       <img
         src={imagePath}
         alt={`${title} Pepper.`}
+        title={`${title} Pepper.`}
         className="product-card--image"
         style={{ opacity: inStock ? 1 : 0.5 }}
       />
