@@ -6,15 +6,26 @@ main.product {
     &--preview {
       width: 100%;
       &-main {
-        width: 70%;
+        width: 100%;
         img {
           width: 100%;
         }
       }
       &-list {
-        width: 30%;
+        width: 100%;
+        list-style: none;
+        padding: 10px 0 0 0;
+        margin: 0;
+        display: flex;
         &--item {
           width: 100%;
+          padding-right: 20px;
+          &:last-child {
+            padding-right: 0;
+          }
+          img {
+            width: 100%;
+          }
         }
       }
     }
