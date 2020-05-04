@@ -3,6 +3,7 @@
 nav.navigation.desktop {
   background-color: $white;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  z-index: 200;
   .navigation-list {
     margin: 0;
     padding: 0;

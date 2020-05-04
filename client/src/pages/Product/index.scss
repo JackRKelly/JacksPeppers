@@ -6,6 +6,7 @@ main.product {
     @media (min-width: $large) {
       display: flex;
       justify-content: space-evenly;
+      align-items: center;
     }
     &--preview {
       width: 100%;
@@ -30,12 +31,13 @@ main.product {
         display: flex;
         &--item {
           width: 100%;
-          padding-right: 20px;
+          margin-right: 20px;
+          cursor: pointer;
           @media (max-width: $small) {
-            padding-right: 10px;
+            margin-right: 10px;
           }
           &:last-child {
-            padding-right: 0;
+            margin-right: 0;
           }
           img {
             width: 100%;
@@ -44,7 +46,7 @@ main.product {
       }
     }
     &--main {
-      padding: 20px 0 50px 0;
+      padding: 20px 0 20px 0;
       @media (min-width: $large) {
         width: 45%;
         padding: 50px 0 0 0;
@@ -62,6 +64,12 @@ main.product {
         margin: 0;
         color: $lightgray;
         font-weight: lighter;
+        span {
+          color: black;
+          border-bottom: 2px solid currentColor;
+          padding-bottom: 2px;
+          cursor: pointer;
+        }
       }
       &-description {
         @include p;
@@ -85,3 +93,22 @@ main.product {
     }
   }
 }
+
+// .product-info--back {
+//   position: absolute;
+//   top: 55px;
+//   right: 5%;
+//   background-color: white;
+//   padding: 15px;
+//   @media (max-width: $small) {
+//     padding: 10px;
+//     right: 3%;
+//   }
+//   @media (min-width: $large) {
+//     top: 100px;
+//     right: 10%;
+//   }
+//   svg {
+//     width: 30px;
+//   }
+// }

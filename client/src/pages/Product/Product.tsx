@@ -90,7 +90,7 @@ const Product: React.FC = () => {
             ${pepper.price.toFixed(2)} - {pepper.seedCount}+ Seeds
           </h3>
           <h4 className="product-info--main-shipping">
-            <span>Shipping</span> calculated at checkout.
+            Free <span>Shipping</span> on orders over 10$.
           </h4>
           <p className="product-info--main-description">{pepper.description}</p>
           <a
