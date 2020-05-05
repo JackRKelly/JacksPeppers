@@ -70,13 +70,6 @@ const Product: React.FC = () => {
                 title={`${pepper.title} Pepper.`}
               />
             </li>
-            <li className="product-info--preview-list--item">
-              <img
-                src={imagePath}
-                alt={`${pepper.title} Pepper.`}
-                title={`${pepper.title} Pepper.`}
-              />
-            </li>
           </ul>
         </div>
         <div className="product-info--main">

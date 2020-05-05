@@ -2,13 +2,13 @@
 
 main.contact {
   @include main;
-  header {
+  .header {
     padding: 50px 0 50px 0;
-    h1 {
+    &--title {
       @include h1;
       margin: 0;
     }
-    h3 {
+    &--description {
       @include h3;
       margin: 20px 0;
       text-transform: uppercase;

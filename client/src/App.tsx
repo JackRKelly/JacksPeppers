@@ -50,7 +50,7 @@ const App: React.FC = () => {
 
       <Route
         render={({ location }) => (
-          <TransitionGroup>
+          <TransitionGroup className="content">
             <CSSTransition key={location.key} timeout={300} classNames="fade">
               <Switch location={location}>
                 <Route path="/contact">
