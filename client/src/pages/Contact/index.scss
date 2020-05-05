@@ -3,16 +3,52 @@
 main.contact {
   @include main;
   .header {
-    padding: 50px 0 50px 0;
+    @include headerPadding;
     &--title {
       @include h1;
       margin: 0;
     }
     &--description {
       @include h3;
-      margin: 20px 0;
+      margin: 20px 0 0;
       text-transform: uppercase;
       color: #69727b;
+    }
+  }
+  .contact-form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    &--container {
+      padding: 5px 0;
+      &-label {
+        display: block;
+        font-weight: bold;
+        font: 20px "Neutra";
+      }
+      &-input {
+        display: block;
+        padding: 5px;
+        border-radius: 2.5px;
+        border: gray 1px solid;
+        width: 100%;
+        margin: 5px 0;
+        font: 20px "Neutra";
+      }
+      &-error {
+        display: block;
+        color: red;
+        font: 20px "Neutra";
+      }
+    }
+    &--container.input {
+      min-width: 47.5%;
+      @media (max-width: $medium) {
+        min-width: 100%;
+      }
+    }
+    &--container.textarea {
+      min-width: 100%;
     }
   }
 }

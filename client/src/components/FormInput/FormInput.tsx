@@ -36,6 +36,7 @@ const FormInput: React.FC<Props> = (props) => {
         </label>
         <textarea
           name={name}
+          rows={10}
           className="contact-form--container-input"
         ></textarea>
         <span className="contact-form--container-error">Error</span>

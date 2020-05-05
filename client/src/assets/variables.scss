@@ -96,3 +96,10 @@ $extralarge: 1500px;
     font-size: 17.5px;
   }
 }
+
+@mixin headerPadding {
+  padding: 50px 0;
+  @media (max-width: $medium) {
+    padding: 25px 0;
+  }
+}
