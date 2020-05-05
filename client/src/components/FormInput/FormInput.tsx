@@ -5,10 +5,11 @@ interface Props {
   type?: string;
   name: string;
   element: string;
+  error?: string;
 }
 
 const FormInput: React.FC<Props> = (props) => {
-  const { type, name, element } = props;
+  const { type, name, element, error } = props;
 
   const capitolize = (a: string): string => {
     return a.charAt(0).toUpperCase() + a.slice(1);
@@ -18,28 +19,40 @@ const FormInput: React.FC<Props> = (props) => {
     return (
       <div className="contact-form--container input">
         <label htmlFor={name} className="contact-form--container-label">
-          {capitolize(name)}
+          {capitolize(name)}:
         </label>
         <input
           type={type}
           name={name}
           className="contact-form--container-input"
+          style={{ borderColor: error ? "red" : "black" }}
         />
-        <span className="contact-form--container-error">Error</span>
+        <span
+          className="contact-form--container-error"
+          style={{ display: error ? "block" : "none" }}
+        >
+          {error}
+        </span>
       </div>
     );
   } else if (element === "textarea") {
     return (
       <div className="contact-form--container textarea">
         <label htmlFor={name} className="contact-form--container-label">
-          {capitolize(name)}
+          {capitolize(name)}:
         </label>
         <textarea
           name={name}
           rows={10}
           className="contact-form--container-input"
+          style={{ borderColor: error ? "red" : "black" }}
         ></textarea>
-        <span className="contact-form--container-error">Error</span>
+        <span
+          className="contact-form--container-error"
+          style={{ display: error ? "block" : "none" }}
+        >
+          {error}
+        </span>
       </div>
     );
   } else {

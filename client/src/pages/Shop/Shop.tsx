@@ -5,7 +5,6 @@ import SelectOption from "../../components/SelectOption/SelectOption";
 
 const Shop: React.FC = () => {
   document.title = "Shop | Jack's Peppers";
-  console.log("shop");
 
   return (
     <main className="shop">

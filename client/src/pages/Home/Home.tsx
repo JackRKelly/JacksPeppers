@@ -5,7 +5,6 @@ import "./index.scss";
 
 const Home: React.FC = () => {
   document.title = "Home | Jack's Peppers";
-  console.log("home");
 
   return (
     <main className="home">

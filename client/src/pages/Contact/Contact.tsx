@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import "./index.scss";
 import FormInput from "../../components/FormInput/FormInput";
 
 const Contact: React.FC = () => {
   document.title = "Contact | Jack's Peppers";
-  console.log("contact");
+
+  const [error, setError] = useState(["", "", "test"]);
 
   return (
     <main className="contact">
@@ -16,11 +17,14 @@ const Contact: React.FC = () => {
       </header>
 
       <form className="contact-form">
-        <FormInput name="name" type="text" element="input" />
-
-        <FormInput name="email" type="email" element="input" />
-
-        <FormInput name="message" type="text" element="textarea" />
+        <FormInput name="name" type="text" element="input" error={error[0]} />
+        <FormInput name="email" type="email" element="input" error={error[1]} />
+        <FormInput
+          name="message"
+          type="text"
+          element="textarea"
+          error={error[2]}
+        />
 
         <button>Submit</button>
       </form>
