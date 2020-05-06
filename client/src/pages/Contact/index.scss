@@ -20,16 +20,17 @@ main.contact {
     flex-wrap: wrap;
     justify-content: space-between;
     &--container {
-      padding: 5px 0;
+      padding: 0 0 5px;
       &-label {
         display: block;
         font-weight: bold;
         font-family: "Neutra", sans-serif;
-        font-size: 25px;
+        font-size: 21px;
+        text-transform: uppercase;
       }
       &-input {
         display: block;
-        padding: 5px;
+        padding: 7.5px;
         border-radius: 2.5px;
         border: gray 1px solid;
         width: 100%;
@@ -55,6 +56,36 @@ main.contact {
         max-width: 100%;
         min-width: 100%;
         max-height: 600px;
+        transition: none;
+      }
+    }
+    &--button-container {
+      width: 100%;
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 10px;
+      @media (max-width: $small) {
+        margin-top: 5px;
+      }
+      &--submit {
+        border: none;
+        font-family: "Neutra", sans-serif;
+        display: inline-block;
+        padding: 8px 34px;
+        font-size: 22px;
+        background-color: $red;
+        text-decoration: none;
+        color: $white;
+        border-radius: 3px;
+        width: fit-content;
+        @include bezier(200ms);
+        &:hover {
+          transform: scale(1.1);
+        }
+        @media (max-width: $small) {
+          padding: 6px 20px;
+          font-size: 18px;
+        }
       }
     }
   }

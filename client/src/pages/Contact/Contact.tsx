@@ -5,7 +5,7 @@ import FormInput from "../../components/FormInput/FormInput";
 const Contact: React.FC = () => {
   document.title = "Contact | Jack's Peppers";
 
-  const [error, setError] = useState(["", "", "test"]);
+  const [error, setError] = useState(["", "", ""]);
 
   return (
     <main className="contact">
@@ -26,7 +26,11 @@ const Contact: React.FC = () => {
           error={error[2]}
         />
 
-        <button>Submit</button>
+        <div className="contact-form--button-container">
+          <button className="contact-form--button-container--submit">
+            Submit
+          </button>
+        </div>
       </form>
     </main>
   );

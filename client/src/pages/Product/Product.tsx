@@ -6,7 +6,6 @@ const Product: React.FC = () => {
   const { id } = useParams();
 
   document.title = `Pepper Name | Jack's Peppers`;
-  console.log(id);
 
   const pepper = {
     title: "Sugar Rush Red",
