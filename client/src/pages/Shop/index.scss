@@ -11,39 +11,38 @@ main.shop {
     .search-settings {
       position: relative;
       margin-top: 25px;
-      & > * {
-        text-transform: uppercase;
-        color: $lightgray;
-        display: inline-block;
-        font-size: 20px;
-      }
-      &--filter {
-        @include h5;
-        select {
-          margin-left: 10px;
-          @include h5;
-          border: none;
-          -moz-appearance: none;
-          -webkit-appearance: none;
-          appearance: none;
-          padding: 10px;
-          padding-right: 30px;
-          position: relative;
-        }
-      }
-      &--sort {
-        margin-left: 20px;
-        @include h5;
-        select {
-          margin-left: 10px;
-          @include h5;
-          border: none;
-          -moz-appearance: none;
-          -webkit-appearance: none;
-          appearance: none;
-          padding: 10px;
-          padding-right: 30px;
-          position: relative;
+      &--form {
+        background-color: rgba(211, 211, 211, 0.5);
+        padding: 10px;
+        border-radius: 5px;
+        position: relative;
+        &-basic {
+          &--input {
+            padding: 5px;
+            background-color: transparent;
+            border: gray 1px solid;
+            border-radius: 5px;
+            width: 100%;
+            font: 25px "Neutra";
+          }
+          &--advanced {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 55px;
+          }
+          &--submit {
+            border: none;
+            padding: 15px;
+            background-size: cover;
+            background-image: url("../../assets/svg/search.svg");
+            display: block;
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 100;
+          }
         }
       }
       &--quantity {

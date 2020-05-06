@@ -1,7 +1,6 @@
 import React from "react";
 import "./index.scss";
 import ProductCard from "../../components/ProductCard/ProductCard";
-import SelectOption from "../../components/SelectOption/SelectOption";
 
 const Shop: React.FC = () => {
   document.title = "Shop | Jack's Peppers";
@@ -11,30 +10,27 @@ const Shop: React.FC = () => {
       <header>
         <h1>Shop</h1>
         <div className="search-settings">
-          <div className="search-settings--filter">
-            <label htmlFor="filter-select">Filter By</label>
-            <SelectOption
-              name="filter-select"
-              options={["All Products", "7 Pot", "Sugar Rush"]}
-            />
-          </div>
-          <div className="search-settings--sort">
-            <label htmlFor="sort-select">Sort By</label>
-            <SelectOption
-              name="filter-select"
-              options={[
-                "Featured",
-                "Best Selling",
-                "Alphabetically, A-Z",
-                "Alphabetically, Z-A",
-                "Price, low to high",
-                "Price, high to low",
-                "Date, old to new",
-                "Date, new to old",
-              ]}
-            />
-          </div>
-          <span className="search-settings--quantity">123 Products</span>
+          <form action="" className="search-settings--form">
+            <div className="search-settings--form-basic">
+              <input
+                type="text"
+                name="search"
+                placeholder="Enter keywords here"
+                className="search-settings--form-basic--input"
+              />
+              <button
+                className="search-settings--form-basic--advanced"
+                type="button"
+              >
+                Advanced
+              </button>
+              <button
+                className="search-settings--form-basic--submit"
+                type="submit"
+              ></button>
+            </div>
+            <div className="search-settings-form-advanced"></div>
+          </form>
         </div>
       </header>
       <div className="search-results">
