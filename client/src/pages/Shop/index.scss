@@ -26,12 +26,31 @@ main.shop {
               &-rail {
                 background-color: darkgray;
               }
+              &-track {
+                background-color: #c1272d;
+              }
+              &-handle {
+                border: 2px #c1272d solid;
+                &-dragging {
+                  box-shadow: 0 0 4px 1px #c1272d;
+                }
+              }
             }
           }
           &--heat {
             .rc-slider {
               &-rail {
                 background-color: darkgray;
+                // background: linear-gradient(90deg, green, yellow, orange, red);
+              }
+              &-track {
+                background-color: #c1272d;
+              }
+              &-handle {
+                border: 2px #c1272d solid;
+                &-dragging {
+                  box-shadow: 0 0 4px 1px #c1272d;
+                }
               }
             }
           }
@@ -39,6 +58,7 @@ main.shop {
             &-current {
               padding: 4px 12px;
               border-radius: 5px;
+              box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
             }
             &-container {
               display: flex;
@@ -47,7 +67,7 @@ main.shop {
                 display: inline-block;
                 width: 20px;
                 height: 20px;
-                border: black 1px solid;
+                box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
                 cursor: pointer;
               }
             }

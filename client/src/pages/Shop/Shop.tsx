@@ -33,13 +33,11 @@ const Shop: React.FC = () => {
     tempColor = color.match(
       /^rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*(\d+(?:\.\d+)?))?\)$/
     );
-
     r = tempColor ? (tempColor[1] as number) : 0;
     g = tempColor ? (tempColor[2] as number) : 0;
     b = tempColor ? (tempColor[3] as number) : 0;
 
     hsp = Math.sqrt(0.299 * (r * r) + 0.587 * (g * g) + 0.114 * (b * b));
-
     if (hsp > 127.5) {
       return true;
     } else {
