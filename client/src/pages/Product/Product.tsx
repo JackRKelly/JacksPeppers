@@ -15,6 +15,7 @@ const Product: React.FC = () => {
     heat: 0,
     catagory: ["Sugar Rush"],
     color: "#FF7937",
+    colorList: ["Orange", "Red"],
     invert: false,
     image: "sugar-red.jpg",
     description:
@@ -79,7 +80,15 @@ const Product: React.FC = () => {
             {pepper.title}
           </h1>
           <h3 className="product-info--main-price">
-            ${pepper.price.toFixed(2)} - {pepper.seedCount}+ Seeds
+            ${pepper.price.toFixed(2)} - {pepper.seedCount}+ Seeds -{" "}
+            {pepper.colorList.map((color) => (
+              <span
+                className="product-info--main-price--color"
+                style={{ backgroundColor: color }}
+              >
+                {color}
+              </span>
+            ))}
           </h3>
           <h4 className="product-info--main-shipping">
             Free <span>Shipping</span> on orders over 10$.

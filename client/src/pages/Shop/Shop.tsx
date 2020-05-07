@@ -11,6 +11,41 @@ const Shop: React.FC = () => {
 
   const [priceRange, setPriceRange] = useState([0, 5]);
   const [heatRange, setHeatRange] = useState([0, 5]);
+  const [searchColor, setSearchColor] = useState("Red|rgb(255, 0, 0)");
+  const colorList = [
+    "Red|rgb(255, 0, 0)",
+    "Orange|rgb(255, 128, 0)",
+    "Purple|rgb(153, 51, 255)",
+    "Pink|rgb(255, 0, 255)",
+    "Peach|rgb(255, 204, 153)",
+    "White|rgb(255, 255, 255)",
+    "Yellow|rgb(255, 255, 0)",
+    "Lime|rgb(64, 255, 64)",
+    "Brown|rgb(102, 51, 0)",
+    "Black|rgb(0, 0, 0)",
+    "Green|rgb(0, 89, 0)",
+  ];
+
+  const lightOrDark = (color: string): boolean => {
+    let tempColor: any;
+    var r: number, g: number, b: number, hsp;
+
+    tempColor = color.match(
+      /^rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*(\d+(?:\.\d+)?))?\)$/
+    );
+
+    r = tempColor ? (tempColor[1] as number) : 0;
+    g = tempColor ? (tempColor[2] as number) : 0;
+    b = tempColor ? (tempColor[3] as number) : 0;
+
+    hsp = Math.sqrt(0.299 * (r * r) + 0.587 * (g * g) + 0.114 * (b * b));
+
+    if (hsp > 127.5) {
+      return true;
+    } else {
+      return false;
+    }
+  };
 
   return (
     <main className="shop">
@@ -76,6 +111,36 @@ const Shop: React.FC = () => {
                   defaultValue={[0, 5]}
                   allowCross={false}
                 />
+              </div>
+              <div className="search-settings--form-advanced--color">
+                <p>
+                  Color:{" "}
+                  <span
+                    className="search-settings--form-advanced--color-current"
+                    style={{
+                      backgroundColor: searchColor.split("|")[1],
+                      color: lightOrDark(searchColor.split("|")[1])
+                        ? "black"
+                        : "white",
+                    }}
+                  >
+                    {searchColor.split("|")[0]}
+                  </span>
+                </p>
+                <div className="search-settings--form-advanced--color-container">
+                  {colorList.map((color) => (
+                    <div
+                      className="search-settings--form-advanced--color-container--option"
+                      style={{
+                        backgroundColor: color.split("|")[1],
+                      }}
+                      title={`Select ${color.split("|")[0]} color.`}
+                      onClick={() => {
+                        setSearchColor(color);
+                      }}
+                    ></div>
+                  ))}
+                </div>
               </div>
             </div>
           </form>
