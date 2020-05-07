@@ -16,7 +16,29 @@ main.shop {
         padding: 10px;
         border-radius: 5px;
         position: relative;
+        @include bezier(300ms);
+        &-advanced {
+          @include bezier(300ms);
+          overflow: hidden;
+          padding: 10px;
+          &--price {
+            .rc-slider {
+              &-rail {
+                background-color: darkgray;
+              }
+            }
+          }
+          &--heat {
+            .rc-slider {
+              &-rail {
+                background-color: darkgray;
+              }
+            }
+          }
+        }
+
         &-basic {
+          position: relative;
           &--input {
             padding: 5px;
             background-color: transparent;
