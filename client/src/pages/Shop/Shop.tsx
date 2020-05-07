@@ -80,7 +80,7 @@ const Shop: React.FC = () => {
               }}
             >
               <div className="search-settings--form-advanced--price">
-                <p>
+                <p className="search-settings--form-advanced--price-title">
                   Price Range: ${priceRange[0].toFixed(2)} - $
                   {priceRange[1].toFixed(2)}
                 </p>
@@ -96,7 +96,7 @@ const Shop: React.FC = () => {
                 />
               </div>
               <div className="search-settings--form-advanced--heat">
-                <p>
+                <p className="search-settings--form-advanced--heat-title">
                   Heat Range: {heatRange[0]} - {heatRange[1]}
                 </p>
                 <Range
@@ -131,6 +131,7 @@ const Shop: React.FC = () => {
                       className="search-settings--form-advanced--color-container--option"
                       style={{
                         backgroundColor: color.split("|")[1],
+                        opacity: searchColor === color ? "0" : "1",
                       }}
                       title={`Select ${color.split("|")[0]} color.`}
                       onClick={() => {
