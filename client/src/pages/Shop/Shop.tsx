@@ -4,6 +4,12 @@ import ProductCard from "../../components/ProductCard/ProductCard";
 import ProductTag from "../../components/ProductTag/ProductTag";
 import { Range } from "rc-slider";
 import "rc-slider/assets/index.css";
+import { ColorKind, colors } from "../../color";
+
+// interface Color {
+//   name: string;
+//   rgb: string;
+// }
 
 const Shop: React.FC = () => {
   document.title = "Shop | Jack's Peppers";
@@ -12,20 +18,12 @@ const Shop: React.FC = () => {
 
   const [priceRange, setPriceRange] = useState([0, 5]);
   const [heatRange, setHeatRange] = useState([1, 5]);
-  const [searchColor, setSearchColor] = useState("Red|rgb(255, 0, 0)");
-  const colorList = [
-    "Red|rgb(255, 0, 0)",
-    "Orange|rgb(255, 128, 0)",
-    "Purple|rgb(153, 51, 255)",
-    "Pink|rgb(255, 0, 255)",
-    "Peach|rgb(255, 204, 153)",
-    "White|rgb(255, 255, 255)",
-    "Yellow|rgb(255, 255, 0)",
-    "Lime|rgb(64, 255, 64)",
-    "Brown|rgb(102, 51, 0)",
-    "Black|rgb(0, 0, 0)",
-    "Green|rgb(0, 89, 0)",
-  ];
+  const [searchColor, setSearchColor] = useState({
+    name: "Red",
+    rgb: "rgb(255, 0, 0)",
+  });
+
+  console.log(colors());
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
@@ -104,24 +102,20 @@ const Shop: React.FC = () => {
               <div className="search-settings--form-advanced--color">
                 <p className="search-settings--form-advanced--color-current">
                   Color:{" "}
-                  <ProductTag
-                    text={searchColor.split("|")[0]}
-                    color={searchColor.split("|")[1]}
-                  />
+                  <ProductTag text={searchColor.name} color={searchColor.rgb} />
                 </p>
                 <div className="search-settings--form-advanced--color-container">
-                  {colorList.map((color, index) => (
+                  {colors().map((color, index) => (
                     <div
                       className="search-settings--form-advanced--color-container--option"
                       style={{
-                        backgroundColor: color.split("|")[1],
-                        // opacity: searchColor === color ? ".7" : "1",
+                        backgroundColor: color.rgb,
                         border:
-                          searchColor === color
-                            ? `3px inset ${color.split("|")[1]}`
+                          searchColor.rgb === color.rgb
+                            ? `3px inset ${color.rgb}`
                             : "none",
                       }}
-                      title={`Select ${color.split("|")[0]} color.`}
+                      title={`Select ${color.rgb} color.`}
                       onClick={() => {
                         setSearchColor(color);
                       }}
@@ -142,7 +136,7 @@ const Shop: React.FC = () => {
             heat={1}
             price={2.5}
             inStock={true}
-            colorList={["Red|rgb(255, 0, 0)", "Orange|rgb(255, 128, 0)"]}
+            colorList={[ColorKind.Red, ColorKind.Orange]}
             image="sugar-red.jpg"
           />
           <ProductCard
@@ -151,7 +145,7 @@ const Shop: React.FC = () => {
             heat={2}
             price={4}
             inStock={false}
-            colorList={["Pink|rgb(255, 0, 255)", "Peach|rgb(255, 204, 153)"]}
+            colorList={[ColorKind.Pink, ColorKind.Peach]}
             image="pinktiger.jpg"
           />
           <ProductCard
@@ -160,7 +154,7 @@ const Shop: React.FC = () => {
             heat={3}
             price={3.5}
             inStock={true}
-            colorList={["White|rgb(255, 255, 255)"]}
+            colorList={[ColorKind.White]}
             image="7potwhite.jpg"
           />
           <ProductCard
@@ -169,7 +163,7 @@ const Shop: React.FC = () => {
             heat={4}
             price={3.5}
             inStock={true}
-            colorList={["Purple|rgb(153, 51, 255)", "Black|rgb(0, 0, 0)"]}
+            colorList={[ColorKind.Purple, ColorKind.Black]}
             image="roxa-black.jpg"
           />
           <ProductCard
@@ -178,7 +172,7 @@ const Shop: React.FC = () => {
             heat={5}
             price={3.5}
             inStock={true}
-            colorList={["Purple|rgb(153, 51, 255)", "Black|rgb(0, 0, 0)"]}
+            colorList={[ColorKind.Purple, ColorKind.Black]}
             image="roxa-black.jpg"
           />
         </div>

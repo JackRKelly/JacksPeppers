@@ -7,9 +7,9 @@ enum InputType {
 }
 
 interface Props {
-  type?: string;
   name: string;
   element: InputType;
+  type?: string;
   error?: string;
 }
 

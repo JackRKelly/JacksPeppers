@@ -74,6 +74,9 @@ main.shop {
           }
           &--color {
             min-width: 30%;
+            @media (max-width: $large) {
+              min-width: 60%;
+            }
             @media (max-width: $medium) {
               min-width: 100%;
             }
