@@ -7,6 +7,11 @@ const Contact: React.FC = () => {
 
   const [error, setError] = useState(["", "", ""]);
 
+  enum InputType {
+    Input,
+    Textarea,
+  }
+
   return (
     <main className="contact">
       <header className="header">
@@ -17,12 +22,22 @@ const Contact: React.FC = () => {
       </header>
 
       <form className="contact-form">
-        <FormInput name="name" type="text" element="input" error={error[0]} />
-        <FormInput name="email" type="email" element="input" error={error[1]} />
+        <FormInput
+          name="name"
+          type="text"
+          element={InputType.Input}
+          error={error[0]}
+        />
+        <FormInput
+          name="email"
+          type="email"
+          element={InputType.Input}
+          error={error[1]}
+        />
         <FormInput
           name="message"
           type="text"
-          element="textarea"
+          element={InputType.Textarea}
           error={error[2]}
         />
 

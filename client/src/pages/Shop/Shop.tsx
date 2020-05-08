@@ -11,7 +11,7 @@ const Shop: React.FC = () => {
   const [showAdvanced, setShowAdvanced] = useState(false);
 
   const [priceRange, setPriceRange] = useState([0, 5]);
-  const [heatRange, setHeatRange] = useState([0, 5]);
+  const [heatRange, setHeatRange] = useState([1, 5]);
   const [searchColor, setSearchColor] = useState("Red|rgb(255, 0, 0)");
   const colorList = [
     "Red|rgb(255, 0, 0)",
@@ -91,13 +91,13 @@ const Shop: React.FC = () => {
                   Heat Range: {heatRange[0]} - {heatRange[1]}
                 </p>
                 <Range
-                  min={0}
+                  min={1}
                   max={5}
                   onChange={(value) => {
                     setHeatRange(value);
                   }}
                   step={1}
-                  defaultValue={[0, 5]}
+                  defaultValue={[1, 5]}
                   allowCross={false}
                 />
               </div>
@@ -148,7 +148,7 @@ const Shop: React.FC = () => {
           <ProductCard
             id={55}
             title="Pink Tiger"
-            heat={4}
+            heat={2}
             price={4}
             inStock={false}
             colorList={["Pink|rgb(255, 0, 255)", "Peach|rgb(255, 204, 153)"]}
@@ -157,7 +157,7 @@ const Shop: React.FC = () => {
           <ProductCard
             id={24}
             title="7 Pot White"
-            heat={4}
+            heat={3}
             price={3.5}
             inStock={true}
             colorList={["White|rgb(255, 255, 255)"]}
@@ -167,6 +167,15 @@ const Shop: React.FC = () => {
             id={24}
             title="Roxa Lantern Black"
             heat={4}
+            price={3.5}
+            inStock={true}
+            colorList={["Purple|rgb(153, 51, 255)", "Black|rgb(0, 0, 0)"]}
+            image="roxa-black.jpg"
+          />
+          <ProductCard
+            id={24}
+            title="Roxa Lantern Black"
+            heat={5}
             price={3.5}
             inStock={true}
             colorList={["Purple|rgb(153, 51, 255)", "Black|rgb(0, 0, 0)"]}

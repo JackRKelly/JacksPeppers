@@ -1,10 +1,15 @@
 import React from "react";
 import "./index.scss";
 
+enum InputType {
+  Input,
+  Textarea,
+}
+
 interface Props {
   type?: string;
   name: string;
-  element: string;
+  element: InputType;
   error?: string;
 }
 
@@ -15,7 +20,7 @@ const FormInput: React.FC<Props> = (props) => {
     return a.charAt(0).toUpperCase() + a.slice(1);
   };
 
-  if (element === "input") {
+  if (element === InputType.Input) {
     return (
       <div className="contact-form--container input">
         <label htmlFor={name} className="contact-form--container-label">
@@ -35,7 +40,7 @@ const FormInput: React.FC<Props> = (props) => {
         </span>
       </div>
     );
-  } else if (element === "textarea") {
+  } else if (element === InputType.Textarea) {
     return (
       <div className="contact-form--container textarea">
         <label htmlFor={name} className="contact-form--container-label">
