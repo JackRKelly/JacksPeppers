@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import ProductTag from "../ProductTag/ProductTag";
 import TagList from "../TagList/TagList";
+import HeatRating from "../HeatRating/HeatRating";
 import "./index.scss";
 
 interface Props {
@@ -33,7 +34,7 @@ const ProductCard: React.FC<Props> = (props) => {
             ${price.toFixed(2)}
           </span>
           <span className="product-card--image-container--heat">
-            Fire Emoji
+            <HeatRating heat={heat} />
           </span>
           <img
             src={imagePath}
