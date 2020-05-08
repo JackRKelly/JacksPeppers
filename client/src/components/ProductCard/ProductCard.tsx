@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import ColorTag from "../ColorTag/ColorTag";
+import ProductTag from "../ProductTag/ProductTag";
 import "./index.scss";
 
 interface Props {
@@ -9,6 +9,7 @@ interface Props {
   inStock: boolean;
   id: number;
   colorList: Array<string>;
+  color?: string;
   image?: string;
 }
 
@@ -40,8 +41,12 @@ const ProductCard: React.FC<Props> = (props) => {
         <span className="product-card--availability">
           {!inStock ? "Out of stock" : ""}
         </span>
-        {colorList.map((color) => (
-          <ColorTag color={color} />
+        {colorList.map((color, index) => (
+          <ProductTag
+            text={color.split("|")[0]}
+            color={color.split("|")[1]}
+            key={index}
+          />
         ))}
       </div>
 

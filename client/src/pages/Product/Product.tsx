@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
-import ColorTag from "../../components/ColorTag/ColorTag";
+import ProductTag from "../../components/ProductTag/ProductTag";
 import "./index.scss";
 
 const Product: React.FC = () => {
@@ -83,7 +83,10 @@ const Product: React.FC = () => {
           <h3 className="product-info--main-price">
             ${pepper.price.toFixed(2)} - {pepper.seedCount}+ Seeds -{" "}
             {pepper.colorList.map((color) => (
-              <ColorTag color={color} />
+              <ProductTag
+                text={color.split("|")[0]}
+                color={color.split("|")[1]}
+              />
             ))}
           </h3>
           <h4 className="product-info--main-shipping">

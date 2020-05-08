@@ -3,10 +3,11 @@ import "./index.scss";
 
 interface Props {
   color: string;
+  text?: string;
 }
 
-const ColorTag: React.FC<Props> = (props) => {
-  const { color } = props;
+const ProductTag: React.FC<Props> = (props) => {
+  const { color, text } = props;
 
   const lightOrDark = (color: string): boolean => {
     let tempColor: any;
@@ -31,13 +32,13 @@ const ColorTag: React.FC<Props> = (props) => {
     <span
       className="color-tag"
       style={{
-        backgroundColor: color.split("|")[1],
-        color: lightOrDark(color.split("|")[1]) ? "black" : "white",
+        backgroundColor: color,
+        color: lightOrDark(color) ? "black" : "white",
       }}
     >
-      {color.split("|")[0]}
+      {text}
     </span>
   );
 };
 
-export default ColorTag;
+export default ProductTag;

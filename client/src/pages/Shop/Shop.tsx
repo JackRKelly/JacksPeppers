@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react";
 import "./index.scss";
 import ProductCard from "../../components/ProductCard/ProductCard";
-import ColorTag from "../../components/ColorTag/ColorTag";
+import ProductTag from "../../components/ProductTag/ProductTag";
 import { Range } from "rc-slider";
 import "rc-slider/assets/index.css";
 
@@ -103,10 +103,14 @@ const Shop: React.FC = () => {
               </div>
               <div className="search-settings--form-advanced--color">
                 <p>
-                  Color: <ColorTag color={searchColor} />
+                  Color:{" "}
+                  <ProductTag
+                    text={searchColor.split("|")[0]}
+                    color={searchColor.split("|")[1]}
+                  />
                 </p>
                 <div className="search-settings--form-advanced--color-container">
-                  {colorList.map((color) => (
+                  {colorList.map((color, index) => (
                     <div
                       className="search-settings--form-advanced--color-container--option"
                       style={{
@@ -117,6 +121,7 @@ const Shop: React.FC = () => {
                       onClick={() => {
                         setSearchColor(color);
                       }}
+                      key={index}
                     ></div>
                   ))}
                 </div>
