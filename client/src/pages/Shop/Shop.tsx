@@ -1,6 +1,7 @@
 import React, { useState, useRef } from "react";
 import "./index.scss";
 import ProductCard from "../../components/ProductCard/ProductCard";
+import ColorTag from "../../components/ColorTag/ColorTag";
 import { Range } from "rc-slider";
 import "rc-slider/assets/index.css";
 
@@ -26,23 +27,8 @@ const Shop: React.FC = () => {
     "Green|rgb(0, 89, 0)",
   ];
 
-  const lightOrDark = (color: string): boolean => {
-    let tempColor: any;
-    var r: number, g: number, b: number, hsp;
-
-    tempColor = color.match(
-      /^rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*(\d+(?:\.\d+)?))?\)$/
-    );
-    r = tempColor ? (tempColor[1] as number) : 0;
-    g = tempColor ? (tempColor[2] as number) : 0;
-    b = tempColor ? (tempColor[3] as number) : 0;
-
-    hsp = Math.sqrt(0.299 * (r * r) + 0.587 * (g * g) + 0.114 * (b * b));
-    if (hsp > 127.5) {
-      return true;
-    } else {
-      return false;
-    }
+  const handleSubmit = (e: any) => {
+    e.preventDefault();
   };
 
   return (
@@ -50,7 +36,12 @@ const Shop: React.FC = () => {
       <header>
         <h1>Shop</h1>
         <div className="search-settings">
-          <form action="" className="search-settings--form">
+          <form
+            onSubmit={(e) => {
+              handleSubmit(e);
+            }}
+            className="search-settings--form"
+          >
             <div className="search-settings--form-basic">
               <input
                 type="text"
@@ -112,18 +103,7 @@ const Shop: React.FC = () => {
               </div>
               <div className="search-settings--form-advanced--color">
                 <p>
-                  Color:{" "}
-                  <span
-                    className="search-settings--form-advanced--color-current"
-                    style={{
-                      backgroundColor: searchColor.split("|")[1],
-                      color: lightOrDark(searchColor.split("|")[1])
-                        ? "black"
-                        : "white",
-                    }}
-                  >
-                    {searchColor.split("|")[0]}
-                  </span>
+                  Color: <ColorTag color={searchColor} />
                 </p>
                 <div className="search-settings--form-advanced--color-container">
                   {colorList.map((color) => (
@@ -152,7 +132,7 @@ const Shop: React.FC = () => {
             title="Sugar Rush Red"
             price={2.5}
             inStock={true}
-            color="#FF7937"
+            colorList={["Red|rgb(255, 0, 0)", "Orange|rgb(255, 128, 0)"]}
             image="sugar-red.jpg"
           />
           <ProductCard
@@ -160,7 +140,7 @@ const Shop: React.FC = () => {
             title="Pink Tiger"
             price={4}
             inStock={false}
-            color="#722E47"
+            colorList={["Red|rgb(255, 0, 0)", "Orange|rgb(255, 128, 0)"]}
             image="pinktiger.jpg"
           />
           <ProductCard
@@ -168,16 +148,15 @@ const Shop: React.FC = () => {
             title="7 Pot White"
             price={3.5}
             inStock={true}
-            color="#F8F5E0"
+            colorList={["Red|rgb(255, 0, 0)", "Orange|rgb(255, 128, 0)"]}
             image="7potwhite.jpg"
-            invert={true}
           />
           <ProductCard
             id={24}
             title="Roxa Lantern Black"
             price={3.5}
             inStock={true}
-            color="#94315D"
+            colorList={["Red|rgb(255, 0, 0)", "Orange|rgb(255, 128, 0)"]}
             image="roxa-black.jpg"
           />
         </div>

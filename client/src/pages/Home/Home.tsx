@@ -24,7 +24,7 @@ const Home: React.FC = () => {
             title="Sugar Rush Red"
             price={2.5}
             inStock={true}
-            color="#FF7937"
+            colorList={["Red|rgb(255, 0, 0)", "Orange|rgb(255, 128, 0)"]}
             image="sugar-red.jpg"
           />
           <ProductCard
@@ -32,7 +32,7 @@ const Home: React.FC = () => {
             title="Pink Tiger"
             price={4}
             inStock={false}
-            color="#722E47"
+            colorList={["Red|rgb(255, 0, 0)", "Orange|rgb(255, 128, 0)"]}
             image="pinktiger.jpg"
           />
           <ProductCard
@@ -40,16 +40,15 @@ const Home: React.FC = () => {
             title="7 Pot White"
             price={3.5}
             inStock={true}
-            color="#F8F5E0"
+            colorList={["Red|rgb(255, 0, 0)", "Orange|rgb(255, 128, 0)"]}
             image="7potwhite.jpg"
-            invert={true}
           />
           <ProductCard
             id={24}
             title="Roxa Lantern Black"
             price={3.5}
             inStock={true}
-            color="#94315D"
+            colorList={["Red|rgb(255, 0, 0)", "Orange|rgb(255, 128, 0)"]}
             image="roxa-black.jpg"
           />
         </div>

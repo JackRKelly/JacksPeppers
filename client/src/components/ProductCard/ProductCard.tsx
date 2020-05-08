@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import ColorTag from "../ColorTag/ColorTag";
 import "./index.scss";
 
 interface Props {
@@ -7,13 +8,12 @@ interface Props {
   price: number;
   inStock: boolean;
   id: number;
-  color: string;
+  colorList: Array<string>;
   image?: string;
-  invert?: boolean;
 }
 
 const ProductCard: React.FC<Props> = (props) => {
-  const { title, price, inStock, id, color, image, invert } = props;
+  const { title, price, inStock, id, colorList, image } = props;
 
   const [imagePath, setImagePath] = useState();
 
@@ -32,29 +32,28 @@ const ProductCard: React.FC<Props> = (props) => {
         className="product-card--image"
         style={{ opacity: inStock ? 1 : 0.5 }}
       />
-      <h1
-        className="product-card--title"
-        style={{
-          color: invert ? "#333" : color,
-        }}
-      >
-        {title}
+      <h1 className="product-card--title">
+        {title}{" "}
+        <span className="product-card--price">- ${price.toFixed(2)}</span>
       </h1>
-      <h4 className="product-card--price">
-        ${price.toFixed(2)}
+      <div className="product-card--tags">
         <span className="product-card--availability">
-          {!inStock ? " - Out of stock" : ""}
+          {!inStock ? "Out of stock" : ""}
         </span>
-      </h4>
+        {colorList.map((color) => (
+          <ColorTag color={color} />
+        ))}
+      </div>
+
       <Link
         className="product-card--link"
         to={`/product/${id}`}
         style={{
-          backgroundColor: color,
-          color: invert ? "#333" : "white",
-          boxShadow: invert
-            ? "0 0 7px rgba(0, 0, 0, 0.2)"
-            : "0 0 7px rgba(0, 0, 0, 0.3)",
+          backgroundColor: colorList[0].split("|")[1],
+          // color: invert ? "#333" : "white",
+          // boxShadow: invert
+          //   ? "0 0 7px rgba(0, 0, 0, 0.2)"
+          //   : "0 0 7px rgba(0, 0, 0, 0.3)",
         }}
       >
         Details
@@ -63,13 +62,13 @@ const ProductCard: React.FC<Props> = (props) => {
         className="product-card--link"
         to={`/product/${id}`}
         style={{
-          backgroundColor: color,
-          color: invert ? "#333" : "white",
-          boxShadow: invert
-            ? "0 0 7px rgba(0, 0, 0, 0.2)"
-            : "0 0 7px rgba(0, 0, 0, 0.3)",
-          opacity: inStock ? 1 : 0.5,
-          pointerEvents: inStock ? "auto" : "none",
+          backgroundColor: colorList[0].split("|")[1],
+          // color: invert ? "#333" : "white",
+          // boxShadow: invert
+          //   ? "0 0 7px rgba(0, 0, 0, 0.2)"
+          //   : "0 0 7px rgba(0, 0, 0, 0.3)",
+          // opacity: inStock ? 1 : 0.5,
+          // pointerEvents: inStock ? "auto" : "none",
         }}
       >
         Add to cart

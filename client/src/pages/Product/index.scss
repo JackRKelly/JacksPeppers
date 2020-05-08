@@ -58,10 +58,13 @@ main.product {
       &-price {
         @include h3;
         margin: 10px 0;
-        &--color {
+        .color-tag {
           margin-right: 10px;
           border-radius: 5px;
           padding: 4px 12px;
+          &:last-child {
+            margin-right: 0;
+          }
         }
       }
       &-shipping {

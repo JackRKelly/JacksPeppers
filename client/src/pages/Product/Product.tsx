@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
+import ColorTag from "../../components/ColorTag/ColorTag";
 import "./index.scss";
 
 const Product: React.FC = () => {
@@ -15,7 +16,7 @@ const Product: React.FC = () => {
     heat: 0,
     catagory: ["Sugar Rush"],
     color: "#FF7937",
-    colorList: ["Orange", "Red"],
+    colorList: ["Orange|rgb(255, 128, 0)", "Red|rgb(255, 0, 0)"],
     invert: false,
     image: "sugar-red.jpg",
     description:
@@ -82,12 +83,7 @@ const Product: React.FC = () => {
           <h3 className="product-info--main-price">
             ${pepper.price.toFixed(2)} - {pepper.seedCount}+ Seeds -{" "}
             {pepper.colorList.map((color) => (
-              <span
-                className="product-info--main-price--color"
-                style={{ backgroundColor: color }}
-              >
-                {color}
-              </span>
+              <ColorTag color={color} />
             ))}
           </h3>
           <h4 className="product-info--main-shipping">
