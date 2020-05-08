@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import ProductTag from "../../components/ProductTag/ProductTag";
 import TagList from "../../components/TagList/TagList";
+import { Link } from "react-router-dom";
 import "./index.scss";
 
 const Product: React.FC = () => {
@@ -83,7 +84,7 @@ const Product: React.FC = () => {
             ))}
           </TagList>
           <h4 className="product-info--main-shipping">
-            Free <span>Shipping</span> on orders over 10$.
+            Free <Link to="/shipping">Shipping</Link> on orders over 10$.
           </h4>
           <p className="product-info--main-description">{pepper.description}</p>
           <a className="product-info--main-add" href="">

@@ -12,17 +12,38 @@
   @media (max-width: 470px) {
     margin: 0 0 20px 0;
   }
-  &--image {
-    width: 100%;
+  &--image-container {
+    position: relative;
+    &--image {
+      width: 100%;
+      border-radius: 5px;
+    }
+    &--price {
+      position: absolute;
+      background-color: white;
+      padding: 5px 10px;
+      border-radius: 0 0 0 5px;
+      font-size: 20px;
+      z-index: 5;
+      right: 0;
+      color: black;
+      font-weight: bold;
+    }
+    &--heat {
+      position: absolute;
+      background-color: white;
+      padding: 5px 10px;
+      z-index: 5;
+      left: 0;
+      bottom: 0;
+      border-radius: 0 5px 0 0;
+    }
   }
   &--title {
     margin: 7.5px 0 0 0;
     font-size: 25px;
     font-family: "Neutra";
     color: black;
-  }
-  &--price {
-    margin: 0;
   }
   &--availability {
     margin: 0;

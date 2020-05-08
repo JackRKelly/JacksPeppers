@@ -28,17 +28,22 @@ const ProductCard: React.FC<Props> = (props) => {
   return (
     <div className="product-card">
       <Link to={`/product/${id}`} className="product-card--link">
-        <img
-          src={imagePath}
-          alt={`${title} Pepper.`}
-          title={`${title} Pepper.`}
-          className="product-card--image"
-          style={{ opacity: inStock ? 1 : 0.5 }}
-        />
-        <h1 className="product-card--title">
-          {title}{" "}
-          <span className="product-card--price">- ${price.toFixed(2)}</span>
-        </h1>
+        <div className="product-card--image-container">
+          <span className="product-card--image-container--price">
+            ${price.toFixed(2)}
+          </span>
+          <span className="product-card--image-container--heat">
+            Fire Emoji
+          </span>
+          <img
+            src={imagePath}
+            alt={`${title} Pepper.`}
+            title={`${title} Pepper.`}
+            className="product-card--image-container--image"
+            style={{ opacity: inStock ? 1 : 0.5 }}
+          />
+        </div>
+        <h1 className="product-card--title">{title}</h1>
         <TagList>
           {!inStock ? <ProductTag text={"Out of stock"} color={"gray"} /> : ""}
 
