@@ -45,7 +45,35 @@ export const convertToKind = (c: Color): ColorKind => {
   return ColorKind.Red;
 };
 
-const toColor = (arr: string[]): Color => {
+export const colorName = (kind: ColorKind): string => {
+  switch (kind) {
+    case ColorKind.Red:
+      return "Red";
+    case ColorKind.Orange:
+      return "Orange";
+    case ColorKind.Purple:
+      return "Purple";
+    case ColorKind.Pink:
+      return "Pink";
+    case ColorKind.Peach:
+      return "Peach";
+    case ColorKind.White:
+      return "White";
+    case ColorKind.Yellow:
+      return "Yellow";
+    case ColorKind.Lime:
+      return "Lime";
+    case ColorKind.Brown:
+      return "Brown";
+    case ColorKind.Black:
+      return "Black";
+    case ColorKind.Green:
+      return "Green";
+  }
+  return "Red";
+};
+
+export const toColor = (arr: string[]): Color => {
   return { name: arr[0], rgb: arr[1] };
 };
 

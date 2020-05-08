@@ -4,7 +4,13 @@ import ProductCard from "../../components/ProductCard/ProductCard";
 import ProductTag from "../../components/ProductTag/ProductTag";
 import { Range } from "rc-slider";
 import "rc-slider/assets/index.css";
-import { ColorKind, colors, convertToKind } from "../../color";
+import {
+  ColorKind,
+  colors,
+  convertToKind,
+  toColor,
+  colorName,
+} from "../../color";
 
 const Shop: React.FC = () => {
   document.title = "Shop | Jack's Peppers";
@@ -93,7 +99,11 @@ const Shop: React.FC = () => {
               </div>
               <div className="search-settings--form-advanced--color">
                 <p className="search-settings--form-advanced--color-current">
-                  Color: <ProductTag color={searchColor} />
+                  Color:{" "}
+                  <ProductTag
+                    color={searchColor}
+                    text={colorName(searchColor)}
+                  />
                 </p>
                 <div className="search-settings--form-advanced--color-container">
                   {colors().map((color, index) => (
@@ -103,10 +113,10 @@ const Shop: React.FC = () => {
                         backgroundColor: convertToKind(color),
                         border:
                           searchColor === convertToKind(color)
-                            ? `3px inset ${color}`
+                            ? `3px inset ${convertToKind(color)}`
                             : "none",
                       }}
-                      title={`Select ${color} color.`}
+                      title={`Select ${color.name} color.`}
                       onClick={() => {
                         setSearchColor(convertToKind(color));
                       }}
