@@ -22,7 +22,8 @@ const App: React.FC = () => {
           <li className="navigation-list--item">
             <NavLink
               className="navigation-list--link"
-              to="/home"
+              exact
+              to="/"
               activeClassName="active"
             >
               Home
@@ -54,6 +55,9 @@ const App: React.FC = () => {
           <TransitionGroup className="content">
             <CSSTransition key={location.key} timeout={300} classNames="fade">
               <Switch location={location}>
+                <Route exact path="/">
+                  <Home />
+                </Route>
                 <Route path="/contact">
                   <Contact />
                 </Route>
@@ -64,13 +68,10 @@ const App: React.FC = () => {
                   <Product />
                 </Route>
                 <Route path="/home">
-                  <Home />
+                  <Redirect to="/" />
                 </Route>
                 <Route path="/shipping">
                   <Shipping />
-                </Route>
-                <Route path="/">
-                  <Redirect to="home" />
                 </Route>
               </Switch>
             </CSSTransition>
