@@ -57,7 +57,7 @@ main.product {
       }
       &-price {
         @include h3;
-        margin: 10px 0;
+        margin: 10px 0 0 0;
         .color-tag {
           margin-right: 10px;
           border-radius: 5px;
@@ -69,7 +69,7 @@ main.product {
       }
       &-shipping {
         @include h5;
-        margin: 0;
+        margin: 10px 0 0 0;
         color: $lightgray;
         font-weight: lighter;
         span {

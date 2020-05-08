@@ -49,7 +49,6 @@ main.shop {
             .rc-slider {
               &-rail {
                 background-color: darkgray;
-                // background: linear-gradient(90deg, green, yellow, orange, red);
               }
               &-track {
                 background-color: #c1272d;
@@ -75,6 +74,7 @@ main.shop {
                 display: inline-block;
                 width: 20px;
                 height: 20px;
+                border-radius: 3px;
                 box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
                 cursor: pointer;
                 @include bezier(200ms);
@@ -88,7 +88,7 @@ main.shop {
           &--input {
             padding: 5px;
             background-color: transparent;
-            border: gray 1px solid;
+            border: none;
             border-radius: 5px;
             width: 100%;
             font: 25px "Neutra";
@@ -100,6 +100,7 @@ main.shop {
             right: 55px;
           }
           &--submit {
+            background: none;
             border: none;
             padding: 15px;
             background-size: cover;

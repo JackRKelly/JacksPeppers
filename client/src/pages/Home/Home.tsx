@@ -50,7 +50,7 @@ const Home: React.FC = () => {
             image="7potwhite.jpg"
           />
           <ProductCard
-            id={24}
+            id={27}
             title="Roxa Lantern Black"
             heat={4}
             price={3.5}

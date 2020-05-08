@@ -47,60 +47,25 @@ const ProductCard: React.FC<Props> = (props) => {
 
   return (
     <div className="product-card">
-      <img
-        src={imagePath}
-        alt={`${title} Pepper.`}
-        title={`${title} Pepper.`}
-        className="product-card--image"
-        style={{ opacity: inStock ? 1 : 0.5 }}
-      />
-      <h1 className="product-card--title">
-        {title}{" "}
-        <span className="product-card--price">- ${price.toFixed(2)}</span>
-      </h1>
-      <TagList>
-        {!inStock ? <ProductTag text={"Out of stock"} color={"gray"} /> : ""}
+      <Link to={`/product/${id}`} className="product-card--link">
+        <img
+          src={imagePath}
+          alt={`${title} Pepper.`}
+          title={`${title} Pepper.`}
+          className="product-card--image"
+          style={{ opacity: inStock ? 1 : 0.5 }}
+        />
+        <h1 className="product-card--title">
+          {title}{" "}
+          <span className="product-card--price">- ${price.toFixed(2)}</span>
+        </h1>
+        <TagList>
+          {!inStock ? <ProductTag text={"Out of stock"} color={"gray"} /> : ""}
 
-        {colorList.map((color, index) => (
-          <ProductTag
-            text={color.split("|")[0]}
-            color={color.split("|")[1]}
-            key={index}
-          />
-        ))}
-      </TagList>
-
-      <Link
-        className="product-card--link"
-        to={`/product/${id}`}
-        style={{
-          backgroundColor: color ? color : colorList[0].split("|")[1],
-          color: lightOrDark(color ? color : colorList[0].split("|")[0])
-            ? "black"
-            : "white",
-          boxShadow: lightOrDark(color ? color : colorList[0].split("|")[0])
-            ? "black"
-            : "white",
-        }}
-      >
-        Details
-      </Link>
-      <Link
-        className="product-card--link"
-        to={`/product/${id}`}
-        style={{
-          backgroundColor: color ? color : colorList[0].split("|")[1],
-          color: lightOrDark(color ? color : colorList[0].split("|")[0])
-            ? "black"
-            : "white",
-          boxShadow: lightOrDark(color ? color : colorList[0].split("|")[0])
-            ? "black"
-            : "white",
-          opacity: inStock ? 1 : 0.5,
-          pointerEvents: inStock ? "auto" : "none",
-        }}
-      >
-        Add to cart
+          {colorList.map((color, index) => (
+            <ProductTag color={color.split("|")[1]} key={index} />
+          ))}
+        </TagList>
       </Link>
     </div>
   );

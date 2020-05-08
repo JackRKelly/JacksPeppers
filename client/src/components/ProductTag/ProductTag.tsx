@@ -34,6 +34,8 @@ const ProductTag: React.FC<Props> = (props) => {
       style={{
         backgroundColor: color,
         color: lightOrDark(color) ? "black" : "white",
+        width: text ? "auto" : "27px",
+        height: text ? "auto" : "27px",
       }}
     >
       {text}
