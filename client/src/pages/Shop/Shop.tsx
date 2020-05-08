@@ -102,7 +102,7 @@ const Shop: React.FC = () => {
                 />
               </div>
               <div className="search-settings--form-advanced--color">
-                <p>
+                <p className="search-settings--form-advanced--color-current">
                   Color:{" "}
                   <ProductTag
                     text={searchColor.split("|")[0]}
@@ -115,7 +115,11 @@ const Shop: React.FC = () => {
                       className="search-settings--form-advanced--color-container--option"
                       style={{
                         backgroundColor: color.split("|")[1],
-                        opacity: searchColor === color ? "0" : "1",
+                        // opacity: searchColor === color ? ".7" : "1",
+                        border:
+                          searchColor === color
+                            ? `3px inset ${color.split("|")[1]}`
+                            : "none",
                       }}
                       title={`Select ${color.split("|")[0]} color.`}
                       onClick={() => {
@@ -139,7 +143,6 @@ const Shop: React.FC = () => {
             price={2.5}
             inStock={true}
             colorList={["Red|rgb(255, 0, 0)", "Orange|rgb(255, 128, 0)"]}
-            color="rgb(255,120,44)"
             image="sugar-red.jpg"
           />
           <ProductCard
@@ -149,7 +152,6 @@ const Shop: React.FC = () => {
             price={4}
             inStock={false}
             colorList={["Pink|rgb(255, 0, 255)", "Peach|rgb(255, 204, 153)"]}
-            color="rgb(173,80,119)"
             image="pinktiger.jpg"
           />
           <ProductCard
@@ -159,7 +161,6 @@ const Shop: React.FC = () => {
             price={3.5}
             inStock={true}
             colorList={["White|rgb(255, 255, 255)"]}
-            color="rgb(225,218,189)"
             image="7potwhite.jpg"
           />
           <ProductCard
@@ -169,7 +170,6 @@ const Shop: React.FC = () => {
             price={3.5}
             inStock={true}
             colorList={["Purple|rgb(153, 51, 255)", "Black|rgb(0, 0, 0)"]}
-            color="rgb(138,39,73)"
             image="roxa-black.jpg"
           />
         </div>

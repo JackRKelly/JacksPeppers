@@ -16,9 +16,7 @@ const Product: React.FC = () => {
     inStock: true,
     heat: 0,
     catagory: ["Sugar Rush"],
-    color: "#FF7937",
     colorList: ["Orange|rgb(255, 128, 0)", "Red|rgb(255, 0, 0)"],
-    invert: false,
     image: "sugar-red.jpg",
     description:
       "Gnarly long tails from these F4 peppers. Jays Peach Ghostscorpion X Reaper. Tyler Farms created the California Reaper. I received these before they were  named. I've put 3 generations on them with another growing. They might be a slightly different shape, than the original. Brutaly hot! Expect shape variability.",
@@ -75,12 +73,7 @@ const Product: React.FC = () => {
           </ul>
         </div>
         <div className="product-info--main">
-          <h1
-            className="product-info--main-title"
-            style={{ color: pepper.color }}
-          >
-            {pepper.title}
-          </h1>
+          <h1 className="product-info--main-title">{pepper.title}</h1>
           <h3 className="product-info--main-price">
             ${pepper.price.toFixed(2)} - {pepper.seedCount}+ Seeds
           </h3>
@@ -93,20 +86,7 @@ const Product: React.FC = () => {
             Free <span>Shipping</span> on orders over 10$.
           </h4>
           <p className="product-info--main-description">{pepper.description}</p>
-          <a
-            className="product-info--main-add"
-            href=""
-            style={{
-              backgroundColor: pepper.color,
-
-              color: pepper.invert ? "#333" : "white",
-              boxShadow: pepper.invert
-                ? "0 0 7px rgba(0, 0, 0, 0.2)"
-                : "0 0 7px rgba(0, 0, 0, 0.3)",
-              opacity: pepper.inStock ? 1 : 0.5,
-              pointerEvents: pepper.inStock ? "auto" : "none",
-            }}
-          >
+          <a className="product-info--main-add" href="">
             Add to cart
           </a>
         </div>

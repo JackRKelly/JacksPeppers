@@ -6,4 +6,5 @@
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
   font-weight: bolder;
   letter-spacing: 0.5px;
+  @include ease-in-out(200ms);
 }

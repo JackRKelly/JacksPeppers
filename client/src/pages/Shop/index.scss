@@ -21,7 +21,14 @@ main.shop {
           @include bezier(300ms);
           overflow: hidden;
           padding: 10px;
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-between;
           &--price {
+            min-width: 47%;
+            @media (max-width: $medium) {
+              min-width: 100%;
+            }
             &-title {
               font-size: 20px;
               margin: 10px 0;
@@ -42,6 +49,10 @@ main.shop {
             }
           }
           &--heat {
+            min-width: 47%;
+            @media (max-width: $medium) {
+              min-width: 100%;
+            }
             &-title {
               font-size: 20px;
               margin: 10px 0;
@@ -62,10 +73,12 @@ main.shop {
             }
           }
           &--color {
+            min-width: 30%;
+            @media (max-width: $medium) {
+              min-width: 100%;
+            }
             &-current {
-              padding: 4px 12px;
-              border-radius: 5px;
-              box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+              @include ease-in-out(200ms);
             }
             &-container {
               display: flex;

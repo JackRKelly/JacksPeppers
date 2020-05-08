@@ -29,6 +29,10 @@ $extralarge: 1500px;
   transition: all $duration cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
+@mixin ease-in-out($duration) {
+  transition: all $duration ease-in-out;
+}
+
 @mixin h1 {
   font-family: "Hoccen", sans-serif;
   @include bezier(200ms);
