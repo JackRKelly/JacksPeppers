@@ -1,0 +1,13 @@
+@import "../../assets/variables.scss";
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  .product-tag {
+    margin-right: 10px;
+    margin-top: 10px;
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}

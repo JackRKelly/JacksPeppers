@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import ProductTag from "../ProductTag/ProductTag";
+import TagList from "../TagList/TagList";
 import "./index.scss";
 
 interface Props {
@@ -57,7 +58,7 @@ const ProductCard: React.FC<Props> = (props) => {
         {title}{" "}
         <span className="product-card--price">- ${price.toFixed(2)}</span>
       </h1>
-      <div className="product-card--tags">
+      <TagList>
         {!inStock ? <ProductTag text={"Out of stock"} color={"gray"} /> : ""}
 
         {colorList.map((color, index) => (
@@ -67,7 +68,7 @@ const ProductCard: React.FC<Props> = (props) => {
             key={index}
           />
         ))}
-      </div>
+      </TagList>
 
       <Link
         className="product-card--link"
