@@ -4,13 +4,7 @@ import ProductCard from "../../components/ProductCard/ProductCard";
 import ProductTag from "../../components/ProductTag/ProductTag";
 import { Range } from "rc-slider";
 import "rc-slider/assets/index.css";
-import {
-  ColorKind,
-  colors,
-  convertToKind,
-  toColor,
-  colorName,
-} from "../../color";
+import { ColorKind, colors, convertToKind, colorName } from "../../color";
 
 const Shop: React.FC = () => {
   document.title = "Shop | Jack's Peppers";
@@ -20,8 +14,6 @@ const Shop: React.FC = () => {
   const [priceRange, setPriceRange] = useState([0, 5]);
   const [heatRange, setHeatRange] = useState([1, 5]);
   const [searchColor, setSearchColor] = useState(ColorKind.Red);
-
-  console.log(colors());
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
@@ -173,7 +165,13 @@ const Shop: React.FC = () => {
             heat={5}
             price={3.5}
             inStock={true}
-            colorList={[ColorKind.Purple, ColorKind.Black]}
+            colorList={[
+              ColorKind.Purple,
+              ColorKind.Black,
+              ColorKind.Pink,
+              ColorKind.Peach,
+              ColorKind.Red,
+            ]}
             image="roxa-black.jpg"
           />
         </div>

@@ -4,12 +4,12 @@ import { ColorKind } from "../../color";
 
 interface Props {
   color: ColorKind;
+  disabled?: boolean;
   text?: string;
-  inStock?: boolean;
 }
 
 const ProductTag: React.FC<Props> = (props) => {
-  const { color, text } = props;
+  const { color, text, disabled } = props;
 
   const lightOrDark = (color: string): boolean => {
     let tempColor: any;
@@ -34,8 +34,8 @@ const ProductTag: React.FC<Props> = (props) => {
     <span
       className="product-tag"
       style={{
-        backgroundColor: color,
-        color: lightOrDark(color) ? "black" : "white",
+        backgroundColor: disabled ? "gray" : color,
+        color: lightOrDark(disabled ? "gray" : color) ? "black" : "white",
         width: text ? "auto" : "27px",
         height: text ? "auto" : "27px",
       }}

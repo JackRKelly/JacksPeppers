@@ -70,7 +70,6 @@ export const colorName = (kind: ColorKind): string => {
     case ColorKind.Green:
       return "Green";
   }
-  return "Red";
 };
 
 export const toColor = (arr: string[]): Color => {

@@ -48,7 +48,11 @@ const ProductCard: React.FC<Props> = (props) => {
         <h1 className="product-card--title">{title}</h1>
         <TagList>
           {!inStock ? (
-            <ProductTag text={"Out of stock"} color={ColorKind.Red} />
+            <ProductTag
+              text={"Out of stock"}
+              color={ColorKind.Red}
+              disabled={!inStock}
+            />
           ) : (
             ""
           )}
