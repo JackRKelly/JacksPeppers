@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import ProductCard from "../../components/ProductCard/ProductCard";
+import { ColorKind } from "../../color";
 import "./index.scss";
 
 const Home: React.FC = () => {
@@ -25,7 +26,7 @@ const Home: React.FC = () => {
             heat={1}
             price={2.5}
             inStock={true}
-            colorList={["Red|rgb(255, 0, 0)", "Orange|rgb(255, 128, 0)"]}
+            colorList={[ColorKind.Red, ColorKind.Orange]}
             image="sugar-red.jpg"
           />
           <ProductCard
@@ -34,7 +35,7 @@ const Home: React.FC = () => {
             heat={2}
             price={4}
             inStock={false}
-            colorList={["Pink|rgb(255, 0, 255)", "Peach|rgb(255, 204, 153)"]}
+            colorList={[ColorKind.Pink, ColorKind.Peach]}
             image="pinktiger.jpg"
           />
           <ProductCard
@@ -43,7 +44,7 @@ const Home: React.FC = () => {
             heat={3}
             price={3.5}
             inStock={true}
-            colorList={["White|rgb(255, 255, 255)"]}
+            colorList={[ColorKind.White]}
             image="7potwhite.jpg"
           />
           <ProductCard
@@ -52,7 +53,7 @@ const Home: React.FC = () => {
             heat={4}
             price={3.5}
             inStock={true}
-            colorList={["Purple|rgb(153, 51, 255)", "Black|rgb(0, 0, 0)"]}
+            colorList={[ColorKind.Purple, ColorKind.Black]}
             image="roxa-black.jpg"
           />
           <ProductCard
@@ -61,7 +62,7 @@ const Home: React.FC = () => {
             heat={5}
             price={3.5}
             inStock={true}
-            colorList={["Purple|rgb(153, 51, 255)", "Black|rgb(0, 0, 0)"]}
+            colorList={[ColorKind.Purple, ColorKind.Black]}
             image="roxa-black.jpg"
           />
         </div>

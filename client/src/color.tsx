@@ -17,6 +17,34 @@ interface Color {
   rgb: string;
 }
 
+export const convertToKind = (c: Color): ColorKind => {
+  switch (c.name) {
+    case "Red":
+      return ColorKind.Red;
+    case "Orange":
+      return ColorKind.Orange;
+    case "Purple":
+      return ColorKind.Purple;
+    case "Pink":
+      return ColorKind.Pink;
+    case "Peach":
+      return ColorKind.Peach;
+    case "White":
+      return ColorKind.White;
+    case "Yellow":
+      return ColorKind.Yellow;
+    case "Lime":
+      return ColorKind.Lime;
+    case "Brown":
+      return ColorKind.Brown;
+    case "Black":
+      return ColorKind.Black;
+    case "Green":
+      return ColorKind.Green;
+  }
+  return ColorKind.Red;
+};
+
 const toColor = (arr: string[]): Color => {
   return { name: arr[0], rgb: arr[1] };
 };

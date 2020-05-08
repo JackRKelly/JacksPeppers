@@ -4,6 +4,7 @@ import ProductTag from "../ProductTag/ProductTag";
 import TagList from "../TagList/TagList";
 import HeatRating from "../HeatRating/HeatRating";
 import "./index.scss";
+import { ColorKind } from "../../color";
 
 interface Props {
   title: string;
@@ -11,7 +12,7 @@ interface Props {
   inStock: boolean;
   heat: number;
   id: number;
-  colorList: Array<string>;
+  colorList: Array<ColorKind>;
   image?: string;
 }
 
@@ -46,10 +47,14 @@ const ProductCard: React.FC<Props> = (props) => {
         </div>
         <h1 className="product-card--title">{title}</h1>
         <TagList>
-          {!inStock ? <ProductTag text={"Out of stock"} color={"gray"} /> : ""}
+          {!inStock ? (
+            <ProductTag text={"Out of stock"} color={ColorKind.Red} />
+          ) : (
+            ""
+          )}
 
           {colorList.map((color, index) => (
-            <ProductTag color={color.split("|")[1]} key={index} />
+            <ProductTag color={color} key={index} />
           ))}
         </TagList>
       </Link>

@@ -4,12 +4,7 @@ import ProductCard from "../../components/ProductCard/ProductCard";
 import ProductTag from "../../components/ProductTag/ProductTag";
 import { Range } from "rc-slider";
 import "rc-slider/assets/index.css";
-import { ColorKind, colors } from "../../color";
-
-// interface Color {
-//   name: string;
-//   rgb: string;
-// }
+import { ColorKind, colors, convertToKind } from "../../color";
 
 const Shop: React.FC = () => {
   document.title = "Shop | Jack's Peppers";
@@ -18,10 +13,7 @@ const Shop: React.FC = () => {
 
   const [priceRange, setPriceRange] = useState([0, 5]);
   const [heatRange, setHeatRange] = useState([1, 5]);
-  const [searchColor, setSearchColor] = useState({
-    name: "Red",
-    rgb: "rgb(255, 0, 0)",
-  });
+  const [searchColor, setSearchColor] = useState(ColorKind.Red);
 
   console.log(colors());
 
@@ -101,23 +93,22 @@ const Shop: React.FC = () => {
               </div>
               <div className="search-settings--form-advanced--color">
                 <p className="search-settings--form-advanced--color-current">
-                  Color:{" "}
-                  <ProductTag text={searchColor.name} color={searchColor.rgb} />
+                  Color: <ProductTag color={searchColor} />
                 </p>
                 <div className="search-settings--form-advanced--color-container">
                   {colors().map((color, index) => (
                     <div
                       className="search-settings--form-advanced--color-container--option"
                       style={{
-                        backgroundColor: color.rgb,
+                        backgroundColor: convertToKind(color),
                         border:
-                          searchColor.rgb === color.rgb
-                            ? `3px inset ${color.rgb}`
+                          searchColor === convertToKind(color)
+                            ? `3px inset ${color}`
                             : "none",
                       }}
-                      title={`Select ${color.rgb} color.`}
+                      title={`Select ${color} color.`}
                       onClick={() => {
-                        setSearchColor(color);
+                        setSearchColor(convertToKind(color));
                       }}
                       key={index}
                     ></div>

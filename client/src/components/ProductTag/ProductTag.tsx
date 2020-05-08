@@ -1,9 +1,11 @@
 import React from "react";
 import "./index.scss";
+import { ColorKind } from "../../color";
 
 interface Props {
-  color: string;
+  color: ColorKind;
   text?: string;
+  inStock?: boolean;
 }
 
 const ProductTag: React.FC<Props> = (props) => {
