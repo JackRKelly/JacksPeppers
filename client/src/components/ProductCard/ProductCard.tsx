@@ -27,6 +27,23 @@ const ProductCard: React.FC<Props> = (props) => {
     );
   }
 
+  const heatRating = (heat: number): string => {
+    switch (heat) {
+      case 1:
+        return "Sweet";
+      case 2:
+        return "Hot";
+      case 3:
+        return "Pretty Hot";
+      case 4:
+        return "Very Hot";
+      case 5:
+        return "Extremely hot";
+      default:
+        return "";
+    }
+  };
+
   return (
     <div className="product-card">
       <Link to={`/product/${id}`} className="product-card--link">
@@ -34,7 +51,10 @@ const ProductCard: React.FC<Props> = (props) => {
           <span className="product-card--image-container--price">
             ${price.toFixed(2)}
           </span>
-          <span className="product-card--image-container--heat">
+          <span
+            className="product-card--image-container--heat"
+            title={`${heatRating(heat)} Pepper`}
+          >
             <HeatRating heat={heat} />
           </span>
           <img

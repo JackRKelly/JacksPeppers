@@ -12,6 +12,12 @@
   @media (max-width: 470px) {
     margin: 0 0 20px 0;
   }
+  &:hover {
+    transform: translateY(-5px);
+  }
+  &:hover &--title {
+    text-decoration: underline;
+  }
   &--image-container {
     position: relative;
     &--image {
@@ -25,7 +31,7 @@
       border-radius: 0 0 0 5px;
       font-size: 20px;
       z-index: 5;
-      right: 0;
+      right: -1px;
       color: black;
       font-weight: bold;
     }
@@ -34,11 +40,18 @@
       background-color: white;
       padding: 5px 10px;
       z-index: 5;
-      left: 0;
+      left: -1px;
       bottom: 0;
       width: 40px;
       height: 40px;
       border-radius: 0 5px 0 0;
+      cursor: help;
+      &:hover .heat-rating {
+        transform: scale(1.2);
+      }
+      .heat-rating {
+        @include ease-in-out(200ms);
+      }
     }
   }
   &--title {
@@ -46,6 +59,7 @@
     font-size: 25px;
     font-family: "Neutra";
     color: black;
+    @include ease-in-out(200ms);
   }
   &--availability {
     margin: 0;

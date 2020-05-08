@@ -23,7 +23,7 @@ const ProductTag: React.FC<Props> = (props) => {
     b = tempColor ? (tempColor[3] as number) : 0;
 
     hsp = Math.sqrt(0.299 * (r * r) + 0.587 * (g * g) + 0.114 * (b * b));
-    if (hsp > 127.5) {
+    if (hsp > 150) {
       return true;
     } else {
       return false;
