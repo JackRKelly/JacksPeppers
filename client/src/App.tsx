@@ -12,6 +12,7 @@ import Home from "./pages/Home/Home";
 import Shop from "./pages/Shop/Shop";
 import Product from "./pages/Product/Product";
 import Contact from "./pages/Contact/Contact";
+import Shipping from "./pages/Shipping/Shipping";
 
 const App: React.FC = () => {
   return (
@@ -64,6 +65,9 @@ const App: React.FC = () => {
                 </Route>
                 <Route path="/home">
                   <Home />
+                </Route>
+                <Route path="/shipping">
+                  <Shipping />
                 </Route>
                 <Route path="/">
                   <Redirect to="home" />
