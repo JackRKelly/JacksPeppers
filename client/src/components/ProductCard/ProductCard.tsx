@@ -7,6 +7,7 @@ interface Props {
   title: string;
   price: number;
   inStock: boolean;
+  heat: number;
   id: number;
   colorList: Array<string>;
   color?: string;
@@ -14,7 +15,7 @@ interface Props {
 }
 
 const ProductCard: React.FC<Props> = (props) => {
-  const { title, price, inStock, id, colorList, image } = props;
+  const { title, price, inStock, id, colorList, color, image, heat } = props;
 
   const [imagePath, setImagePath] = useState();
 
@@ -23,6 +24,25 @@ const ProductCard: React.FC<Props> = (props) => {
       setImagePath(image.default)
     );
   }
+
+  const lightOrDark = (color: string): boolean => {
+    let tempColor: any;
+    var r: number, g: number, b: number, hsp;
+
+    tempColor = color.match(
+      /^rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*(\d+(?:\.\d+)?))?\)$/
+    );
+    r = tempColor ? (tempColor[1] as number) : 0;
+    g = tempColor ? (tempColor[2] as number) : 0;
+    b = tempColor ? (tempColor[3] as number) : 0;
+
+    hsp = Math.sqrt(0.299 * (r * r) + 0.587 * (g * g) + 0.114 * (b * b));
+    if (hsp > 127.5) {
+      return true;
+    } else {
+      return false;
+    }
+  };
 
   return (
     <div className="product-card">
@@ -38,9 +58,8 @@ const ProductCard: React.FC<Props> = (props) => {
         <span className="product-card--price">- ${price.toFixed(2)}</span>
       </h1>
       <div className="product-card--tags">
-        <span className="product-card--availability">
-          {!inStock ? "Out of stock" : ""}
-        </span>
+        {!inStock ? <ProductTag text={"Out of stock"} color={"gray"} /> : ""}
+
         {colorList.map((color, index) => (
           <ProductTag
             text={color.split("|")[0]}
@@ -54,11 +73,13 @@ const ProductCard: React.FC<Props> = (props) => {
         className="product-card--link"
         to={`/product/${id}`}
         style={{
-          backgroundColor: colorList[0].split("|")[1],
-          // color: invert ? "#333" : "white",
-          // boxShadow: invert
-          //   ? "0 0 7px rgba(0, 0, 0, 0.2)"
-          //   : "0 0 7px rgba(0, 0, 0, 0.3)",
+          backgroundColor: color ? color : colorList[0].split("|")[1],
+          color: lightOrDark(color ? color : colorList[0].split("|")[0])
+            ? "black"
+            : "white",
+          boxShadow: lightOrDark(color ? color : colorList[0].split("|")[0])
+            ? "black"
+            : "white",
         }}
       >
         Details
@@ -67,13 +88,15 @@ const ProductCard: React.FC<Props> = (props) => {
         className="product-card--link"
         to={`/product/${id}`}
         style={{
-          backgroundColor: colorList[0].split("|")[1],
-          // color: invert ? "#333" : "white",
-          // boxShadow: invert
-          //   ? "0 0 7px rgba(0, 0, 0, 0.2)"
-          //   : "0 0 7px rgba(0, 0, 0, 0.3)",
-          // opacity: inStock ? 1 : 0.5,
-          // pointerEvents: inStock ? "auto" : "none",
+          backgroundColor: color ? color : colorList[0].split("|")[1],
+          color: lightOrDark(color ? color : colorList[0].split("|")[0])
+            ? "black"
+            : "white",
+          boxShadow: lightOrDark(color ? color : colorList[0].split("|")[0])
+            ? "black"
+            : "white",
+          opacity: inStock ? 1 : 0.5,
+          pointerEvents: inStock ? "auto" : "none",
         }}
       >
         Add to cart

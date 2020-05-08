@@ -82,10 +82,11 @@ const Product: React.FC = () => {
           </h1>
           <h3 className="product-info--main-price">
             ${pepper.price.toFixed(2)} - {pepper.seedCount}+ Seeds -{" "}
-            {pepper.colorList.map((color) => (
+            {pepper.colorList.map((color, index) => (
               <ProductTag
                 text={color.split("|")[0]}
                 color={color.split("|")[1]}
+                key={index}
               />
             ))}
           </h3>

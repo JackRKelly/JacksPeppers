@@ -30,7 +30,7 @@ const ProductTag: React.FC<Props> = (props) => {
 
   return (
     <span
-      className="color-tag"
+      className="product-tag"
       style={{
         backgroundColor: color,
         color: lightOrDark(color) ? "black" : "white",
