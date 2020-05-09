@@ -3,18 +3,18 @@
 .heat-rating {
   width: 20px;
   &--1 {
-    fill: green;
+    fill: #00a851;
   }
   &--2 {
-    fill: yellow;
+    fill: #7dc242;
   }
   &--3 {
-    fill: orange;
+    fill: #ecc304;
   }
   &--4 {
-    fill: red;
+    fill: #f37732;
   }
   &--5 {
-    fill: blue;
+    fill: #ed2126;
   }
 }

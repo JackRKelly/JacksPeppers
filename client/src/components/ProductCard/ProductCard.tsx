@@ -32,13 +32,13 @@ const ProductCard: React.FC<Props> = (props) => {
       case 1:
         return "Sweet";
       case 2:
-        return "Hot";
+        return "Mild";
       case 3:
-        return "Pretty Hot";
+        return "Hot";
       case 4:
         return "Very Hot";
       case 5:
-        return "Extremely hot";
+        return "Extremely Hot";
       default:
         return "";
     }
@@ -57,6 +57,7 @@ const ProductCard: React.FC<Props> = (props) => {
           >
             <HeatRating heat={heat} />
           </span>
+
           <img
             src={imagePath}
             alt={`${title} Pepper.`}

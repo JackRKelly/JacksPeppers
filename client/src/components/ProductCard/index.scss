@@ -16,7 +16,7 @@
     transform: translateY(-5px);
   }
   &:hover &--title {
-    text-decoration: underline;
+    background-size: 100% 2px;
   }
   &--image-container {
     position: relative;
@@ -45,7 +45,6 @@
       width: 40px;
       height: 40px;
       border-radius: 0 5px 0 0;
-      cursor: help;
       &:hover .heat-rating {
         transform: scale(1.2);
       }
@@ -55,11 +54,18 @@
     }
   }
   &--title {
-    margin: 7.5px 0 0 0;
+    margin: 0;
     font-size: 25px;
     font-family: "Neutra";
     color: black;
-    @include ease-in-out(200ms);
+    display: inline-block;
+    text-decoration: none;
+    line-height: 1.5;
+    background-image: linear-gradient(currentColor, currentColor);
+    background-position: 0% 100%;
+    background-repeat: no-repeat;
+    background-size: 0% 2px;
+    transition: background-size 0.3s;
   }
   &--availability {
     margin: 0;

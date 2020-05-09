@@ -39,6 +39,7 @@ const ProductTag: React.FC<Props> = (props) => {
         width: text ? "auto" : "27px",
         height: text ? "auto" : "27px",
       }}
+      title={text}
     >
       {text}
     </span>
