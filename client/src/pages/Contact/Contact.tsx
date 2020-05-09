@@ -26,18 +26,21 @@ const Contact: React.FC = () => {
           name="name"
           type="text"
           element={InputType.Input}
+          placeholder="John Doe"
           error={error[0]}
         />
         <FormInput
           name="email"
           type="email"
           element={InputType.Input}
+          placeholder="johndoe@email.com"
           error={error[1]}
         />
         <FormInput
           name="message"
           type="text"
           element={InputType.Textarea}
+          placeholder="Enter your message here..."
           error={error[2]}
         />
 

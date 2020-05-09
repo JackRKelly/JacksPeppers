@@ -30,9 +30,10 @@ main.contact {
       }
       &-input {
         display: block;
-        padding: 7.5px;
-        border-radius: 2.5px;
-        border: gray 1px solid;
+        border: none;
+        background-color: rgba(211, 211, 211, 0.5);
+        padding: 15px;
+        border-radius: 5px;
         width: 100%;
         margin: 10px 0;
         font: 20px "Neutra";

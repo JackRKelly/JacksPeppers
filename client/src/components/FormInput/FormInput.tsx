@@ -9,12 +9,13 @@ enum InputType {
 interface Props {
   name: string;
   element: InputType;
+  placeholder?: string;
   type?: string;
   error?: string;
 }
 
 const FormInput: React.FC<Props> = (props) => {
-  const { type, name, element, error } = props;
+  const { type, name, element, error, placeholder } = props;
 
   const capitolize = (a: string): string => {
     return a.charAt(0).toUpperCase() + a.slice(1);
@@ -31,6 +32,7 @@ const FormInput: React.FC<Props> = (props) => {
           name={name}
           className="contact-form--container-input"
           style={{ borderColor: error ? "red" : "black" }}
+          placeholder={placeholder}
         />
         <span
           className="contact-form--container-error"
@@ -51,6 +53,7 @@ const FormInput: React.FC<Props> = (props) => {
           rows={10}
           className="contact-form--container-input"
           style={{ borderColor: error ? "red" : "black" }}
+          placeholder={placeholder}
         ></textarea>
         <span
           className="contact-form--container-error"
