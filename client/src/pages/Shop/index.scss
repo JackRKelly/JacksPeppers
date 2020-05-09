@@ -163,11 +163,9 @@ main.shop {
   }
   .search-results {
     &--list {
-      display: flex;
-      flex-direction: row;
-      align-items: flex-start;
-      justify-content: center;
-      flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      grid-gap: 32px;
     }
   }
 }
