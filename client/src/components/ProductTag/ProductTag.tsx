@@ -1,6 +1,6 @@
 import React from "react";
 import "./index.scss";
-import { ColorKind } from "../../color";
+import { ColorKind } from "../../common/color";
 
 interface Props {
   color: ColorKind;

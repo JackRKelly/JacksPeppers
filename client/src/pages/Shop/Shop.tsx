@@ -3,8 +3,14 @@ import "./index.scss";
 import ProductCard from "../../components/ProductCard/ProductCard";
 import ProductTag from "../../components/ProductTag/ProductTag";
 import { Range } from "rc-slider";
+import { heatSwitch } from "../../common/heat";
 import "rc-slider/assets/index.css";
-import { ColorKind, colors, convertToKind, colorName } from "../../color";
+import {
+  ColorKind,
+  colors,
+  convertToKind,
+  colorName,
+} from "../../common/color";
 
 const Shop: React.FC = () => {
   document.title = "Shop | Jack's Peppers";
@@ -75,7 +81,8 @@ const Shop: React.FC = () => {
               </div>
               <div className="search-settings--form-advanced--heat">
                 <p className="search-settings--form-advanced--heat-title">
-                  Heat Range: {heatRange[0]} - {heatRange[1]}
+                  Heat Range: {heatSwitch(heatRange[0])} -{" "}
+                  {heatSwitch(heatRange[1])}
                 </p>
                 <Range
                   min={1}

@@ -4,7 +4,8 @@ import ProductTag from "../ProductTag/ProductTag";
 import TagList from "../TagList/TagList";
 import HeatRating from "../HeatRating/HeatRating";
 import "./index.scss";
-import { ColorKind } from "../../color";
+import { ColorKind } from "../../common/color";
+import { heatSwitch } from "../../common/heat";
 
 interface Props {
   title: string;
@@ -27,23 +28,6 @@ const ProductCard: React.FC<Props> = (props) => {
     );
   }
 
-  const heatRating = (heat: number): string => {
-    switch (heat) {
-      case 1:
-        return "Sweet";
-      case 2:
-        return "Mild";
-      case 3:
-        return "Hot";
-      case 4:
-        return "Very Hot";
-      case 5:
-        return "Extremely Hot";
-      default:
-        return "";
-    }
-  };
-
   return (
     <div className="product-card">
       <Link to={`/product/${id}`} className="product-card--link">
@@ -53,7 +37,7 @@ const ProductCard: React.FC<Props> = (props) => {
           </span>
           <span
             className="product-card--image-container--heat"
-            title={`${heatRating(heat)} Pepper`}
+            title={`${heatSwitch(heat)} Pepper`}
           >
             <HeatRating heat={heat} />
           </span>

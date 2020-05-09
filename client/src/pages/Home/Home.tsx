@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import ProductCard from "../../components/ProductCard/ProductCard";
-import { ColorKind } from "../../color";
+import { ColorKind } from "../../common/color";
 import "./index.scss";
 
 const Home: React.FC = () => {

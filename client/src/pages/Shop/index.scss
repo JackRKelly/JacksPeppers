@@ -27,6 +27,7 @@ main.shop {
             min-width: 47%;
             @media (max-width: $medium) {
               min-width: 95%;
+              max-width: 95%;
             }
             &-title {
               font-size: 20px;
@@ -52,6 +53,7 @@ main.shop {
             min-width: 47%;
             @media (max-width: $medium) {
               min-width: 95%;
+              max-width: 95%;
             }
             &-title {
               font-size: 20px;

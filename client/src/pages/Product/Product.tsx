@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import ProductTag from "../../components/ProductTag/ProductTag";
 import TagList from "../../components/TagList/TagList";
 import { Link } from "react-router-dom";
-import { ColorKind } from "../../color";
+import { ColorKind } from "../../common/color";
 import "./index.scss";
 
 const Product: React.FC = () => {
