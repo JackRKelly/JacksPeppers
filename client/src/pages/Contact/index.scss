@@ -35,7 +35,7 @@ main.contact {
         padding: 15px;
         border-radius: 5px;
         width: 100%;
-        margin: 10px 0;
+        margin: 10px 0 5px;
         font: 20px "Neutra";
         @include bezier(200ms);
       }
@@ -53,6 +53,7 @@ main.contact {
     }
     &--container.textarea {
       min-width: 100%;
+      margin-top: 5px;
       textarea {
         max-width: 100%;
         min-width: 100%;

@@ -31,7 +31,10 @@ const FormInput: React.FC<Props> = (props) => {
           type={type}
           name={name}
           className="contact-form--container-input"
-          style={{ borderColor: error ? "red" : "black" }}
+          style={{
+            border: error ? "red solid 1px" : "none",
+            boxShadow: error ? "0 0 4px rgba(255,0,0,.4)" : "",
+          }}
           placeholder={placeholder}
         />
         <span
@@ -52,7 +55,10 @@ const FormInput: React.FC<Props> = (props) => {
           name={name}
           rows={10}
           className="contact-form--container-input"
-          style={{ borderColor: error ? "red" : "black" }}
+          style={{
+            border: error ? "red solid 1px" : "none",
+            boxShadow: error ? "0 0 4px rgba(255,0,0,.4)" : "",
+          }}
           placeholder={placeholder}
         ></textarea>
         <span

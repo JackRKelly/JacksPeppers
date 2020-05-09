@@ -5,7 +5,7 @@ import FormInput from "../../components/FormInput/FormInput";
 const Contact: React.FC = () => {
   document.title = "Contact | Jack's Peppers";
 
-  const [error, setError] = useState(["", "", ""]);
+  const [error, setError] = useState(["Error", "Error", "Error"]);
 
   enum InputType {
     Input,

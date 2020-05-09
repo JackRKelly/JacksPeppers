@@ -16,12 +16,11 @@ const Shop: React.FC = () => {
   document.title = "Shop | Jack's Peppers";
 
   const [showAdvanced, setShowAdvanced] = useState(false);
-
   const [priceRange, setPriceRange] = useState([0, 5]);
   const [heatRange, setHeatRange] = useState([1, 5]);
   const [searchColor, setSearchColor] = useState(ColorKind.Red);
 
-  const handleSubmit = (e: any) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
   };
 

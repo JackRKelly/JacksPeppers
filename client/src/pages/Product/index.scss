@@ -33,8 +33,12 @@ main.product {
           width: 100%;
           margin-right: 20px;
           cursor: pointer;
+          @include bezier(200ms);
           @media (max-width: $small) {
             margin-right: 10px;
+          }
+          &:hover {
+            transform: scale(1.05);
           }
           &:last-child {
             margin-right: 0;
@@ -57,15 +61,8 @@ main.product {
       }
       &-price {
         @include h3;
-        margin: 10px 0 0 0;
-        .color-tag {
-          margin-right: 10px;
-          border-radius: 5px;
-          padding: 4px 12px;
-          &:last-child {
-            margin-right: 0;
-          }
-        }
+        margin: 0;
+        line-height: 1.5;
       }
       &-shipping {
         @include h5;
@@ -73,28 +70,40 @@ main.product {
         color: $lightgray;
         font-weight: lighter;
         a {
-          text-decoration: none;
           color: black;
-          border-bottom: 2px solid currentColor;
-          padding-bottom: 2px;
           cursor: pointer;
+          line-height: 1.5;
+          display: inline-block;
+          text-decoration: none;
+          background-image: linear-gradient(currentColor, currentColor);
+          background-position: 0% 100%;
+          background-repeat: no-repeat;
+          background-size: 0% 2px;
+          transition: background-size 0.3s;
+          &:hover,
+          &:focus {
+            background-size: 100% 2px;
+          }
         }
       }
       &-description {
         @include p;
-        margin: 10px 0;
+        margin: 5px 0 10px;
       }
       &-add {
+        border: none;
         text-decoration: none;
         padding: 5px 10px;
         border-radius: 2px;
         background-color: $black;
         color: $white;
         display: inline-block;
+        font-family: "Neutra", sans-serif;
         @include bezier(200ms);
         font-weight: bold;
         letter-spacing: 1px;
         box-shadow: 0 0 7px rgba(0, 0, 0, 0.3);
+        cursor: pointer;
         &:hover {
           transform: scale(1.1);
         }

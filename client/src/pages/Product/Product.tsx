@@ -88,9 +88,7 @@ const Product: React.FC = () => {
             Free <Link to="/shipping">Shipping</Link> on orders over 10$.
           </h4>
           <p className="product-info--main-description">{pepper.description}</p>
-          <a className="product-info--main-add" href="">
-            Add to cart
-          </a>
+          <button className="product-info--main-add">Add to cart</button>
         </div>
       </div>
     </main>
