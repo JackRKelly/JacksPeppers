@@ -18,7 +18,7 @@ main.shop {
         position: relative;
         @include bezier(300ms);
         &-advanced {
-          @include bezier(300ms);
+          @include ease-in-out(300ms);
           overflow: hidden;
           display: flex;
           flex-wrap: wrap;
@@ -89,6 +89,7 @@ main.shop {
             &-container {
               display: flex;
               justify-content: space-between;
+              padding: 10px 0;
               &--option {
                 display: inline-block;
                 width: 20px;

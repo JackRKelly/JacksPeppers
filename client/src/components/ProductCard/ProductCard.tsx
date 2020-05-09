@@ -35,12 +35,17 @@ const ProductCard: React.FC<Props> = (props) => {
           <span className="product-card--image-container--price">
             ${price.toFixed(2)}
           </span>
-          <span
+          <div
             className="product-card--image-container--heat"
             title={`${heatSwitch(heat)} Pepper`}
           >
-            <HeatRating heat={heat} />
-          </span>
+            <span className="product-card--image-container--heat-icon">
+              <HeatRating heat={heat} />
+            </span>
+            <span className="product-card--image-container--heat-text">
+              {heatSwitch(heat)} Pepper
+            </span>
+          </div>
 
           <img
             src={imagePath}

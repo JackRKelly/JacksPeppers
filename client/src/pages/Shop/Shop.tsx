@@ -171,7 +171,7 @@ const Shop: React.FC = () => {
             heat={5}
             price={3.5}
             inStock={true}
-            colorList={[ColorKind.Purple, ColorKind.Black]}
+            colorList={[ColorKind.Pink, ColorKind.Black]}
             image="roxa-black.jpg"
           />
           <ProductCard

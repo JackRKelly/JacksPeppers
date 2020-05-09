@@ -79,3 +79,22 @@ export const toColor = (arr: string[]): Color => {
 export const colors = (): Color[] => {
   return Object.entries(ColorKind).map(toColor);
 };
+
+export const lightOrDark = (color: string): boolean => {
+  let tempColor: any;
+  var r: number, g: number, b: number, hsp;
+
+  tempColor = color.match(
+    /^rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*(\d+(?:\.\d+)?))?\)$/
+  );
+  r = tempColor ? (tempColor[1] as number) : 0;
+  g = tempColor ? (tempColor[2] as number) : 0;
+  b = tempColor ? (tempColor[3] as number) : 0;
+
+  hsp = Math.sqrt(0.299 * (r * r) + 0.587 * (g * g) + 0.114 * (b * b));
+  if (hsp > 150) {
+    return true;
+  } else {
+    return false;
+  }
+};
