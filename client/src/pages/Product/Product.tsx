@@ -4,6 +4,7 @@ import ProductTag from "../../components/ProductTag/ProductTag";
 import TagList from "../../components/TagList/TagList";
 import { Link } from "react-router-dom";
 import { ColorKind } from "../../common/color";
+import { heatSwitch, heatSwitchColor } from "../../common/heat";
 import "./index.scss";
 
 const Product: React.FC = () => {
@@ -16,7 +17,7 @@ const Product: React.FC = () => {
     price: 2.5,
     seedCount: 10,
     inStock: true,
-    heat: 0,
+    heat: 1,
     catagory: ["Sugar Rush"],
     colorList: [ColorKind.Red, ColorKind.Orange],
     image: "sugar-red.jpg",
@@ -77,7 +78,10 @@ const Product: React.FC = () => {
         <div className="product-info--main">
           <h1 className="product-info--main-title">{pepper.title}</h1>
           <h3 className="product-info--main-price">
-            ${pepper.price.toFixed(2)} - {pepper.seedCount}+ Seeds
+            ${pepper.price.toFixed(2)} - {pepper.seedCount}+ Seeds -{" "}
+            <span style={{ color: heatSwitchColor(pepper.heat) }}>
+              {heatSwitch(pepper.heat)} Pepper
+            </span>
           </h3>
           <TagList>
             {pepper.colorList.map((color, index) => (

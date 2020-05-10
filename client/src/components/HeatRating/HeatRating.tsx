@@ -1,7 +1,7 @@
 import React from "react";
 import SVG from "react-inlinesvg";
 import FireIcon from "../../assets/svg/heat.svg";
-import "./index.scss";
+import { heatSwitchColor } from "../../common/heat";
 
 interface Props {
   heat: number;
@@ -10,7 +10,13 @@ interface Props {
 const HeatRating: React.FC<Props> = (props) => {
   const { heat } = props;
 
-  return <SVG src={FireIcon} className={`heat-rating heat-rating--${heat}`} />;
+  return (
+    <SVG
+      src={FireIcon}
+      style={{ width: "20px", fill: heatSwitchColor(heat) }}
+      className={`heat-rating`}
+    />
+  );
 };
 
 export default HeatRating;

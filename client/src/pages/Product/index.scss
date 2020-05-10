@@ -88,24 +88,27 @@ main.product {
       }
       &-description {
         @include p;
-        margin: 5px 0 10px;
+        margin: 5px 0 15px;
       }
       &-add {
         border: none;
-        text-decoration: none;
-        padding: 5px 10px;
-        border-radius: 2px;
-        background-color: $black;
-        color: $white;
-        display: inline-block;
         font-family: "Neutra", sans-serif;
-        @include bezier(200ms);
-        font-weight: bold;
-        letter-spacing: 1px;
-        box-shadow: 0 0 7px rgba(0, 0, 0, 0.3);
+        display: inline-block;
+        padding: 8px 25px;
+        font-size: 22px;
+        background-color: $red;
+        text-decoration: none;
+        color: $white;
+        border-radius: 3px;
+        width: fit-content;
         cursor: pointer;
+        @include bezier(200ms);
         &:hover {
           transform: scale(1.1);
+        }
+        @media (max-width: $small) {
+          padding: 6px 18px;
+          font-size: 18px;
         }
       }
     }

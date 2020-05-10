@@ -35,10 +35,7 @@ const ProductCard: React.FC<Props> = (props) => {
           <span className="product-card--image-container--price">
             ${price.toFixed(2)}
           </span>
-          <div
-            className="product-card--image-container--heat"
-            title={`${heatSwitch(heat)} Pepper`}
-          >
+          <div className="product-card--image-container--heat">
             <span className="product-card--image-container--heat-icon">
               <HeatRating heat={heat} />
             </span>
