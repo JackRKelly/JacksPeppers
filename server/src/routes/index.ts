@@ -10,16 +10,14 @@ router.get("/", (req: Request, res: Response) => {
   });
 });
 
-router.get("/static/:folder/:filename", (req: Request, res: Response) => {
-  const { folder, filename } = req.params;
+router.get("/static/:folder/:file", (req: Request, res: Response) => {
+  const { folder, file } = req.params;
+  const extension = path.extname(file);
+  res.type(extension);
 
   fs.readFile(
-    `../../client/build/static/${folder}/${filename}`,
+    `../../client/build/static/${folder}/${file}`,
     (err, data: Buffer) => {
-      if (folder === "media") {
-      } else {
-        res.type(folder);
-      }
       res.send(data);
     }
   );
