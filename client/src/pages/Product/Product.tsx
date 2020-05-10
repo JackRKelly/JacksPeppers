@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, FC } from "react";
 import { useParams } from "react-router-dom";
 import ProductTag from "../../components/ProductTag/ProductTag";
 import TagList from "../../components/TagList/TagList";
@@ -7,7 +7,7 @@ import { ColorKind } from "../../common/color";
 import { heatSwitch, heatSwitchColor } from "../../common/heat";
 import "./index.scss";
 
-const Product: React.FC = () => {
+const Product: FC = () => {
   const { id } = useParams();
 
   document.title = `Pepper Name | Jack's Peppers`;

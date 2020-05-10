@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FC } from "react";
 import {
   BrowserRouter as Router,
   Switch,
@@ -14,7 +14,7 @@ import Product from "./pages/Product/Product";
 import Contact from "./pages/Contact/Contact";
 import Shipping from "./pages/Shipping/Shipping";
 
-const App: React.FC = () => {
+const App: FC = () => {
   return (
     <Router>
       <nav className="navigation desktop">

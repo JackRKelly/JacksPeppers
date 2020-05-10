@@ -1,8 +1,8 @@
-import React from "react";
+import React, { FC } from "react";
 import { Link } from "react-router-dom";
 import "./index.scss";
 
-const Home: React.FC = () => {
+const Home: FC = () => {
   document.title = "Home | Jack's Peppers";
 
   return (

@@ -1,11 +1,11 @@
-import React from "react";
+import React, { ReactNode, FC } from "react";
 import "./index.scss";
 
 interface Props {
-  children: React.ReactNode;
+  children: ReactNode;
 }
 
-const TagList: React.FC<Props> = (props) => {
+const TagList: FC<Props> = (props) => {
   return <div className="tag-list">{props.children}</div>;
 };
 

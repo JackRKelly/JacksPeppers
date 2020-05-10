@@ -1,7 +1,7 @@
-import React from "react";
+import React, { FC } from "react";
 import "./index.scss";
 
-const Shipping: React.FC = () => {
+const Shipping: FC = () => {
   document.title = "Shipping | Jack's Peppers";
 
   return (

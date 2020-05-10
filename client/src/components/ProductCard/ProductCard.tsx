@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, FC } from "react";
 import { Link } from "react-router-dom";
 import ProductTag from "../ProductTag/ProductTag";
 import TagList from "../TagList/TagList";
@@ -17,7 +17,7 @@ interface Props {
   image?: string;
 }
 
-const ProductCard: React.FC<Props> = (props) => {
+const ProductCard: FC<Props> = (props) => {
   const { title, price, inStock, id, colorList, image, heat } = props;
 
   const [imagePath, setImagePath] = useState();

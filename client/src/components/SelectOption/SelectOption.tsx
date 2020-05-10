@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FC } from "react";
 import "./index.scss";
 import SVG from "react-inlinesvg";
 import Dropdown from "../../assets/svg/dropdown.svg";
@@ -8,7 +8,7 @@ interface Props {
   options: Array<string>;
 }
 
-const SelectOption: React.FC<Props> = (props) => {
+const SelectOption: FC<Props> = (props) => {
   const { options, name } = props;
 
   return (

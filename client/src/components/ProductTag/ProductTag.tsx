@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FC } from "react";
 import "./index.scss";
 import { ColorKind, lightOrDark } from "../../common/color";
 
@@ -8,7 +8,7 @@ interface Props {
   text?: string;
 }
 
-const ProductTag: React.FC<Props> = (props) => {
+const ProductTag: FC<Props> = (props) => {
   const { color, text, disabled } = props;
 
   return (

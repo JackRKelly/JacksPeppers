@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FC } from "react";
 
 enum InputType {
   Input,
@@ -13,7 +13,7 @@ interface Props {
   error?: string;
 }
 
-const FormInput: React.FC<Props> = (props) => {
+const FormInput: FC<Props> = (props) => {
   const { type, name, element, error, placeholder } = props;
 
   const capitolize = (a: string): string => {

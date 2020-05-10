@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, FC } from "react";
 import "./index.scss";
 import FormInput from "../../components/FormInput/FormInput";
 
-const Contact: React.FC = () => {
+const Contact: FC = () => {
   document.title = "Contact | Jack's Peppers";
 
   const [error, setError] = useState(["Error", "Error", "Error"]);

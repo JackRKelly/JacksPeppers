@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FC } from "react";
 import SVG from "react-inlinesvg";
 import FireIcon from "../../assets/svg/heat.svg";
 import { heatSwitchColor } from "../../common/heat";
@@ -7,7 +7,7 @@ interface Props {
   heat: number;
 }
 
-const HeatRating: React.FC<Props> = (props) => {
+const HeatRating: FC<Props> = (props) => {
   const { heat } = props;
 
   return (
