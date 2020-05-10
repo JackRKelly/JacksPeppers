@@ -14,8 +14,8 @@
     "typescript": "^3.8.3"
   },
   "scripts": {
-    "start": "node build/app.js",
-    "dev": "nodemon src/app.ts",
+    "start": "node build/index.js",
+    "dev": "nodemon src/index.ts",
     "build": "tsc -p ."
   },
   "author": "",
