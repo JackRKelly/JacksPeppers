@@ -15,8 +15,13 @@ import Contact from "./pages/Contact/Contact";
 import Shipping from "./pages/Shipping/Shipping";
 import Cart from "./pages/Cart/Cart";
 
+interface CartItem {
+  id: number;
+  quantity: number;
+}
+
 const App: FC = () => {
-  const [cart, setCart] = useState<Array<Object>>([]);
+  const [cart, setCart] = useState<Array<CartItem>>([{ id: 4, quantity: 4 }]);
 
   return (
     <Router>
@@ -77,7 +82,7 @@ const App: FC = () => {
                   <Shop />
                 </Route>
                 <Route path="/product/:id">
-                  <Product />
+                  <Product cart={cart} setCart={setCart} />
                 </Route>
                 <Route path="/home">
                   <Redirect to="/" />

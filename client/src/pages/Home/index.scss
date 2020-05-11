@@ -20,10 +20,12 @@ main.home {
     }
     &--link {
       display: inline-block;
-      padding: 4px 25px;
+      padding: 6px 30px;
       font-size: 22px;
       background-color: $red;
       text-decoration: none;
+      @include font(false);
+      font-weight: bold;
       color: $white;
       border-radius: 3px;
       width: fit-content;

@@ -1,4 +1,4 @@
-import React, { useState, FC } from "react";
+import React, { useState, FC, Dispatch, SetStateAction } from "react";
 import { useParams } from "react-router-dom";
 import ProductTag from "../../components/ProductTag/ProductTag";
 import TagList from "../../components/TagList/TagList";
@@ -7,8 +7,20 @@ import { ColorKind } from "../../common/color";
 import { heatSwitch, heatSwitchColor } from "../../common/heat";
 import "./index.scss";
 
-const Product: FC = () => {
+interface CartItem {
+  id: number;
+  quantity: number;
+}
+
+interface Props {
+  cart: Array<CartItem>;
+  setCart: Dispatch<SetStateAction<CartItem[]>>;
+}
+
+const Product: FC<Props> = (props) => {
   const { id } = useParams();
+
+  const { cart, setCart } = props;
 
   document.title = `Pepper Name | Jack's Peppers`;
 
