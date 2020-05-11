@@ -1,8 +1,5 @@
 import React, { useState, FC, Dispatch, SetStateAction } from "react";
 import { useParams } from "react-router-dom";
-import ProductTag from "../../components/ProductTag/ProductTag";
-import TagList from "../../components/TagList/TagList";
-import { Link } from "react-router-dom";
 import { ColorKind } from "../../common/color";
 import { heatSwitch, heatSwitchColor } from "../../common/heat";
 import "./index.scss";
@@ -18,11 +15,11 @@ interface Props {
 }
 
 const Product: FC<Props> = (props) => {
-  const { id } = useParams();
-
-  const { cart, setCart } = props;
-
   document.title = `Pepper Name | Jack's Peppers`;
+
+  const { id } = useParams();
+  const { cart } = props;
+  const [imagePath, setImagePath] = useState();
 
   const pepper = {
     title: "Sugar Rush Red",
@@ -36,8 +33,6 @@ const Product: FC<Props> = (props) => {
     description:
       "Gnarly long tails from these F4 peppers. Jays Peach Ghostscorpion X Reaper. Tyler Farms created the California Reaper. I received these before they were  named. I've put 3 generations on them with another growing. They might be a slightly different shape, than the original. Brutaly hot! Expect shape variability.",
   };
-
-  const [imagePath, setImagePath] = useState();
 
   if (pepper.image) {
     import(`../../assets/images/${pepper.image}`).then((image) =>
@@ -95,14 +90,7 @@ const Product: FC<Props> = (props) => {
               {heatSwitch(pepper.heat)} Pepper
             </span>
           </h3>
-          <TagList>
-            {pepper.colorList.map((color, index) => (
-              <ProductTag color={color} key={index} />
-            ))}
-          </TagList>
-          <h4 className="product-info--main-shipping">
-            Free <Link to="/shipping">Shipping</Link> on orders over 10$.
-          </h4>
+          <h3 className="product-info--main-details">Item #{id}</h3>
           <p className="product-info--main-description">{pepper.description}</p>
           <button className="product-info--main-add">Add to cart</button>
         </div>

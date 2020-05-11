@@ -64,28 +64,6 @@ main.product {
         margin: 0;
         line-height: 1.5;
       }
-      &-shipping {
-        @include h5;
-        margin: 10px 0 0 0;
-        color: $lightgray;
-        font-weight: lighter;
-        a {
-          color: black;
-          cursor: pointer;
-          line-height: 1.5;
-          display: inline-block;
-          text-decoration: none;
-          background-image: linear-gradient(currentColor, currentColor);
-          background-position: 0% 100%;
-          background-repeat: no-repeat;
-          background-size: 0% 2px;
-          transition: background-size 0.3s;
-          &:hover,
-          &:focus {
-            background-size: 100% 2px;
-          }
-        }
-      }
       &-description {
         @include p;
         margin: 5px 0 15px;

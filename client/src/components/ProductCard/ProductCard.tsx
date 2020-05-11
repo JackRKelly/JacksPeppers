@@ -16,7 +16,7 @@ interface Props {
 }
 
 const ProductCard: FC<Props> = (props) => {
-  const { title, price, inStock, id, colorList, image, heat } = props;
+  const { title, price, inStock, id, image, heat } = props;
 
   const [imagePath, setImagePath] = useState();
 
