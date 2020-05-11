@@ -67,7 +67,8 @@
         height: 35px;
         z-index: 5;
         overflow: hidden;
-        font-size: 20px;
+        font-size: 19px;
+        white-space: nowrap;
         color: black;
         border-radius: 0 5px 0 0;
         max-width: 0;
@@ -78,8 +79,8 @@
     }
   }
   &--title {
-    font-size: 30px;
-    @include font(normal);
+    font-size: 25px;
+    @include font(false);
     color: black;
     display: inline-block;
     text-align: center;
@@ -100,7 +101,7 @@
     margin: 0;
     color: $lightgray;
     font-size: 20px;
-    @include font(normal);
+    @include font(false);
   }
   &--link {
     text-decoration: none;

@@ -1,8 +1,8 @@
 @import "./assets/variables.scss";
 
 @font-face {
-  font-family: WorkSans;
-  src: url(./assets/fonts/WorkSans-Medium.ttf);
+  font-family: Hoccen;
+  src: url(./assets/fonts/Hoccen.ttf);
   font-weight: bold;
 }
 
@@ -18,7 +18,7 @@
 
 body {
   margin: 0;
-  @include font(normal);
+  @include font(false);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;

@@ -1,7 +1,12 @@
-import React, { FC } from "react";
+import React, { FC, Dispatch, SetStateAction } from "react";
 import "./index.scss";
 
-const Cart: FC = () => {
+interface Props {
+  cart: Array<object>;
+  setCart: Dispatch<SetStateAction<{}[]>>;
+}
+
+const Cart: FC<Props> = (props) => {
   document.title = "Cart | Jack's Peppers";
 
   return (

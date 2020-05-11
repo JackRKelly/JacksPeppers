@@ -4,6 +4,10 @@ nav.navigation.desktop {
   background-color: $white;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   z-index: 200;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
   .navigation-list {
     margin: 0;
     padding: 0;
@@ -15,12 +19,25 @@ nav.navigation.desktop {
     }
     &--link {
       text-decoration: none;
-      @include font(normal);
+      @include font(true);
       font-size: 18px;
       color: $gray;
       padding: 16px 18px;
       display: block;
       position: relative;
+      &.cart {
+        position: absolute;
+        span {
+          position: absolute;
+          top: 5px;
+          background-color: white;
+          padding: 2px;
+          border-radius: 5px;
+          right: 4px;
+          color: $red;
+          font-size: 17.5px;
+        }
+      }
       &.active {
         color: $red;
       }

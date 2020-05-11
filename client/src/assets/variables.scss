@@ -9,9 +9,14 @@ $medium: 800px;
 $large: 1200px;
 $extralarge: 1500px;
 
-@mixin font($weight) {
-  font-family: "WorkSans", sans-serif;
-  font-weight: $weight;
+@mixin font($bold) {
+  @if $bold {
+    font-weight: bold;
+    font-family: "Hoccen", sans-serif;
+  } @else {
+    font-weight: normal;
+    font-family: "WorkSans", sans-serif;
+  }
 }
 
 @mixin main {
@@ -19,7 +24,7 @@ $extralarge: 1500px;
   left: 50%;
   transform: translateX(-50%);
   transition: 0.3s all ease-in-out;
-  max-width: 1200px;
+  max-width: 1300px;
   @media (max-width: 500px) {
     width: 90%;
   }
@@ -40,7 +45,7 @@ $extralarge: 1500px;
 }
 
 @mixin h1 {
-  @include font(bold);
+  @include font(true);
   @include bezier(200ms);
   @media (min-width: $large) {
     font-size: 50px;
@@ -57,7 +62,7 @@ $extralarge: 1500px;
 }
 
 @mixin h3 {
-  @include font(normal);
+  @include font(false);
   @include bezier(200ms);
   @media (min-width: $large) {
     font-size: 30px;
@@ -74,7 +79,7 @@ $extralarge: 1500px;
 }
 
 @mixin h5 {
-  @include font(normal);
+  @include font(false);
   @include bezier(200ms);
   @media (min-width: $large) {
     font-size: 30px;
@@ -91,7 +96,7 @@ $extralarge: 1500px;
 }
 
 @mixin p {
-  @include font(normal);
+  @include font(false);
   @include bezier(200ms);
   @media (min-width: $large) {
     font-size: 25px;

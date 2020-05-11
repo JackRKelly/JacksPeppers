@@ -23,7 +23,8 @@ main.contact {
       padding: 0 0 5px;
       &-label {
         display: block;
-        @include font(bold);
+        @include font(false);
+        font-weight: bold;
         font-size: 21px;
         text-transform: uppercase;
       }
@@ -36,14 +37,14 @@ main.contact {
         width: 100%;
         margin: 10px 0 5px;
         font-size: 20px;
-        @include font(normal);
+        @include font(false);
         @include bezier(200ms);
       }
       &-error {
         display: block;
         color: red;
         font-size: 20px;
-        @include font(normal);
+        @include font(false);
       }
     }
     &--container.input {
@@ -72,7 +73,7 @@ main.contact {
       }
       &--submit {
         border: none;
-        @include font(normal);
+        @include font(false);
         display: inline-block;
         padding: 8px 34px;
         font-size: 22px;

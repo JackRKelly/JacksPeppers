@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 import {
   BrowserRouter as Router,
   Switch,
@@ -16,6 +16,8 @@ import Shipping from "./pages/Shipping/Shipping";
 import Cart from "./pages/Cart/Cart";
 
 const App: FC = () => {
+  const [cart, setCart] = useState<Array<Object>>([]);
+
   return (
     <Router>
       <nav className="navigation desktop">
@@ -50,11 +52,11 @@ const App: FC = () => {
           </li>
           <li className="navigation-list--item">
             <NavLink
-              className="navigation-list--link"
+              className="navigation-list--link cart"
               to="/cart"
               activeClassName="active"
             >
-              Cart
+              Cart <span>{cart.length === 0 ? "" : cart.length}</span>
             </NavLink>
           </li>
         </ul>
@@ -84,7 +86,7 @@ const App: FC = () => {
                   <Shipping />
                 </Route>
                 <Route path="/cart">
-                  <Cart />
+                  <Cart cart={cart} setCart={setCart} />
                 </Route>
               </Switch>
             </CSSTransition>

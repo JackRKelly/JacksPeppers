@@ -112,7 +112,7 @@ main.shop {
             border-radius: 5px;
             width: 100%;
             font-size: 25px;
-            @include font(normal);
+            @include font(false);
           }
           &--advanced {
             position: absolute;
@@ -123,7 +123,7 @@ main.shop {
             background-color: $red;
             padding: 8px;
             border-radius: 5px;
-            @include font(normal);
+            @include font(false);
             font-weight: bold;
             color: white;
             letter-spacing: 0.7px;
