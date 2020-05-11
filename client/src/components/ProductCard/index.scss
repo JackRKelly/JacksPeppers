@@ -9,12 +9,15 @@
   width: 100%;
   max-width: 450px;
   @include bezier(200ms);
+  background-color: white;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  padding: 15px;
   margin: auto;
   &:hover {
     transform: translateY(-5px);
   }
   &:hover &--title {
-    background-size: 100% 2px;
+    background-size: 100% 2.5px;
   }
   &--image-container {
     position: relative;
@@ -75,18 +78,23 @@
     }
   }
   &--title {
-    margin: 0;
-    font-size: 25px;
+    font-size: 30px;
     font-family: "Neutra";
     color: black;
     display: inline-block;
+    text-align: center;
+    margin: 0 auto;
     text-decoration: none;
     line-height: 1.5;
     background-image: linear-gradient(currentColor, currentColor);
     background-position: 100% 100%;
     background-repeat: no-repeat;
-    background-size: 0% 2px;
+    background-size: 0% 2.5px;
     transition: background-size 0.3s;
+    &-container {
+      display: flex;
+      justify-content: center;
+    }
   }
   &--availability {
     margin: 0;

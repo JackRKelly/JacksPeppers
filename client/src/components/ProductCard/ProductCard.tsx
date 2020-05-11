@@ -1,7 +1,5 @@
 import React, { useState, FC } from "react";
 import { Link } from "react-router-dom";
-import ProductTag from "../ProductTag/ProductTag";
-import TagList from "../TagList/TagList";
 import HeatRating from "../HeatRating/HeatRating";
 import "./index.scss";
 import { ColorKind } from "../../common/color";
@@ -33,7 +31,7 @@ const ProductCard: FC<Props> = (props) => {
       <Link to={`/product/${id}`} className="product-card--link">
         <div className="product-card--image-container">
           <span className="product-card--image-container--price">
-            ${price.toFixed(2)}
+            {!inStock ? "Out of stock" : `$${price.toFixed(2)}`}
           </span>
           <div className="product-card--image-container--heat">
             <span className="product-card--image-container--heat-icon">
@@ -52,22 +50,9 @@ const ProductCard: FC<Props> = (props) => {
             style={{ opacity: inStock ? 1 : 0.5 }}
           />
         </div>
-        <h1 className="product-card--title">{title}</h1>
-        <TagList>
-          {!inStock ? (
-            <ProductTag
-              text={"Out of stock"}
-              color={ColorKind.Red}
-              disabled={!inStock}
-            />
-          ) : (
-            ""
-          )}
-
-          {colorList.map((color, index) => (
-            <ProductTag color={color} key={index} />
-          ))}
-        </TagList>
+        <div className="product-card--title-container">
+          <h1 className="product-card--title">{title}</h1>
+        </div>
       </Link>
     </div>
   );
