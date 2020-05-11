@@ -1,4 +1,5 @@
 import React, { FC, Dispatch, SetStateAction } from "react";
+import { deleteItem, addItem, incrementItem } from "../../common/cart";
 import "./index.scss";
 
 interface CartItem {
@@ -22,18 +23,26 @@ const Cart: FC<Props> = (props) => {
         <h1 className="hero-section--title">Your Cart</h1>
         {cart.map((cart) => (
           <div>
-            {cart.id} + {cart.quantity}
+            {cart.id} + {cart.quantity}{" "}
+            <button
+              onClick={() => {
+                incrementItem(setCart, cart.id);
+              }}
+            >
+              Increment
+            </button>
+            <button
+              onClick={() => {
+                deleteItem(setCart, cart.id);
+              }}
+            >
+              Delete
+            </button>
           </div>
         ))}
         <button
           onClick={() => {
-            setCart((cart) => [
-              ...cart,
-              {
-                id: Math.floor(Math.random() * 100),
-                quantity: Math.floor(Math.random() * 100),
-              },
-            ]);
+            addItem(setCart, Math.floor(Math.random() * 100));
           }}
         >
           Add random item
