@@ -13,6 +13,7 @@ import Shop from "./pages/Shop/Shop";
 import Product from "./pages/Product/Product";
 import Contact from "./pages/Contact/Contact";
 import Shipping from "./pages/Shipping/Shipping";
+import Cart from "./pages/Cart/Cart";
 
 const App: FC = () => {
   return (
@@ -47,6 +48,15 @@ const App: FC = () => {
               Contact
             </NavLink>
           </li>
+          <li className="navigation-list--item">
+            <NavLink
+              className="navigation-list--link"
+              to="/cart"
+              activeClassName="active"
+            >
+              Cart
+            </NavLink>
+          </li>
         </ul>
       </nav>
 
@@ -72,6 +82,9 @@ const App: FC = () => {
                 </Route>
                 <Route path="/shipping">
                   <Shipping />
+                </Route>
+                <Route path="/cart">
+                  <Cart />
                 </Route>
               </Switch>
             </CSSTransition>

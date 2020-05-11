@@ -1,0 +1,16 @@
+@import "../../assets/variables.scss";
+
+main.cart {
+  @include main;
+  .hero-section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    @include headerPadding;
+    &--title {
+      @include h1;
+      margin: 0;
+    }
+  }
+}
