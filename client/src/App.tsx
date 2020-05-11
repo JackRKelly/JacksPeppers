@@ -21,7 +21,7 @@ interface CartItem {
 }
 
 const App: FC = () => {
-  const [cart, setCart] = useState<Array<CartItem>>([{ id: 4, quantity: 4 }]);
+  const [cart, setCart] = useState<Array<CartItem>>([]);
 
   return (
     <Router>

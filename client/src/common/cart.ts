@@ -9,14 +9,14 @@ export const deleteItem = (
   setCart: Dispatch<SetStateAction<CartItem[]>>,
   id: number
 ) => {
-  setCart((cart) => cart.filter((item) => item.id !== id));
+  setCart((cart): CartItem[] => cart.filter((item) => item.id !== id));
 };
 
 export const addItem = (
   setCart: Dispatch<SetStateAction<CartItem[]>>,
   id: number
 ) => {
-  setCart((cart) => [
+  setCart((cart): CartItem[] => [
     ...cart,
     {
       id: id,
@@ -29,12 +29,9 @@ export const incrementItem = (
   setCart: Dispatch<SetStateAction<CartItem[]>>,
   id: number
 ) => {
-  setCart((cart) =>
-    cart.map((item) => {
-      if (item.id === id) {
-        item.quantity += 1;
-      }
-      return item;
-    })
+  setCart((cart): CartItem[] =>
+    cart.map((item) =>
+      item.id === id ? { id: item.id, quantity: item.quantity++ } : item
+    )
   );
 };

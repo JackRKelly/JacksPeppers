@@ -21,8 +21,8 @@ const Cart: FC<Props> = (props) => {
     <main className="cart">
       <header className="hero-section">
         <h1 className="hero-section--title">Your Cart</h1>
-        {cart.map((cart) => (
-          <div>
+        {cart.map((cart, value) => (
+          <div key={value}>
             {cart.id} + {cart.quantity}{" "}
             <button
               onClick={() => {
