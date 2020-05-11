@@ -15,7 +15,7 @@ nav.navigation.desktop {
     }
     &--link {
       text-decoration: none;
-      font-family: "Hoccen";
+      @include font(normal);
       font-size: 18px;
       color: $gray;
       padding: 16px 18px;

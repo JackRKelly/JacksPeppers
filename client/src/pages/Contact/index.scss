@@ -23,8 +23,7 @@ main.contact {
       padding: 0 0 5px;
       &-label {
         display: block;
-        font-weight: bold;
-        font-family: "Neutra", sans-serif;
+        @include font(bold);
         font-size: 21px;
         text-transform: uppercase;
       }
@@ -36,13 +35,15 @@ main.contact {
         border-radius: 5px;
         width: 100%;
         margin: 10px 0 5px;
-        font: 20px "Neutra";
+        font-size: 20px;
+        @include font(normal);
         @include bezier(200ms);
       }
       &-error {
         display: block;
         color: red;
-        font: 20px "Neutra";
+        font-size: 20px;
+        @include font(normal);
       }
     }
     &--container.input {
@@ -71,7 +72,7 @@ main.contact {
       }
       &--submit {
         border: none;
-        font-family: "Neutra", sans-serif;
+        @include font(normal);
         display: inline-block;
         padding: 8px 34px;
         font-size: 22px;

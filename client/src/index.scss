@@ -1,11 +1,15 @@
+@import "./assets/variables.scss";
+
 @font-face {
-  font-family: Hoccen;
-  src: url(./assets/fonts/Hoccen.ttf);
+  font-family: WorkSans;
+  src: url(./assets/fonts/WorkSans-Medium.ttf);
+  font-weight: bold;
 }
 
 @font-face {
-  font-family: Neutra;
-  src: url(./assets/fonts/Neutra.otf);
+  font-family: WorkSans;
+  src: url(./assets/fonts/WorkSans-Regular.ttf);
+  font-weight: normal;
 }
 
 * {
@@ -14,7 +18,7 @@
 
 body {
   margin: 0;
-  font-family: "Neutra", sans-serif;
+  @include font(normal);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;

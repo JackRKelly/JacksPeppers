@@ -92,7 +92,7 @@ main.product {
       }
       &-add {
         border: none;
-        font-family: "Neutra", sans-serif;
+        @include font(normal);
         display: inline-block;
         padding: 8px 25px;
         font-size: 22px;

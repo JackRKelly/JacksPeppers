@@ -79,7 +79,7 @@
   }
   &--title {
     font-size: 30px;
-    font-family: "Neutra";
+    @include font(normal);
     color: black;
     display: inline-block;
     text-align: center;
@@ -99,7 +99,8 @@
   &--availability {
     margin: 0;
     color: $lightgray;
-    font: 20px "Neutra";
+    font-size: 20px;
+    @include font(normal);
   }
   &--link {
     text-decoration: none;

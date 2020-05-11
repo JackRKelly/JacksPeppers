@@ -9,6 +9,11 @@ $medium: 800px;
 $large: 1200px;
 $extralarge: 1500px;
 
+@mixin font($weight) {
+  font-family: "WorkSans", sans-serif;
+  font-weight: $weight;
+}
+
 @mixin main {
   position: absolute;
   left: 50%;
@@ -35,7 +40,7 @@ $extralarge: 1500px;
 }
 
 @mixin h1 {
-  font-family: "Hoccen", sans-serif;
+  @include font(bold);
   @include bezier(200ms);
   @media (min-width: $large) {
     font-size: 50px;
@@ -52,7 +57,7 @@ $extralarge: 1500px;
 }
 
 @mixin h3 {
-  font-family: "Neutra", sans-serif;
+  @include font(normal);
   @include bezier(200ms);
   @media (min-width: $large) {
     font-size: 30px;
@@ -69,7 +74,7 @@ $extralarge: 1500px;
 }
 
 @mixin h5 {
-  font-family: "Neutra", sans-serif;
+  @include font(normal);
   @include bezier(200ms);
   @media (min-width: $large) {
     font-size: 30px;
@@ -86,7 +91,7 @@ $extralarge: 1500px;
 }
 
 @mixin p {
-  font-family: "Neutra", sans-serif;
+  @include font(normal);
   @include bezier(200ms);
   @media (min-width: $large) {
     font-size: 25px;
