@@ -5,32 +5,31 @@ const router = Router();
 router.post("/", async (req: Request, res: Response) => {
   const { name, email, message } = req.body;
 
+  let error = {
+    error: false,
+    list: ["", "", ""],
+  };
+
   if (name.length === 0) {
-    res.status(400).send({ error: ["Name cannot be left blank", "", ""] });
+    error.error = true;
+    error.list[0] = "Name cannot be left blank.";
+  }
+  if (email.length === 0) {
+    error.error = true;
+    error.list[1] = "Email cannot be left blank.";
+  }
+  if (message.length === 0) {
+    error.error = true;
+    error.list[2] = "Message cannot be left blank.";
   }
 
-  // let testAccount = await mailer.createTestAccount();
-
-  // let transporter = mailer.createTransport({
-  //   service: "Gmail",
-  //   auth: {
-  //     user: testAccount.user,
-  //     pass: testAccount.pass,
-  //   },
-  // });
-
-  // let info = await transporter.sendMail({
-  //   from: '"Jacks Peppers" <foo@example.com>',
-  //   to: "test@gmail.com",
-  //   subject: "Jacks Peppers Form",
-  //   text: `Name: ${name}, Email: ${email}, Message: ${message}`,
-  //   html: `Name: ${name}<br>Email: ${email}<br>Message: ${message}`,
-  // });
-
-  console.log(req.body);
-  res
-    .status(200)
-    .send({ error: ["", "", ""], message: "Form successfully submitted" });
+  if (error.error) {
+    res.status(400).send({ error: error.list });
+  } else {
+    res
+      .status(200)
+      .send({ error: error.list, message: "Form successfully submitted" });
+  }
 });
 
 export default router;

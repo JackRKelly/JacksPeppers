@@ -26,6 +26,11 @@ const Contact: FC = () => {
       body: JSON.stringify(body),
     })
       .then((response) => {
+        if (response.status === 200) {
+          setName("");
+          setEmail("");
+          setMessage("");
+        }
         return response.json();
       })
       .then((err) => {

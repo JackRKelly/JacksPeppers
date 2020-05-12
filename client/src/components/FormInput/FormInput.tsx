@@ -42,7 +42,10 @@ const FormInput: FC<Props> = (props) => {
         />
         <span
           className="contact-form--container-error"
-          style={{ display: error ? "block" : "none" }}
+          style={{
+            opacity: error ? "1" : "0",
+            maxHeight: error ? "30px" : "0",
+          }}
         >
           {error}
         </span>
@@ -68,7 +71,10 @@ const FormInput: FC<Props> = (props) => {
         ></textarea>
         <span
           className="contact-form--container-error"
-          style={{ display: error ? "block" : "none" }}
+          style={{
+            opacity: error ? "1" : "0",
+            maxHeight: error ? "30px" : "0",
+          }}
         >
           {error}
         </span>

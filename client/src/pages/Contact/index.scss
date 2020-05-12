@@ -23,10 +23,10 @@ main.contact {
       padding: 0 0 5px;
       &-label {
         display: block;
-        @include font(false);
         font-weight: bold;
         font-size: 21px;
         text-transform: uppercase;
+        @include font(false);
       }
       &-input {
         display: block;
@@ -37,13 +37,14 @@ main.contact {
         width: 100%;
         margin: 10px 0 5px;
         font-size: 20px;
+        @include ease-in-out(200ms);
         @include font(false);
-        @include bezier(200ms);
       }
       &-error {
         display: block;
         color: red;
         font-size: 20px;
+        @include ease-in-out(200ms);
         @include font(false);
       }
     }
