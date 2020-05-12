@@ -26,6 +26,19 @@ const Product: FC<Props> = (props) => {
   const { cart, setCart } = props;
   const [imagePath, setImagePath] = useState();
 
+  const pepper = {
+    title: "Sugar Rush Red",
+    price: 2.5,
+    seedCount: 10,
+    inStock: true,
+    heat: 1,
+    catagory: ["Sugar Rush"],
+    colorList: [ColorKind.Red, ColorKind.Orange],
+    image: "sugar-red.jpg",
+    description:
+      "Gnarly long tails from these F4 peppers. Jays Peach Ghostscorpion X Reaper. Tyler Farms created the California Reaper. I received these before they were  named. I've put 3 generations on them with another growing. They might be a slightly different shape, than the original. Brutaly hot! Expect shape variability.",
+  };
+
   useEffect((): (() => void | undefined) => {
     document.title = `${pepper.title} | Jack's Peppers`;
     let isSubscribed = true;
@@ -39,20 +52,7 @@ const Product: FC<Props> = (props) => {
     return () => {
       isSubscribed = false;
     };
-  }, []);
-
-  const pepper = {
-    title: "Sugar Rush Red",
-    price: 2.5,
-    seedCount: 10,
-    inStock: true,
-    heat: 1,
-    catagory: ["Sugar Rush"],
-    colorList: [ColorKind.Red, ColorKind.Orange],
-    image: "sugar-red.jpg",
-    description:
-      "Gnarly long tails from these F4 peppers. Jays Peach Ghostscorpion X Reaper. Tyler Farms created the California Reaper. I received these before they were  named. I've put 3 generations on them with another growing. They might be a slightly different shape, than the original. Brutaly hot! Expect shape variability.",
-  };
+  }, [pepper.image, pepper.title]);
 
   return (
     <main className="product">
