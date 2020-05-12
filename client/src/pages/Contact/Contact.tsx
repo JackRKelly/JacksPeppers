@@ -1,4 +1,4 @@
-import React, { useState, FC, useEffect } from "react";
+import React, { useState, FC, useEffect, FormEvent } from "react";
 import "./index.scss";
 import FormInput from "../../components/FormInput/FormInput";
 
@@ -9,15 +9,28 @@ enum InputType {
 
 const Contact: FC = () => {
   const [error] = useState(["", "", ""]);
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
+  const [name, setName] = useState("Jack");
+  const [email, setEmail] = useState("kcjackkelly@gmail.com");
+  const [message, setMessage] = useState("Hello");
 
   useEffect(() => {
     document.title = "Contact | Jack's Peppers";
   }, []);
 
-  const handleSubmit = () => {};
+  const handleSubmit = async (e: FormEvent) => {
+    e.preventDefault();
+    const body = { name, email, message };
+    console.log(body);
+    await fetch("/api/form", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(body),
+    })
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((err) => console.error(err));
+  };
 
   return (
     <main className="contact">
@@ -28,7 +41,7 @@ const Contact: FC = () => {
         </h3>
       </header>
 
-      <form className="contact-form" onSubmit={() => handleSubmit()}>
+      <form className="contact-form" onSubmit={(e) => handleSubmit(e)}>
         <FormInput
           name="name"
           type="text"

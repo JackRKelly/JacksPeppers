@@ -4,9 +4,13 @@ import { body, validationResult } from "express-validator/check";
 
 const router = Router();
 
-router.get("/", (req: Request, res: Response) => {
+router.post("/", (req: Request, res: Response) => {
+  const { name, email, message } = req.body;
+
   res.send("Hello Inventory");
-  console.log(req);
+
+  // console.log(req);
+  console.log(req.body);
 });
 
 export default router;

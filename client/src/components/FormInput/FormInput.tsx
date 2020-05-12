@@ -57,6 +57,8 @@ const FormInput: FC<Props> = (props) => {
         <textarea
           name={name}
           rows={10}
+          value={value}
+          onChange={onChange}
           className="contact-form--container-input"
           style={{
             border: error ? "red solid 1px" : "none",
