@@ -1,5 +1,11 @@
 import React, { FC, Dispatch, SetStateAction } from "react";
-import { deleteItem, addItem, incrementItem } from "../../common/cart";
+import {
+  deleteItem,
+  addItem,
+  incrementItem,
+  decrementItem,
+  updateItem,
+} from "../../common/cart";
 import "./index.scss";
 
 interface CartItem {
@@ -23,13 +29,30 @@ const Cart: FC<Props> = (props) => {
         <h1 className="hero-section--title">Your Cart</h1>
         {cart.map((cart, value) => (
           <div key={value}>
-            {cart.id} + {cart.quantity}{" "}
+            {cart.id} +{" "}
+            <input
+              type="number"
+              value={cart.quantity}
+              min={1}
+              max={100}
+              onChange={(e) => {
+                updateItem(setCart, cart.id, parseInt(e.target.value));
+              }}
+            />
+            {cart.quantity}{" "}
             <button
               onClick={() => {
                 incrementItem(setCart, cart.id);
               }}
             >
               Increment
+            </button>
+            <button
+              onClick={() => {
+                decrementItem(setCart, cart.id);
+              }}
+            >
+              Decre
             </button>
             <button
               onClick={() => {

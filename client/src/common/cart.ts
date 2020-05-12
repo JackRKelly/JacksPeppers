@@ -35,3 +35,36 @@ export const incrementItem = (
     )
   );
 };
+
+export const decrementItem = (
+  setCart: Dispatch<SetStateAction<CartItem[]>>,
+  id: number
+) => {
+  setCart((cart): CartItem[] =>
+    cart.map((item) =>
+      item.id === id
+        ? {
+            id: item.id,
+            quantity: item.quantity > 1 ? item.quantity-- : item.quantity,
+          }
+        : item
+    )
+  );
+};
+
+export const updateItem = (
+  setCart: Dispatch<SetStateAction<CartItem[]>>,
+  id: number,
+  quantity: number
+) => {
+  setCart((cart): CartItem[] =>
+    cart.map((item) =>
+      item.id === id
+        ? {
+            id: item.id,
+            quantity: quantity,
+          }
+        : item
+    )
+  );
+};
