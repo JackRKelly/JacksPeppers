@@ -8,7 +8,7 @@ enum InputType {
 }
 
 const Contact: FC = () => {
-  const [error] = useState(["", "", ""]);
+  const [error, setError] = useState(["", "", ""]);
   const [name, setName] = useState("Jack");
   const [email, setEmail] = useState("kcjackkelly@gmail.com");
   const [message, setMessage] = useState("Hello");
@@ -28,7 +28,14 @@ const Contact: FC = () => {
       .then((response) => {
         return response.json();
       })
-      .catch((err) => console.error(err));
+      .then((err) => {
+        if (err) {
+          setError(err.error);
+          if (err.message) {
+            console.log(err.message);
+          }
+        }
+      });
   };
 
   return (

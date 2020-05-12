@@ -81,7 +81,7 @@ main.contact {
         text-decoration: none;
         color: $white;
         border-radius: 3px;
-        width: fit-content;
+        cursor: pointer;
         @include bezier(200ms);
         &:hover {
           transform: scale(1.1);
