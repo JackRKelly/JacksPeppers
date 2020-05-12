@@ -31,7 +31,7 @@ export const incrementItem = (
 ) => {
   setCart((cart): CartItem[] =>
     cart.map((item) =>
-      item.id === id ? { id: item.id, quantity: item.quantity++ } : item
+      item.id === id ? { id: item.id, quantity: item.quantity + 1 } : item
     )
   );
 };

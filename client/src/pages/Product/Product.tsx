@@ -1,4 +1,10 @@
-import React, { useState, FC, Dispatch, SetStateAction } from "react";
+import React, {
+  useState,
+  FC,
+  Dispatch,
+  SetStateAction,
+  useEffect,
+} from "react";
 import { useParams } from "react-router-dom";
 import { ColorKind } from "../../common/color";
 import { heatSwitch, heatSwitchColor } from "../../common/heat";
@@ -16,11 +22,13 @@ interface Props {
 }
 
 const Product: FC<Props> = (props) => {
-  document.title = `Pepper Name | Jack's Peppers`;
-
   const { id } = useParams();
   const { cart, setCart } = props;
   const [imagePath, setImagePath] = useState();
+
+  useEffect(() => {
+    document.title = `Pepper Name | Jack's Peppers`;
+  });
 
   const pepper = {
     title: "Sugar Rush Red",

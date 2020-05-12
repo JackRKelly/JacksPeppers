@@ -1,11 +1,13 @@
-import React, { useState, FC } from "react";
+import React, { useState, FC, useEffect } from "react";
 import "./index.scss";
 import FormInput from "../../components/FormInput/FormInput";
 
 const Contact: FC = () => {
-  document.title = "Contact | Jack's Peppers";
-
   const [error] = useState(["Error", "Error", "Error"]);
+
+  useEffect(() => {
+    document.title = "Contact | Jack's Peppers";
+  });
 
   enum InputType {
     Input,

@@ -1,4 +1,4 @@
-import React, { FC, Dispatch, SetStateAction } from "react";
+import React, { FC, Dispatch, SetStateAction, useEffect } from "react";
 import {
   deleteItem,
   addItem,
@@ -18,9 +18,11 @@ interface Props {
 }
 
 const Cart: FC<Props> = (props) => {
-  document.title = "Cart | Jack's Peppers";
-
   const { cart, setCart } = props;
+
+  useEffect(() => {
+    document.title = "Cart | Jack's Peppers";
+  });
 
   return (
     <main className="cart">

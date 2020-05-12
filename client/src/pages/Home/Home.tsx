@@ -1,9 +1,11 @@
-import React, { FC } from "react";
+import React, { FC, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./index.scss";
 
 const Home: FC = () => {
-  document.title = "Home | Jack's Peppers";
+  useEffect(() => {
+    document.title = "Home | Jack's Peppers";
+  });
 
   return (
     <main className="home">

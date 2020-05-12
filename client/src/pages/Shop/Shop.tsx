@@ -1,4 +1,4 @@
-import React, { useState, FC, FormEvent } from "react";
+import React, { useState, FC, FormEvent, useEffect } from "react";
 import "./index.scss";
 import ProductCard from "../../components/ProductCard/ProductCard";
 import ProductTag from "../../components/ProductTag/ProductTag";
@@ -13,12 +13,14 @@ import {
 } from "../../common/color";
 
 const Shop: FC = () => {
-  document.title = "Shop | Jack's Peppers";
-
   const [showAdvanced, setShowAdvanced] = useState(false);
   const [priceRange, setPriceRange] = useState([0, 5]);
   const [heatRange, setHeatRange] = useState([1, 5]);
   const [searchColor, setSearchColor] = useState(ColorKind.Red);
+
+  useEffect(() => {
+    document.title = "Shop | Jack's Peppers";
+  });
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
