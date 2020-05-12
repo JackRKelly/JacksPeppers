@@ -1,0 +1,24 @@
+@import "../../assets/variables.scss";
+
+.notification-container {
+  position: absolute;
+  top: 75px;
+  right: 40px;
+  z-index: 300;
+  &--item {
+    padding: 15px 20px;
+    margin: 10px 0;
+    color: white;
+    font-size: 18px;
+    border-radius: 5px;
+    &.success {
+      background-color: #00bc8c;
+    }
+    &.warning {
+      background-color: #f39c11;
+    }
+    &.error {
+      background-color: #e84c3d;
+    }
+  }
+}
