@@ -1,4 +1,4 @@
-import React, { FC, Dispatch, SetStateAction } from "react";
+import React, { FC, Dispatch, SetStateAction, useState } from "react";
 import { addItem, removeItem } from "../../common/notification";
 import "./index.scss";
 
@@ -9,6 +9,7 @@ enum NotificationTypes {
 }
 
 interface NotificationItem {
+  id: number;
   type: NotificationTypes;
   text: string;
 }
@@ -20,6 +21,7 @@ interface Props {
 
 const Notification: FC<Props> = (props) => {
   const { notification, setNotification } = props;
+  const [idCounter, setIdCounter] = useState(1);
 
   return (
     <div className="notification-container">
@@ -29,10 +31,10 @@ const Notification: FC<Props> = (props) => {
           key={index}
         >
           {notification.text}
-          {index}
+          {notification.id}
           <button
             onClick={() => {
-              removeItem(setNotification, index);
+              removeItem(notification.id, setNotification);
             }}
           >
             Close
@@ -41,13 +43,22 @@ const Notification: FC<Props> = (props) => {
       ))}
       <button
         onClick={() => {
+          setIdCounter(idCounter + 1);
           addItem(setNotification, {
+            id: idCounter,
             type: NotificationTypes.success,
             text: "Added item",
           });
         }}
       >
         Add item
+      </button>
+      <button
+        onClick={() => {
+          console.log(notification);
+        }}
+      >
+        Test
       </button>
     </div>
   );

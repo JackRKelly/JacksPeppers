@@ -7,6 +7,7 @@ enum NotificationTypes {
 }
 
 interface NotificationItem {
+  id: number;
   type: NotificationTypes;
   text: string;
 }
@@ -15,12 +16,17 @@ export const addItem = (
   setNotification: Dispatch<SetStateAction<NotificationItem[]>>,
   item: NotificationItem
 ) => {
-  setNotification((notifications) => [...notifications, item]);
+  setNotification((notifications): NotificationItem[] => [
+    ...notifications,
+    item,
+  ]);
 };
 
 export const removeItem = (
-  setNotification: Dispatch<SetStateAction<NotificationItem[]>>,
-  index: number
+  id: number,
+  setNotification: Dispatch<SetStateAction<NotificationItem[]>>
 ) => {
-  setNotification((notifications) => notifications.splice(index, 1));
+  setNotification((notification) =>
+    notification.filter((item) => item.id !== id)
+  );
 };

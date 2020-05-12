@@ -29,6 +29,7 @@ enum NotificationTypes {
 }
 
 interface NotificationItem {
+  id: number;
   type: NotificationTypes;
   text: string;
 }
@@ -36,7 +37,11 @@ interface NotificationItem {
 const App: FC = () => {
   const [cart, setCart] = useState<Array<CartItem>>([]);
   const [notification, setNotification] = useState<NotificationItem[]>([
-    { type: NotificationTypes.success, text: "Form successfully submitted" },
+    {
+      id: 0,
+      type: NotificationTypes.success,
+      text: "Form successfully submitted",
+    },
   ]);
 
   return (
