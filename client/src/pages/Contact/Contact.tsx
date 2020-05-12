@@ -2,17 +2,22 @@ import React, { useState, FC, useEffect } from "react";
 import "./index.scss";
 import FormInput from "../../components/FormInput/FormInput";
 
+enum InputType {
+  Input,
+  Textarea,
+}
+
 const Contact: FC = () => {
   const [error] = useState(["", "", ""]);
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
 
   useEffect(() => {
     document.title = "Contact | Jack's Peppers";
   }, []);
 
-  enum InputType {
-    Input,
-    Textarea,
-  }
+  const handleSubmit = () => {};
 
   return (
     <main className="contact">
@@ -23,10 +28,14 @@ const Contact: FC = () => {
         </h3>
       </header>
 
-      <form className="contact-form">
+      <form className="contact-form" onSubmit={() => handleSubmit()}>
         <FormInput
           name="name"
           type="text"
+          value={name}
+          onChange={(e) => {
+            setName(e.target.value);
+          }}
           element={InputType.Input}
           placeholder="John Doe"
           error={error[0]}
@@ -34,6 +43,10 @@ const Contact: FC = () => {
         <FormInput
           name="email"
           type="email"
+          value={email}
+          onChange={(e) => {
+            setEmail(e.target.value);
+          }}
           element={InputType.Input}
           placeholder="johndoe@email.com"
           error={error[1]}
@@ -41,6 +54,10 @@ const Contact: FC = () => {
         <FormInput
           name="message"
           type="text"
+          value={message}
+          onChange={(e) => {
+            setMessage(e.target.value);
+          }}
           element={InputType.Textarea}
           placeholder="Enter your message here..."
           error={error[2]}

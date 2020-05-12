@@ -8,13 +8,15 @@ enum InputType {
 interface Props {
   name: string;
   element: InputType;
+  value: string;
+  onChange: (e: any) => void;
   placeholder?: string;
   type?: string;
   error?: string;
 }
 
 const FormInput: FC<Props> = (props) => {
-  const { type, name, element, error, placeholder } = props;
+  const { type, name, element, value, onChange, error, placeholder } = props;
 
   const capitolize = (a: string): string => {
     return a.charAt(0).toUpperCase() + a.slice(1);
@@ -29,6 +31,8 @@ const FormInput: FC<Props> = (props) => {
         <input
           type={type}
           name={name}
+          value={value}
+          onChange={onChange}
           className="contact-form--container-input"
           style={{
             border: error ? "red solid 1px" : "none",
