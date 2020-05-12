@@ -1,17 +1,44 @@
-import React, { useState, FC, useEffect, FormEvent } from "react";
+import React, {
+  useState,
+  FC,
+  useEffect,
+  FormEvent,
+  Dispatch,
+  SetStateAction,
+} from "react";
 import "./index.scss";
 import FormInput from "../../components/FormInput/FormInput";
+import { addItem } from "../../common/notification";
 
 enum InputType {
   Input,
   Textarea,
 }
 
-const Contact: FC = () => {
+interface NotificationItem {
+  id: number;
+  type: NotificationTypes;
+  text: string;
+}
+
+enum NotificationTypes {
+  success = "success",
+  warning = "warning",
+  error = "error",
+}
+
+interface Props {
+  notification: NotificationItem[];
+  setNotification: Dispatch<SetStateAction<NotificationItem[]>>;
+}
+
+const Contact: FC<Props> = (props) => {
   const [error, setError] = useState(["", "", ""]);
   const [name, setName] = useState("Jack");
   const [email, setEmail] = useState("kcjackkelly@gmail.com");
   const [message, setMessage] = useState("Hello");
+
+  const { notification, setNotification } = props;
 
   useEffect(() => {
     document.title = "Contact | Jack's Peppers";
@@ -25,19 +52,22 @@ const Contact: FC = () => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(body),
     })
-      .then((response) => {
-        if (response.status === 200) {
+      .then((res) => {
+        if (res.status === 200) {
           setName("");
           setEmail("");
           setMessage("");
         }
-        return response.json();
+        return res.json();
       })
-      .then((err) => {
-        if (err) {
-          setError(err.error);
-          if (err.message) {
-            console.log(err.message);
+      .then((res) => {
+        if (res) {
+          setError(res.error);
+          if (res.message) {
+            addItem(setNotification, {
+              type: NotificationTypes.success,
+              text: res.message,
+            });
           }
         }
       });

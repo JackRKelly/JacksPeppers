@@ -21,7 +21,6 @@ interface Props {
 
 const Notification: FC<Props> = (props) => {
   const { notification, setNotification } = props;
-  const [idCounter, setIdCounter] = useState(1);
 
   return (
     <div className="notification-container">
@@ -31,8 +30,8 @@ const Notification: FC<Props> = (props) => {
           key={index}
         >
           {notification.text}
-          {notification.id}
           <button
+            className="notification-container--item-dismiss"
             onClick={() => {
               removeItem(notification.id, setNotification);
             }}
@@ -41,25 +40,6 @@ const Notification: FC<Props> = (props) => {
           </button>
         </div>
       ))}
-      <button
-        onClick={() => {
-          setIdCounter(idCounter + 1);
-          addItem(setNotification, {
-            id: idCounter,
-            type: NotificationTypes.success,
-            text: "Added item",
-          });
-        }}
-      >
-        Add item
-      </button>
-      <button
-        onClick={() => {
-          console.log(notification);
-        }}
-      >
-        Test
-      </button>
     </div>
   );
 };

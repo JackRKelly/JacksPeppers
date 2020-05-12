@@ -1,4 +1,5 @@
 import { Dispatch, SetStateAction } from "react";
+let count = 1;
 
 enum NotificationTypes {
   success = "success",
@@ -12,13 +13,19 @@ interface NotificationItem {
   text: string;
 }
 
+interface NotificationItemNoId {
+  type: NotificationTypes;
+  text: string;
+}
+
 export const addItem = (
   setNotification: Dispatch<SetStateAction<NotificationItem[]>>,
-  item: NotificationItem
+  item: NotificationItemNoId
 ) => {
+  count++;
   setNotification((notifications): NotificationItem[] => [
     ...notifications,
-    item,
+    { id: count, type: item.type, text: item.text },
   ]);
 };
 

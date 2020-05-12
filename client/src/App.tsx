@@ -102,7 +102,10 @@ const App: FC = () => {
                     <Home />
                   </Route>
                   <Route path="/contact">
-                    <Contact />
+                    <Contact
+                      notification={notification}
+                      setNotification={setNotification}
+                    />
                   </Route>
                   <Route path="/shop">
                     <Shop />
