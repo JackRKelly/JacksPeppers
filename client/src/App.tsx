@@ -22,13 +22,29 @@ interface CartItem {
   quantity: number;
 }
 
+enum NotificationTypes {
+  success = "success",
+  warning = "warning",
+  error = "error",
+}
+
+interface NotificationItem {
+  type: NotificationTypes;
+  text: string;
+}
+
 const App: FC = () => {
   const [cart, setCart] = useState<Array<CartItem>>([]);
-  const [notification, setNotification] = useState("");
+  const [notification, setNotification] = useState<NotificationItem[]>([
+    { type: NotificationTypes.success, text: "Form successfully submitted" },
+  ]);
 
   return (
     <>
-      <Notification />
+      <Notification
+        notification={notification}
+        setNotification={setNotification}
+      />
       <Router>
         <nav className="navigation desktop">
           <ul className="navigation-list">

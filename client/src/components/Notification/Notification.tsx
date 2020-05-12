@@ -1,35 +1,54 @@
-import React, { FC } from "react";
+import React, { FC, Dispatch, SetStateAction } from "react";
+import { addItem, removeItem } from "../../common/notification";
 import "./index.scss";
 
-const Notification: FC = () => {
-  let notifications = [
-    { type: "success", text: "Notification 1" },
-    { type: "warning", text: "Notification 1" },
-    { type: "error", text: "Notification 1" },
-  ];
+enum NotificationTypes {
+  success = "success",
+  warning = "warning",
+  error = "error",
+}
 
-  const hideNotification = (index: number) => {
-    notifications.splice(index, 1);
-    console.log(notifications, index);
-  };
+interface NotificationItem {
+  type: NotificationTypes;
+  text: string;
+}
+
+interface Props {
+  notification: NotificationItem[];
+  setNotification: Dispatch<SetStateAction<NotificationItem[]>>;
+}
+
+const Notification: FC<Props> = (props) => {
+  const { notification, setNotification } = props;
 
   return (
     <div className="notification-container">
-      {notifications.map((notification, index) => (
+      {notification.map((notification, index) => (
         <div
           className={`notification-container--item ${notification.type}`}
           key={index}
         >
-          {notification.text}{" "}
+          {notification.text}
+          {index}
           <button
             onClick={() => {
-              hideNotification(index);
+              removeItem(setNotification, index);
             }}
           >
             Close
           </button>
         </div>
       ))}
+      <button
+        onClick={() => {
+          addItem(setNotification, {
+            type: NotificationTypes.success,
+            text: "Added item",
+          });
+        }}
+      >
+        Add item
+      </button>
     </div>
   );
 };
