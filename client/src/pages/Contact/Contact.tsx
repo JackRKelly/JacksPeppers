@@ -28,7 +28,6 @@ enum NotificationTypes {
 }
 
 interface Props {
-  notification: NotificationItem[];
   setNotification: Dispatch<SetStateAction<NotificationItem[]>>;
 }
 
@@ -38,7 +37,7 @@ const Contact: FC<Props> = (props) => {
   const [email, setEmail] = useState("kcjackkelly@gmail.com");
   const [message, setMessage] = useState("Hello");
 
-  const { notification, setNotification } = props;
+  const { setNotification } = props;
 
   useEffect(() => {
     document.title = "Contact | Jack's Peppers";

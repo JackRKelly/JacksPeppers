@@ -1,5 +1,5 @@
-import React, { FC, Dispatch, SetStateAction, useState } from "react";
-import { addItem, removeItem } from "../../common/notification";
+import React, { FC, Dispatch, SetStateAction } from "react";
+import { removeItem } from "../../common/notification";
 import "./index.scss";
 
 enum NotificationTypes {

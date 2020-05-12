@@ -27,6 +27,9 @@ export const addItem = (
     ...notifications,
     { id: count, type: item.type, text: item.text },
   ]);
+  setTimeout(() => {
+    removeItem(count, setNotification);
+  }, 10000);
 };
 
 export const removeItem = (
