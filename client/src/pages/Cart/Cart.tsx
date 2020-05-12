@@ -4,7 +4,6 @@ import {
   addItem,
   incrementItem,
   decrementItem,
-  updateItem,
 } from "../../common/cart";
 import "./index.scss";
 
@@ -29,17 +28,7 @@ const Cart: FC<Props> = (props) => {
         <h1 className="hero-section--title">Your Cart</h1>
         {cart.map((cart, value) => (
           <div key={value}>
-            {cart.id} +{" "}
-            <input
-              type="number"
-              value={cart.quantity}
-              min={1}
-              max={100}
-              onChange={(e) => {
-                updateItem(setCart, cart.id, parseInt(e.target.value));
-              }}
-            />
-            {cart.quantity}{" "}
+            {cart.id} X {cart.quantity}{" "}
             <button
               onClick={() => {
                 incrementItem(setCart, cart.id);
@@ -52,7 +41,7 @@ const Cart: FC<Props> = (props) => {
                 decrementItem(setCart, cart.id);
               }}
             >
-              Decre
+              Decrement
             </button>
             <button
               onClick={() => {

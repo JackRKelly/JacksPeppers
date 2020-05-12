@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { ColorKind } from "../../common/color";
 import { heatSwitch, heatSwitchColor } from "../../common/heat";
 import "./index.scss";
+import { addItem, checkDuplicate } from "../../common/cart";
 
 interface CartItem {
   id: number;
@@ -18,7 +19,7 @@ const Product: FC<Props> = (props) => {
   document.title = `Pepper Name | Jack's Peppers`;
 
   const { id } = useParams();
-  const { cart } = props;
+  const { cart, setCart } = props;
   const [imagePath, setImagePath] = useState();
 
   const pepper = {
@@ -92,7 +93,18 @@ const Product: FC<Props> = (props) => {
           </h3>
           <h3 className="product-info--main-details">Item #{id}</h3>
           <p className="product-info--main-description">{pepper.description}</p>
-          <button className="product-info--main-add">Add to cart</button>
+          <button
+            className="product-info--main-add"
+            onClick={() => {
+              addItem(setCart, id);
+            }}
+            style={{
+              backgroundColor: checkDuplicate(cart, id) ? "gray" : "auto",
+              pointerEvents: checkDuplicate(cart, id) ? "none" : "auto",
+            }}
+          >
+            {checkDuplicate(cart, id) ? "In cart" : "Add to cart"}
+          </button>
         </div>
       </div>
     </main>

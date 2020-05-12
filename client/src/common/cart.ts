@@ -68,3 +68,12 @@ export const updateItem = (
     )
   );
 };
+
+export const checkDuplicate = (cart: Array<CartItem>, id: number): boolean => {
+  for (let i = 0; i < cart.length; i++) {
+    if (cart[i].id === id) {
+      return true;
+    }
+  }
+  return false;
+};
