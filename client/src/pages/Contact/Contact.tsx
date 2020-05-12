@@ -20,14 +20,13 @@ const Contact: FC = () => {
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     const body = { name, email, message };
-    console.log(body);
     await fetch("/api/form", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(body),
     })
       .then((response) => {
-        console.log(response);
+        return response.json();
       })
       .catch((err) => console.error(err));
   };
