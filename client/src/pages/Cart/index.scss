@@ -8,6 +8,7 @@ main.cart {
     align-items: flex-start;
     justify-content: center;
     @include headerPadding;
+    padding-bottom: 20px;
     &--title {
       @include h1;
       margin: 0;

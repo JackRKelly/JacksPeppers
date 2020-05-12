@@ -36,7 +36,7 @@ const Notification: FC<Props> = (props) => {
               removeItem(notification.id, setNotification);
             }}
           >
-            Close
+            Dismiss
           </button>
         </div>
       ))}

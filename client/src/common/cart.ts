@@ -60,23 +60,6 @@ export const decrementItem = (
   );
 };
 
-export const updateItem = (
-  setCart: Dispatch<SetStateAction<CartItem[]>>,
-  id: number,
-  quantity: number
-) => {
-  setCart((cart): CartItem[] =>
-    cart.map((item) =>
-      item.id === id
-        ? {
-            id: item.id,
-            quantity: quantity,
-          }
-        : item
-    )
-  );
-};
-
 export const checkDuplicate = (cart: Array<CartItem>, id: number): boolean => {
   for (let i = 0; i < cart.length; i++) {
     if (cart[i].id === id) {

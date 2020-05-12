@@ -22,6 +22,16 @@
     }
     &-dismiss {
       margin-left: 10px;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      @include ease-in-out(200ms);
+      @include font(false);
+      &:hover {
+        transform: scale(1.1);
+      }
     }
   }
 }

@@ -36,13 +36,7 @@ interface NotificationItem {
 
 const App: FC = () => {
   const [cart, setCart] = useState<Array<CartItem>>([]);
-  const [notification, setNotification] = useState<NotificationItem[]>([
-    {
-      id: 0,
-      type: NotificationTypes.success,
-      text: "Form successfully submitted",
-    },
-  ]);
+  const [notification, setNotification] = useState<NotificationItem[]>([]);
 
   return (
     <>

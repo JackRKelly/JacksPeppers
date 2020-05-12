@@ -104,7 +104,6 @@ const Product: FC<Props> = (props) => {
               {heatSwitch(pepper.heat)} Pepper
             </span>
           </h3>
-          <h3 className="product-info--main-details">Item #{id}</h3>
           <p className="product-info--main-description">{pepper.description}</p>
           <button
             className="product-info--main-add"

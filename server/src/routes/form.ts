@@ -17,6 +17,12 @@ router.post("/", async (req: Request, res: Response) => {
   if (email.length === 0) {
     error.error = true;
     error.list[1] = "Email cannot be left blank.";
+  } else if (!email.includes("@")) {
+    error.error = true;
+    error.list[1] = 'Email must contain an "@" symbol.';
+  } else if (!email.includes(".")) {
+    error.error = true;
+    error.list[1] = "Email must contain a period.";
   }
   if (message.length === 0) {
     error.error = true;
