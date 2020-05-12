@@ -14,6 +14,7 @@ import Product from "./pages/Product/Product";
 import Contact from "./pages/Contact/Contact";
 import Shipping from "./pages/Shipping/Shipping";
 import Cart from "./pages/Cart/Cart";
+import { countCart } from "./common/cart";
 
 interface CartItem {
   id: number;
@@ -61,7 +62,7 @@ const App: FC = () => {
               to="/cart"
               activeClassName="active"
             >
-              Cart <span>{cart.length === 0 ? "" : cart.length}</span>
+              Cart <span>{cart.length === 0 ? "" : countCart(cart)}</span>
             </NavLink>
           </li>
         </ul>

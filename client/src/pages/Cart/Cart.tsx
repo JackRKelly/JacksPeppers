@@ -28,34 +28,37 @@ const Cart: FC<Props> = (props) => {
     <main className="cart">
       <header className="hero-section">
         <h1 className="hero-section--title">Your Cart</h1>
-        {cart.length === 0
-          ? "Your cart is empty"
-          : cart.map((cart, value) => (
-              <div key={value}>
-                {cart.id} X {cart.quantity}{" "}
-                <button
-                  onClick={() => {
-                    incrementItem(setCart, cart.id);
-                  }}
-                >
-                  Increment
-                </button>
-                <button
-                  onClick={() => {
-                    decrementItem(setCart, cart.id);
-                  }}
-                >
-                  Decrement
-                </button>
-                <button
-                  onClick={() => {
-                    deleteItem(setCart, cart.id);
-                  }}
-                >
-                  Delete
-                </button>
-              </div>
-            ))}
+        <div className="cart-list">
+          {cart.length === 0
+            ? "Your cart is empty"
+            : cart.map((cart, value) => (
+                <div className="cart-list--item" key={value}>
+                  {cart.id} X {cart.quantity}{" "}
+                  <button
+                    onClick={() => {
+                      incrementItem(setCart, cart.id);
+                    }}
+                  >
+                    Increment
+                  </button>
+                  <button
+                    onClick={() => {
+                      decrementItem(setCart, cart.id);
+                    }}
+                  >
+                    Decrement
+                  </button>
+                  <button
+                    onClick={() => {
+                      deleteItem(setCart, cart.id);
+                    }}
+                  >
+                    Delete
+                  </button>
+                </div>
+              ))}
+        </div>
+
         <button
           onClick={() => {
             addItem(setCart, Math.floor(Math.random() * 100));

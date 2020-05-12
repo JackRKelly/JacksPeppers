@@ -112,11 +112,23 @@ const Product: FC<Props> = (props) => {
               addItem(setCart, id);
             }}
             style={{
-              backgroundColor: checkDuplicate(cart, id) ? "gray" : "auto",
-              pointerEvents: checkDuplicate(cart, id) ? "none" : "auto",
+              backgroundColor: !pepper.inStock
+                ? "gray"
+                : checkDuplicate(cart, id)
+                ? "gray"
+                : "auto",
+              pointerEvents: !pepper.inStock
+                ? "none"
+                : checkDuplicate(cart, id)
+                ? "none"
+                : "auto",
             }}
           >
-            {checkDuplicate(cart, id) ? "In cart" : "Add to cart"}
+            {!pepper.inStock
+              ? "Out of stock"
+              : checkDuplicate(cart, id)
+              ? "In cart"
+              : "Add to cart"}
           </button>
         </div>
       </div>

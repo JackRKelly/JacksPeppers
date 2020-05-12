@@ -3,7 +3,7 @@ import "./index.scss";
 import FormInput from "../../components/FormInput/FormInput";
 
 const Contact: FC = () => {
-  const [error] = useState(["Error", "Error", "Error"]);
+  const [error] = useState(["", "", ""]);
 
   useEffect(() => {
     document.title = "Contact | Jack's Peppers";

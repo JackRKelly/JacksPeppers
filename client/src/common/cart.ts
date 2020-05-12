@@ -25,6 +25,14 @@ export const addItem = (
   ]);
 };
 
+export const countCart = (cart: Array<CartItem>): number => {
+  let count = 0;
+  for (let i = 0; i < cart.length; i++) {
+    count += cart[i].quantity;
+  }
+  return count;
+};
+
 export const incrementItem = (
   setCart: Dispatch<SetStateAction<CartItem[]>>,
   id: number
