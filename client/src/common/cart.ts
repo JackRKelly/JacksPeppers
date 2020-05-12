@@ -45,7 +45,7 @@ export const decrementItem = (
       item.id === id
         ? {
             id: item.id,
-            quantity: item.quantity > 1 ? item.quantity-- : item.quantity,
+            quantity: item.quantity > 1 ? item.quantity - 1 : item.quantity,
           }
         : item
     )

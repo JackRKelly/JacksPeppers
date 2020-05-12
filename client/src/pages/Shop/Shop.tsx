@@ -20,7 +20,7 @@ const Shop: FC = () => {
 
   useEffect(() => {
     document.title = "Shop | Jack's Peppers";
-  });
+  }, []);
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();

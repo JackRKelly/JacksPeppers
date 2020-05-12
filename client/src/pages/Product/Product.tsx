@@ -26,9 +26,20 @@ const Product: FC<Props> = (props) => {
   const { cart, setCart } = props;
   const [imagePath, setImagePath] = useState();
 
-  useEffect(() => {
-    document.title = `Pepper Name | Jack's Peppers`;
-  });
+  useEffect((): (() => void | undefined) => {
+    document.title = `${pepper.title} | Jack's Peppers`;
+    let isSubscribed = true;
+
+    if (isSubscribed && pepper.image) {
+      import(`../../assets/images/${pepper.image}`).then((image) =>
+        setImagePath(image.default)
+      );
+    }
+
+    return () => {
+      isSubscribed = false;
+    };
+  }, []);
 
   const pepper = {
     title: "Sugar Rush Red",
@@ -42,12 +53,6 @@ const Product: FC<Props> = (props) => {
     description:
       "Gnarly long tails from these F4 peppers. Jays Peach Ghostscorpion X Reaper. Tyler Farms created the California Reaper. I received these before they were  named. I've put 3 generations on them with another growing. They might be a slightly different shape, than the original. Brutaly hot! Expect shape variability.",
   };
-
-  if (pepper.image) {
-    import(`../../assets/images/${pepper.image}`).then((image) =>
-      setImagePath(image.default)
-    );
-  }
 
   return (
     <main className="product">

@@ -22,7 +22,7 @@ const Cart: FC<Props> = (props) => {
 
   useEffect(() => {
     document.title = "Cart | Jack's Peppers";
-  });
+  }, []);
 
   return (
     <main className="cart">

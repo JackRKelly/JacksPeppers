@@ -7,7 +7,7 @@ const Contact: FC = () => {
 
   useEffect(() => {
     document.title = "Contact | Jack's Peppers";
-  });
+  }, []);
 
   enum InputType {
     Input,

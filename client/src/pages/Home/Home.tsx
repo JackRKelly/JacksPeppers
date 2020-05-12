@@ -5,7 +5,7 @@ import "./index.scss";
 const Home: FC = () => {
   useEffect(() => {
     document.title = "Home | Jack's Peppers";
-  });
+  }, []);
 
   return (
     <main className="home">
