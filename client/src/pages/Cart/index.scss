@@ -16,9 +16,20 @@ main.cart {
   }
   .cart-list {
     &--item {
+      font-size: 18px;
       max-height: 50px;
       display: flex;
       align-items: center;
+      margin-bottom: 10px;
+      a {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: black;
+        p {
+          padding: 0 15px;
+        }
+      }
       img {
         height: 50px;
       }

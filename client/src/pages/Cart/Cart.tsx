@@ -7,6 +7,7 @@ import React, {
 } from "react";
 import { deleteItem, incrementItem, decrementItem } from "../../common/cart";
 import "./index.scss";
+import { Link } from "react-router-dom";
 
 interface CartItem {
   id: number;
@@ -59,8 +60,12 @@ const Cart: FC<Props> = (props) => {
           ? "Your cart is empty"
           : cart.map((cart, value) => (
               <div className="cart-list--item" key={value}>
-                <img src={imagePath} alt="" />
-                {pepper.title} (Item #{cart.id})
+                <Link to={`product/${cart.id}`}>
+                  <img src={imagePath} alt="" />
+                  <p>
+                    {pepper.title} (Item #{cart.id})
+                  </p>
+                </Link>
                 <button
                   onClick={() => {
                     incrementItem(setCart, cart.id);
