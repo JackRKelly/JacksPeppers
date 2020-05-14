@@ -8,6 +8,8 @@ import {
 } from "react-router-dom";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import "./App.scss";
+import SVG from "react-inlinesvg";
+import Logo from "./assets/svg/logo.svg";
 import Home from "./pages/Home/Home";
 import Shop from "./pages/Shop/Shop";
 import Product from "./pages/Product/Product";
@@ -64,6 +66,11 @@ const App: FC = () => {
                 activeClassName="active"
               >
                 Shop
+              </NavLink>
+            </li>
+            <li className="navigation-list--item">
+              <NavLink className="navigation-list--link logo" to="/">
+                <SVG src={Logo} />
               </NavLink>
             </li>
             <li className="navigation-list--item">
