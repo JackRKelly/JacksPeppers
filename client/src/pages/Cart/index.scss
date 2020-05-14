@@ -14,4 +14,14 @@ main.cart {
       margin: 0;
     }
   }
+  .cart-list {
+    &--item {
+      max-height: 50px;
+      display: flex;
+      align-items: center;
+      img {
+        height: 50px;
+      }
+    }
+  }
 }

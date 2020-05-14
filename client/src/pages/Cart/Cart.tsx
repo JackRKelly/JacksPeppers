@@ -60,7 +60,7 @@ const Cart: FC<Props> = (props) => {
           : cart.map((cart, value) => (
               <div className="cart-list--item" key={value}>
                 <img src={imagePath} alt="" />
-                {cart.id}
+                {pepper.title} (Item #{cart.id})
                 <button
                   onClick={() => {
                     incrementItem(setCart, cart.id);
@@ -83,6 +83,8 @@ const Cart: FC<Props> = (props) => {
                 >
                   Delete
                 </button>
+                ${pepper.price.toFixed(2)} $
+                {(pepper.price * cart.quantity).toFixed(2)}
               </div>
             ))}
       </div>
