@@ -31,7 +31,7 @@ interface ProductItem {
   _id: string | boolean;
 }
 
-const ProductCard: FC<Props> = (props) => {
+const CartListItem: FC<Props> = (props) => {
   const { id, quantity, setCart } = props;
 
   const [imagePath, setImagePath] = useState();
@@ -104,4 +104,4 @@ const ProductCard: FC<Props> = (props) => {
   );
 };
 
-export default ProductCard;
+export default CartListItem;

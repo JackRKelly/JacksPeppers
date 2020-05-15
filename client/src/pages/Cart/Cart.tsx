@@ -27,11 +27,12 @@ const Cart: FC<Props> = (props) => {
       <div className="cart-list">
         {cart.length === 0
           ? "Your cart is empty"
-          : cart.map((cart, value) => (
+          : cart.map((cart, index) => (
               <CartListItem
                 id={cart.id}
                 quantity={cart.quantity}
                 setCart={setCart}
+                key={typeof cart.id === "string" ? cart.id : index}
               />
             ))}
       </div>
