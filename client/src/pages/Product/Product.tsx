@@ -55,7 +55,6 @@ const Product: FC<Props> = (props) => {
     fetch(`/api/inventory/${id}`)
       .then((result) => {
         result.json().then((json) => {
-          console.log(json);
           setProduct(json);
           if (isSubscribed && json.image) {
             import(`../../assets/images/${json.image}`).then((image) =>
@@ -76,7 +75,15 @@ const Product: FC<Props> = (props) => {
 
   return (
     <main className="product">
-      {!product._id ? (
+      {!product ? (
+        <div className="product-error">
+          <h1 className="product-error--title">Product not found</h1>
+          <p className="product-error--description">
+            The product you are searching for does not exist.
+          </p>
+          <Link to="/shop">Shop</Link>
+        </div>
+      ) : !product._id ? (
         <div className="product-error">
           <h1 className="product-error--title">Product not found</h1>
           <p className="product-error--description">

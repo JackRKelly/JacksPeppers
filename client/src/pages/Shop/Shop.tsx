@@ -37,7 +37,6 @@ const Shop: FC = () => {
     fetch("/api/inventory")
       .then((result) => {
         result.json().then((json) => {
-          console.log(json);
           setProductList(json);
         });
       })
