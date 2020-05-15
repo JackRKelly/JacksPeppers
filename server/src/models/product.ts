@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 const productSchema = new mongoose.Schema({
-  _id: mongoose.Types.ObjectId,
+  _id: mongoose.Schema.Types.ObjectId,
   name: String,
   price: Number,
   seedCount: Number,
@@ -12,4 +12,4 @@ const productSchema = new mongoose.Schema({
   description: String,
 });
 
-export const product = mongoose.model("Product", productSchema);
+export const Product = mongoose.model("Product", productSchema);
