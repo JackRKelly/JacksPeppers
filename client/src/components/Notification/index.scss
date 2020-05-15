@@ -27,6 +27,7 @@
       border-radius: 5px;
       cursor: pointer;
       font-size: 16px;
+      -webkit-appearance: none;
       @include ease-in-out(200ms);
       @include font(false);
       &:hover {
