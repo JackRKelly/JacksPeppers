@@ -4,6 +4,19 @@ import mongoose from "mongoose";
 
 const router = Router();
 
+router.get("/", (req: Request, res: Response) => {
+  Product.find()
+    .exec()
+    .then((result) => {
+      console.log(result);
+      res.status(200).json(result);
+    })
+    .catch((err) => {
+      console.error(err);
+      res.status(500).json({ error: err });
+    });
+});
+
 router.post("/", (req: Request, res: Response) => {
   const {
     name,
@@ -40,9 +53,7 @@ router.post("/", (req: Request, res: Response) => {
     })
     .catch((err) => {
       console.error(err);
-      res.status(500).json({
-        error: err,
-      });
+      res.status(500).json({ error: err });
     });
 });
 
