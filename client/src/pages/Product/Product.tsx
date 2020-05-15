@@ -97,37 +97,37 @@ const Product: FC<Props> = (props) => {
             <div className="product-info--preview-main">
               <img
                 src={imagePath}
-                alt={`${product.name} product.`}
-                title={`${product.name} product.`}
+                alt={`${product.name} image.`}
+                title={`${product.name} image.`}
               />
             </div>
             <ul className="product-info--preview-list">
               <li className="product-info--preview-list--item">
                 <img
                   src={imagePath}
-                  alt={`${product.name} product.`}
-                  title={`${product.name} product.`}
+                  alt={`${product.name} image.`}
+                  title={`${product.name} image.`}
                 />
               </li>
               <li className="product-info--preview-list--item">
                 <img
                   src={imagePath}
-                  alt={`${product.name} product.`}
-                  title={`${product.name} product.`}
+                  alt={`${product.name} image.`}
+                  title={`${product.name} image.`}
                 />
               </li>
               <li className="product-info--preview-list--item">
                 <img
                   src={imagePath}
-                  alt={`${product.name} product.`}
-                  title={`${product.name} product.`}
+                  alt={`${product.name} image.`}
+                  title={`${product.name} image.`}
                 />
               </li>
               <li className="product-info--preview-list--item">
                 <img
                   src={imagePath}
-                  alt={`${product.name} product.`}
-                  title={`${product.name} product.`}
+                  alt={`${product.name} image.`}
+                  title={`${product.name} image.`}
                 />
               </li>
             </ul>
