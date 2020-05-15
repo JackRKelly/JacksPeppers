@@ -10,8 +10,7 @@ interface Props {
   price: number;
   inStock: boolean;
   heat: number;
-  id: number;
-  colorList: Array<ColorKind>;
+  id: string;
   image?: string;
 }
 
