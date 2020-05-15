@@ -8,7 +8,6 @@ router.get("/", (req: Request, res: Response) => {
   Product.find()
     .exec()
     .then((result) => {
-      console.log(result);
       res.status(200).json(result);
     })
     .catch((err) => {
@@ -44,7 +43,6 @@ router.post("/", (req: Request, res: Response) => {
   product
     .save()
     .then((result) => {
-      console.log(result);
       if (result) {
         res.status(201).json({ result });
       } else {
@@ -58,13 +56,40 @@ router.post("/", (req: Request, res: Response) => {
 });
 
 router.get("/:id", (req: Request, res: Response) => {
-  console.log("getting");
   const id = req.params.id;
   Product.findById(id)
     .exec()
     .then((doc) => {
-      console.log(doc);
       res.status(200).json(doc);
+    })
+    .catch((err) => {
+      console.error(err);
+      res.status(500).json({ error: err });
+    });
+});
+
+router.delete("/:id", (req: Request, res: Response) => {
+  const id = req.params.id;
+  Product.remove({ _id: id })
+    .exec()
+    .then((result) => {
+      res.status(200).json(result);
+    })
+    .catch((err) => {
+      console.error(err);
+      res.status(500).json({ error: err });
+    });
+});
+
+router.patch("/:id", (req: Request, res: Response) => {
+  const id = req.params.id;
+  const props = req.body;
+
+  Product.update({ _id: id }, props)
+    .exec()
+    .then((result) => {
+      console.log(result);
+      res.status(200).json(result);
     })
     .catch((err) => {
       console.error(err);
