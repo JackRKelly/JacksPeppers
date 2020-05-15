@@ -42,4 +42,19 @@ router.post("/", (req: Request, res: Response) => {
   });
 });
 
+router.get("/:id", (req: Request, res: Response) => {
+  console.log("getting");
+  const id = req.params.id;
+  Product.findById(id)
+    .exec()
+    .then((doc) => {
+      console.log(doc);
+      res.status(200).json(doc);
+    })
+    .catch((err) => {
+      console.error(err);
+      res.status(500).json({ error: err });
+    });
+});
+
 export default router;
