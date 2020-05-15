@@ -32,14 +32,18 @@ router.post("/", (req: Request, res: Response) => {
     .save()
     .then((result) => {
       console.log(result);
+      if (result) {
+        res.status(201).json({ result });
+      } else {
+        res.status(404).json({ message: "No entries found" });
+      }
     })
     .catch((err) => {
       console.error(err);
+      res.status(500).json({
+        error: err,
+      });
     });
-  res.status(201).json({
-    message: "Handling post requests to api/products",
-    createdProduct: product,
-  });
 });
 
 router.get("/:id", (req: Request, res: Response) => {
