@@ -34,6 +34,7 @@ app.use(bodyParser.json());
 
 //Implement Routes
 app.use("/", index);
+app.use("/product", index);
 app.use("/api/inventory", inventory);
 app.use("/api/form", form);
 

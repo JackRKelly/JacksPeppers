@@ -2,7 +2,6 @@ import React, { useState, FC } from "react";
 import { Link } from "react-router-dom";
 import HeatRating from "../HeatRating/HeatRating";
 import "./index.scss";
-import { ColorKind } from "../../common/color";
 import { heatSwitch } from "../../common/heat";
 
 interface Props {

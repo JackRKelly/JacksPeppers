@@ -21,38 +21,59 @@ interface Props {
   setCart: Dispatch<SetStateAction<CartItem[]>>;
 }
 
+interface ProductItem {
+  colorList: Array<string>;
+  description: string;
+  heat: number;
+  image: string;
+  name: string;
+  price: number;
+  quantity: number;
+  seedCount: number;
+  _id: string;
+}
+
 const Product: FC<Props> = (props) => {
   const { id } = useParams();
   const { cart, setCart } = props;
   const [imagePath, setImagePath] = useState();
-
-  const pepper = {
-    title: "Sugar Rush Red",
-    price: 2.5,
-    seedCount: 10,
-    inStock: true,
+  const [product, setProduct] = useState<ProductItem>({
+    colorList: ["red"],
+    description: "Description",
     heat: 1,
-    catagory: ["Sugar Rush"],
-    colorList: [ColorKind.Red, ColorKind.Orange],
-    image: "sugar-red.jpg",
-    description:
-      "Gnarly long tails from these F4 peppers. Jays Peach Ghostscorpion X Reaper. Tyler Farms created the California Reaper. I received these before they were  named. I've put 3 generations on them with another growing. They might be a slightly different shape, than the original. Brutaly hot! Expect shape variability.",
-  };
+    image: "loading.jpg",
+    name: "name",
+    price: 0,
+    quantity: 0,
+    seedCount: 0,
+    _id: "",
+  });
 
   useEffect((): (() => void | undefined) => {
-    document.title = `${pepper.title} | Jack's Peppers`;
+    document.title = `${product.name} | Jack's Peppers`;
     let isSubscribed = true;
 
-    if (isSubscribed && pepper.image) {
-      import(`../../assets/images/${pepper.image}`).then((image) =>
+    if (isSubscribed && product.image) {
+      import(`../../assets/images/${product.image}`).then((image) =>
         setImagePath(image.default)
       );
     }
 
+    fetch(`/api/inventory/${id}`)
+      .then((result) => {
+        result.json().then((json) => {
+          console.log(json);
+          setProduct(json);
+        });
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+
     return () => {
       isSubscribed = false;
     };
-  }, [pepper.image, pepper.title]);
+  }, [product.image, product.name]);
 
   return (
     <main className="product">
@@ -61,69 +82,73 @@ const Product: FC<Props> = (props) => {
           <div className="product-info--preview-main">
             <img
               src={imagePath}
-              alt={`${pepper.title} Pepper.`}
-              title={`${pepper.title} Pepper.`}
+              alt={`${product.name} product.`}
+              title={`${product.name} product.`}
             />
           </div>
           <ul className="product-info--preview-list">
             <li className="product-info--preview-list--item">
               <img
                 src={imagePath}
-                alt={`${pepper.title} Pepper.`}
-                title={`${pepper.title} Pepper.`}
+                alt={`${product.name} product.`}
+                title={`${product.name} product.`}
               />
             </li>
             <li className="product-info--preview-list--item">
               <img
                 src={imagePath}
-                alt={`${pepper.title} Pepper.`}
-                title={`${pepper.title} Pepper.`}
+                alt={`${product.name} product.`}
+                title={`${product.name} product.`}
               />
             </li>
             <li className="product-info--preview-list--item">
               <img
                 src={imagePath}
-                alt={`${pepper.title} Pepper.`}
-                title={`${pepper.title} Pepper.`}
+                alt={`${product.name} product.`}
+                title={`${product.name} product.`}
               />
             </li>
             <li className="product-info--preview-list--item">
               <img
                 src={imagePath}
-                alt={`${pepper.title} Pepper.`}
-                title={`${pepper.title} Pepper.`}
+                alt={`${product.name} product.`}
+                title={`${product.name} product.`}
               />
             </li>
           </ul>
         </div>
         <div className="product-info--main">
-          <h1 className="product-info--main-title">{pepper.title}</h1>
+          <h1 className="product-info--main-title">{product.name}</h1>
           <h3 className="product-info--main-price">
-            ${pepper.price.toFixed(2)} - {pepper.seedCount}+ Seeds -{" "}
-            <span style={{ color: heatSwitchColor(pepper.heat) }}>
-              {heatSwitch(pepper.heat)} Pepper
+            ${product.price.toFixed(2)} - {product.seedCount}+ Seeds -{" "}
+            <span style={{ color: heatSwitchColor(product.heat) }}>
+              {heatSwitch(product.heat)} Pepper
             </span>
           </h3>
-          <p className="product-info--main-description">{pepper.description}</p>
+          <p className="product-info--main-description">
+            {product.description}
+          </p>
           <button
             className="product-info--main-add"
             onClick={() => {
               addItem(setCart, id);
             }}
             style={{
-              backgroundColor: !pepper.inStock
-                ? "gray"
-                : checkDuplicate(cart, id)
-                ? "gray"
-                : "auto",
-              pointerEvents: !pepper.inStock
-                ? "none"
-                : checkDuplicate(cart, id)
-                ? "none"
-                : "auto",
+              backgroundColor:
+                product.quantity === 0
+                  ? "gray"
+                  : checkDuplicate(cart, id)
+                  ? "gray"
+                  : "auto",
+              pointerEvents:
+                product.quantity === 0
+                  ? "none"
+                  : checkDuplicate(cart, id)
+                  ? "none"
+                  : "auto",
             }}
           >
-            {!pepper.inStock
+            {product.quantity === 0
               ? "Out of stock"
               : checkDuplicate(cart, id)
               ? "In cart"
