@@ -17,10 +17,22 @@ const Shop: FC = () => {
   const [priceRange, setPriceRange] = useState([0, 5]);
   const [heatRange, setHeatRange] = useState([1, 5]);
   const [searchColor, setSearchColor] = useState(ColorKind.Red);
+  const [productList, setProductList] = useState<Array<Object>>([]);
 
   useEffect(() => {
     document.title = "Shop | Jack's Peppers";
   }, []);
+
+  fetch("/api/inventory")
+    .then((result) => {
+      result.json().then((json) => {
+        console.log(json);
+        setProductList(json);
+      });
+    })
+    .catch((err) => {
+      console.error(err);
+    });
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();

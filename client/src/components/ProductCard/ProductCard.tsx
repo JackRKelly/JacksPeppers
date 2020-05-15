@@ -6,7 +6,7 @@ import { ColorKind } from "../../common/color";
 import { heatSwitch } from "../../common/heat";
 
 interface Props {
-  title: string;
+  name: string;
   price: number;
   inStock: boolean;
   heat: number;
@@ -16,7 +16,7 @@ interface Props {
 }
 
 const ProductCard: FC<Props> = (props) => {
-  const { title, price, inStock, id, image, heat } = props;
+  const { name, price, inStock, id, image, heat } = props;
 
   const [imagePath, setImagePath] = useState();
 
@@ -44,14 +44,14 @@ const ProductCard: FC<Props> = (props) => {
 
           <img
             src={imagePath}
-            alt={`${title} Pepper.`}
-            title={`${title} Pepper.`}
+            alt={`${name} Pepper.`}
+            title={`${name} Pepper.`}
             className="product-card--image-container--image"
             style={{ opacity: inStock ? 1 : 0.5 }}
           />
         </div>
         <div className="product-card--title-container">
-          <h1 className="product-card--title">{title}</h1>
+          <h1 className="product-card--title">{name}</h1>
         </div>
       </Link>
     </div>
