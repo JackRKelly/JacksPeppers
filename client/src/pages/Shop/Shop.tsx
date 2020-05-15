@@ -161,7 +161,7 @@ const Shop: FC = () => {
               name={product.name}
               heat={product.heat}
               price={product.price}
-              inStock={product.quantity == 0}
+              inStock={product.quantity !== 0}
             />
           ))}
         </div>

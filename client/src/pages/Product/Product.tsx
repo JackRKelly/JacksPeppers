@@ -25,7 +25,7 @@ interface ProductItem {
   colorList: Array<string>;
   description: string;
   heat: number;
-  image: string;
+  image: string | undefined;
   name: string;
   price: number;
   quantity: number;
@@ -41,10 +41,10 @@ const Product: FC<Props> = (props) => {
     colorList: ["red"],
     description: "Description",
     heat: 1,
-    image: "loading.jpg",
+    image: undefined,
     name: "name",
     price: 0,
-    quantity: 0,
+    quantity: 1,
     seedCount: 0,
     _id: "",
   });
