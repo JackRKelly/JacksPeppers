@@ -1,20 +1,20 @@
 import { Dispatch, SetStateAction } from "react";
 
 interface CartItem {
-  id: number;
+  id: string | boolean;
   quantity: number;
 }
 
 export const deleteItem = (
   setCart: Dispatch<SetStateAction<CartItem[]>>,
-  id: number
+  id: string | boolean
 ) => {
   setCart((cart): CartItem[] => cart.filter((item) => item.id !== id));
 };
 
 export const addItem = (
   setCart: Dispatch<SetStateAction<CartItem[]>>,
-  id: number
+  id: string | boolean
 ) => {
   setCart((cart): CartItem[] => [
     ...cart,
@@ -35,7 +35,7 @@ export const countCart = (cart: Array<CartItem>): number => {
 
 export const incrementItem = (
   setCart: Dispatch<SetStateAction<CartItem[]>>,
-  id: number
+  id: string | boolean
 ) => {
   setCart((cart): CartItem[] =>
     cart.map((item) =>
@@ -46,7 +46,7 @@ export const incrementItem = (
 
 export const decrementItem = (
   setCart: Dispatch<SetStateAction<CartItem[]>>,
-  id: number
+  id: string | boolean
 ) => {
   setCart((cart): CartItem[] =>
     cart.map((item) =>
@@ -60,7 +60,10 @@ export const decrementItem = (
   );
 };
 
-export const checkDuplicate = (cart: Array<CartItem>, id: number): boolean => {
+export const checkDuplicate = (
+  cart: Array<CartItem>,
+  id: string | boolean
+): boolean => {
   for (let i = 0; i < cart.length; i++) {
     if (cart[i].id === id) {
       return true;

@@ -20,7 +20,7 @@ import Cart from "./pages/Cart/Cart";
 import { countCart } from "./common/cart";
 
 interface CartItem {
-  id: number;
+  id: string | boolean;
   quantity: number;
 }
 

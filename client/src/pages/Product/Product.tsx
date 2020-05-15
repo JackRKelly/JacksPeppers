@@ -6,13 +6,12 @@ import React, {
   useEffect,
 } from "react";
 import { useParams, Link } from "react-router-dom";
-import { ColorKind } from "../../common/color";
 import { heatSwitch, heatSwitchColor } from "../../common/heat";
 import "./index.scss";
 import { addItem, checkDuplicate } from "../../common/cart";
 
 interface CartItem {
-  id: number;
+  id: string | boolean;
   quantity: number;
 }
 
