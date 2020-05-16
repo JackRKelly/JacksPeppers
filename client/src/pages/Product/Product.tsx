@@ -12,6 +12,7 @@ import { addItem, checkDuplicate } from "../../common/cart";
 
 interface CartItem {
   id: string | boolean;
+  price: number;
   quantity: number;
 }
 
@@ -146,7 +147,7 @@ const Product: FC<Props> = (props) => {
             <button
               className="product-info--main-add"
               onClick={() => {
-                addItem(setCart, id);
+                addItem(setCart, id, product.price);
               }}
               style={{
                 backgroundColor:

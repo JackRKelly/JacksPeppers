@@ -21,6 +21,7 @@ import { countCart } from "./common/cart";
 
 interface CartItem {
   id: string | boolean;
+  price: number;
   quantity: number;
 }
 

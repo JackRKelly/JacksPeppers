@@ -2,6 +2,7 @@ import { Dispatch, SetStateAction } from "react";
 
 interface CartItem {
   id: string | boolean;
+  price: number;
   quantity: number;
 }
 
@@ -14,13 +15,15 @@ export const deleteItem = (
 
 export const addItem = (
   setCart: Dispatch<SetStateAction<CartItem[]>>,
-  id: string | boolean
+  id: string | boolean,
+  price: number
 ) => {
   setCart((cart): CartItem[] => [
     ...cart,
     {
       id: id,
       quantity: 1,
+      price: price,
     },
   ]);
 };
@@ -39,7 +42,9 @@ export const incrementItem = (
 ) => {
   setCart((cart): CartItem[] =>
     cart.map((item) =>
-      item.id === id ? { id: item.id, quantity: item.quantity + 1 } : item
+      item.id === id
+        ? { id: item.id, quantity: item.quantity + 1, price: item.price }
+        : item
     )
   );
 };
@@ -54,6 +59,7 @@ export const decrementItem = (
         ? {
             id: item.id,
             quantity: item.quantity > 1 ? item.quantity - 1 : item.quantity,
+            price: item.price,
           }
         : item
     )
@@ -70,4 +76,13 @@ export const checkDuplicate = (
     }
   }
   return false;
+};
+
+export const getTotalPrice = (cart: Array<CartItem>): number => {
+  let total = 4;
+  for (let i = 0; i < cart.length; i++) {
+    total += cart[i].price;
+  }
+  console.log(total);
+  return total;
 };
