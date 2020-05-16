@@ -26,20 +26,23 @@ const Cart: FC<Props> = (props) => {
       <header className="hero-section">
         <h1 className="hero-section--title">Your Cart</h1>
       </header>
-      <div className="cart-list">
-        {cart.length === 0
-          ? "Your cart is empty"
-          : cart.map((cart, index) => (
-              <CartListItem
-                id={cart.id}
-                quantity={cart.quantity}
-                setCart={setCart}
-                key={typeof cart.id === "string" ? cart.id : index}
-              />
-            ))}
-      </div>
-      <CartSummary cart={cart} />
-      <button className="cart-checkout">Checkout</button>
+
+      {cart.length === 0 ? (
+        <p>Your cart is empty</p>
+      ) : (
+        <div className="cart-list">
+          {cart.map((cartItem, index) => (
+            <CartListItem
+              id={cartItem.id}
+              quantity={cartItem.quantity}
+              setCart={setCart}
+              key={typeof cartItem.id === "string" ? cartItem.id : index}
+            />
+          ))}
+          <CartSummary cart={cart} />
+          <button className="cart-checkout">Checkout</button>
+        </div>
+      )}
     </main>
   );
 };

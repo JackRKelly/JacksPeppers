@@ -19,7 +19,7 @@ const CartSummary: FC<Props> = (props) => {
 
   useEffect(() => {
     setTotal(getTotalPrice(cart));
-  }, []);
+  }, [cart]);
 
   return (
     <ul className="cart-summary">

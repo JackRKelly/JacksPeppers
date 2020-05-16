@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import React, { FC, useState, useEffect } from "react";
 import {
   BrowserRouter as Router,
   Switch,
@@ -38,8 +38,14 @@ interface NotificationItem {
 }
 
 const App: FC = () => {
-  const [cart, setCart] = useState<Array<CartItem>>([]);
+  const [cart, setCart] = useState<Array<CartItem>>(
+    JSON.parse(localStorage.getItem("cart") || "")
+  );
   const [notification, setNotification] = useState<NotificationItem[]>([]);
+
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }, [cart]);
 
   return (
     <>
