@@ -39,7 +39,11 @@ interface NotificationItem {
 
 const App: FC = () => {
   const [cart, setCart] = useState<Array<CartItem>>(
-    JSON.parse(localStorage.getItem("cart") || "")
+    JSON.parse(
+      localStorage.getItem("cart") === null
+        ? "[]"
+        : localStorage.getItem("cart") || "[]"
+    )
   );
   const [notification, setNotification] = useState<NotificationItem[]>([]);
 
