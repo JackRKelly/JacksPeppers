@@ -1,7 +1,7 @@
 import React, { FC, Dispatch, SetStateAction, useEffect } from "react";
 import CartListItem from "../../components/CartListItem/CartListItem";
-import { getTotalPrice } from "../../common/cart";
 import "./index.scss";
+import CartSummary from "../../components/CartSummary/CartSummary";
 
 interface CartItem {
   id: string | boolean;
@@ -38,16 +38,7 @@ const Cart: FC<Props> = (props) => {
               />
             ))}
       </div>
-      <ul className="cart-summary">
-        <li className="cart-summary--subtotal">
-          Subtotal:{" "}
-          {() => {
-            getTotalPrice(cart);
-          }}
-        </li>
-        <li className="cart-summary--shipping">Shipping: $0.50</li>
-        <li className="cart-summary--total">Total: $5.50</li>
-      </ul>
+      <CartSummary cart={cart} />
       <button className="cart-checkout">Checkout</button>
     </main>
   );

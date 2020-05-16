@@ -79,7 +79,7 @@ export const checkDuplicate = (
 };
 
 export const getTotalPrice = (cart: Array<CartItem>): number => {
-  let total = 4;
+  let total = 0;
   for (let i = 0; i < cart.length; i++) {
     total += cart[i].price;
   }
