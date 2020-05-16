@@ -47,6 +47,27 @@ main.cart {
           display: block;
           margin-bottom: 0.625em;
         }
+        td {
+          &:last-child {
+            width: 1%;
+            white-space: nowrap;
+          }
+          @media screen and (max-width: $medium) {
+            border-bottom: 1px solid #ddd;
+            display: block;
+            font-size: 0.8em;
+            text-align: right;
+            &::before {
+              content: attr(data-label);
+              float: left;
+              font-weight: bold;
+              text-transform: uppercase;
+            }
+            &:last-child {
+              border-bottom: 0;
+            }
+          }
+        }
       }
       caption {
         font-size: 1.5em;
@@ -61,23 +82,6 @@ main.cart {
         font-size: 0.85em;
         letter-spacing: 0.1em;
         text-transform: uppercase;
-      }
-      td {
-        @media screen and (max-width: $medium) {
-          border-bottom: 1px solid #ddd;
-          display: block;
-          font-size: 0.8em;
-          text-align: right;
-          &::before {
-            content: attr(data-label);
-            float: left;
-            font-weight: bold;
-            text-transform: uppercase;
-          }
-          &:last-child {
-            border-bottom: 0;
-          }
-        }
       }
       &-body {
         &--item {

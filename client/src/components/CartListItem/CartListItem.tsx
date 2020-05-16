@@ -74,17 +74,23 @@ const CartListItem: FC<Props> = (props) => {
 
   return (
     <tr className="cart-list--table-item">
-      <td data-label="Product" className="cart-list--table-body--item-product">
+      <td className="cart-list--table-body--item-product">
         <Link to={`product/${product._id}`}>
           <img src={imagePath} alt="" />
           <p>{product.name}</p>
         </Link>
+        <button
+          onClick={() => {
+            deleteItem(setCart, product._id);
+          }}
+        >
+          Delete
+        </button>
       </td>
-      <td data-label="Due Date">04/01/2016</td>
-      <td
-        data-label="Quantity"
-        className="cart-list--table-body--item-quantity"
-      >
+      <td className="cart-list--table-body--item-price">
+        ${product.price.toFixed(2)}
+      </td>
+      <td className="cart-list--table-body--item-quantity">
         <button
           onClick={() => {
             incrementItem(setCart, product._id);
@@ -100,16 +106,9 @@ const CartListItem: FC<Props> = (props) => {
         >
           -
         </button>
-        <button
-          onClick={() => {
-            deleteItem(setCart, product._id);
-          }}
-        >
-          Delete
-        </button>
       </td>
-      <td data-label="Price" className="cart-list--table-body--item-price">
-        ${product.price.toFixed(2)} ${(product.price * quantity).toFixed(2)}
+      <td className="cart-list--table-body--item-total">
+        ${(product.price * quantity).toFixed(2)}
       </td>
     </tr>
   );

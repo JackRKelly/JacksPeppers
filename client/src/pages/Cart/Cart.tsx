@@ -36,9 +36,9 @@ const Cart: FC<Props> = (props) => {
             <thead>
               <tr>
                 <th scope="col">Product</th>
-                <th scope="col">Due Date</th>
-                <th scope="col">Quantity</th>
                 <th scope="col">Price</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Total</th>
               </tr>
             </thead>
             <tbody className="cart-list--table-body">
