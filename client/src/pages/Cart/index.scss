@@ -15,23 +15,80 @@ main.cart {
     }
   }
   .cart-list {
-    &--item {
-      font-size: 18px;
-      max-height: 50px;
-      display: flex;
-      align-items: center;
-      margin-bottom: 10px;
-      a {
-        display: flex;
-        align-items: center;
-        text-decoration: none;
-        color: black;
-        p {
-          padding: 0 15px;
+    &--table {
+      border: 1px solid #ccc;
+      border-collapse: collapse;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      table-layout: fixed;
+      @media screen and (max-width: $medium) {
+        border: 0;
+        caption {
+          font-size: 1.3em;
+        }
+        thead {
+          border: none;
+          clip: rect(0 0 0 0);
+          height: 1px;
+          margin: -1px;
+          overflow: hidden;
+          padding: 0;
+          position: absolute;
+          width: 1px;
         }
       }
-      img {
-        height: 50px;
+      tr {
+        background-color: #f8f8f8;
+        border: 1px solid #ddd;
+        padding: 0.35em;
+        @media screen and (max-width: $medium) {
+          border-bottom: 3px solid #ddd;
+          display: block;
+          margin-bottom: 0.625em;
+        }
+      }
+      caption {
+        font-size: 1.5em;
+        margin: 0.5em 0 0.75em;
+      }
+      th,
+      td {
+        padding: 0.625em;
+        text-align: center;
+      }
+      th {
+        font-size: 0.85em;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+      td {
+        @media screen and (max-width: $medium) {
+          border-bottom: 1px solid #ddd;
+          display: block;
+          font-size: 0.8em;
+          text-align: right;
+          &::before {
+            content: attr(data-label);
+            float: left;
+            font-weight: bold;
+            text-transform: uppercase;
+          }
+          &:last-child {
+            border-bottom: 0;
+          }
+        }
+      }
+      &-body {
+        &--item {
+          &-product {
+            a {
+              img {
+                height: 50px;
+              }
+            }
+          }
+        }
       }
     }
   }

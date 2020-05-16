@@ -31,14 +31,27 @@ const Cart: FC<Props> = (props) => {
         <p>Your cart is empty</p>
       ) : (
         <div className="cart-list">
-          {cart.map((cartItem, index) => (
-            <CartListItem
-              id={cartItem.id}
-              quantity={cartItem.quantity}
-              setCart={setCart}
-              key={typeof cartItem.id === "string" ? cartItem.id : index}
-            />
-          ))}
+          <table className="cart-list--table">
+            <caption>Statement Summary</caption>
+            <thead>
+              <tr>
+                <th scope="col">Product</th>
+                <th scope="col">Due Date</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Price</th>
+              </tr>
+            </thead>
+            <tbody className="cart-list--table-body">
+              {cart.map((cartItem, index) => (
+                <CartListItem
+                  id={cartItem.id}
+                  quantity={cartItem.quantity}
+                  setCart={setCart}
+                  key={typeof cartItem.id === "string" ? cartItem.id : index}
+                />
+              ))}
+            </tbody>
+          </table>
           <CartSummary cart={cart} />
           <button className="cart-checkout">Checkout</button>
         </div>
