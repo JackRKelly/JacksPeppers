@@ -36,6 +36,12 @@ const Cart: FC<Props> = (props) => {
               />
             ))}
       </div>
+      <ul className="cart-summary">
+        <li className="cart-summary--subtotal">Subtotal: $5.00</li>
+        <li className="cart-summary--shipping">Shipping: $0.50</li>
+        <li className="cart-summary--total">Total: $5.50</li>
+      </ul>
+      <button className="cart-checkout">Checkout</button>
     </main>
   );
 };

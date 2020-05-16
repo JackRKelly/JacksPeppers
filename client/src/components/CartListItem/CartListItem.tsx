@@ -69,7 +69,7 @@ const CartListItem: FC<Props> = (props) => {
     return () => {
       isSubscribed = false;
     };
-  }, []);
+  }, [id]);
 
   return (
     <div className="cart-list--item">
