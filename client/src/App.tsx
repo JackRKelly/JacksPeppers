@@ -31,8 +31,18 @@ const App: FC = () => {
   );
   const [notification, setNotification] = useState<NotificationItem[]>([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  const checkMobile = () => {
+    if (window.innerWidth < 600) {
+      setIsMobile(true);
+    } else {
+      setIsMobile(false);
+    }
+  };
 
   useEffect(() => {
+    checkMobile();
     localStorage.setItem("cart", JSON.stringify(cart));
   }, [cart]);
 
