@@ -14,13 +14,15 @@ const Cart: FC<Props> = (props) => {
   const { cart, setCart, setIsLoading } = props;
 
   useEffect(() => {
+    setIsLoading(true);
+    document.title = "Cart | Jack's Peppers";
+  }, [setIsLoading]);
+
+  useEffect(() => {
     if (cart.length === 0) {
       setIsLoading(false);
-    } else {
-      setIsLoading(true);
     }
-    document.title = "Cart | Jack's Peppers";
-  }, [setIsLoading, cart]);
+  }, [cart, setIsLoading]);
 
   return (
     <main className="cart">

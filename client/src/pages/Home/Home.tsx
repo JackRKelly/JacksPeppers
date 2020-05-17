@@ -12,7 +12,7 @@ const Home: FC<Props> = (props) => {
   useEffect(() => {
     setIsLoading(false);
     document.title = "Home | Jack's Peppers";
-  }, []);
+  }, [setIsLoading]);
 
   return (
     <main className="home">

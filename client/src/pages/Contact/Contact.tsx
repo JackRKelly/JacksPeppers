@@ -31,7 +31,7 @@ const Contact: FC<Props> = (props) => {
   useEffect(() => {
     setIsLoading(false);
     document.title = "Contact | Jack's Peppers";
-  }, []);
+  }, [setIsLoading]);
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();

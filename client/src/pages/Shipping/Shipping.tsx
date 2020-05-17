@@ -11,7 +11,7 @@ const Shipping: FC<Props> = (props) => {
   useEffect(() => {
     setIsLoading(false);
     document.title = "Shipping | Jack's Peppers";
-  }, []);
+  }, [setIsLoading]);
 
   return (
     <main className="shipping">
