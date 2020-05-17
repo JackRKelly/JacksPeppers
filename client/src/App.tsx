@@ -19,6 +19,7 @@ import Notification from "./components/Notification/Notification";
 import Cart from "./pages/Cart/Cart";
 import { countCart, CartItem } from "./common/cart";
 import { NotificationItem } from "./common/notification";
+import LoadingOverlay from "./components/LoadingOverlay/LoadingOverlay";
 
 const App: FC = () => {
   const [cart, setCart] = useState<Array<CartItem>>(
@@ -29,6 +30,7 @@ const App: FC = () => {
     )
   );
   const [notification, setNotification] = useState<NotificationItem[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart));
@@ -40,6 +42,7 @@ const App: FC = () => {
         notification={notification}
         setNotification={setNotification}
       />
+      <LoadingOverlay loading={isLoading} />
       <Router>
         <nav className="navigation desktop">
           <ul className="navigation-list">
@@ -100,10 +103,14 @@ const App: FC = () => {
                     <Contact setNotification={setNotification} />
                   </Route>
                   <Route path="/shop">
-                    <Shop />
+                    <Shop setIsLoading={setIsLoading} />
                   </Route>
                   <Route path="/product/:id">
-                    <Product cart={cart} setCart={setCart} />
+                    <Product
+                      cart={cart}
+                      setCart={setCart}
+                      setIsLoading={setIsLoading}
+                    />
                   </Route>
                   <Route path="/home">
                     <Redirect to="/" />
@@ -112,7 +119,11 @@ const App: FC = () => {
                     <Shipping />
                   </Route>
                   <Route path="/cart">
-                    <Cart cart={cart} setCart={setCart} />
+                    <Cart
+                      cart={cart}
+                      setCart={setCart}
+                      setIsLoading={setIsLoading}
+                    />
                   </Route>
                 </Switch>
               </CSSTransition>
