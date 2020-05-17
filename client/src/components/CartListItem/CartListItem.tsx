@@ -85,29 +85,31 @@ const CartListItem: FC<Props> = (props) => {
       </td>
       <td className="cart-list--table-body--item-quantity">
         <div>
+          <div>
+            <button
+              onClick={() => {
+                incrementItem(setCart, product._id);
+              }}
+            >
+              +
+            </button>
+            {quantity}
+            <button
+              onClick={() => {
+                decrementItem(setCart, product._id);
+              }}
+            >
+              -
+            </button>
+          </div>
           <button
             onClick={() => {
-              incrementItem(setCart, product._id);
+              deleteItem(setCart, product._id);
             }}
           >
-            +
-          </button>
-          {quantity}
-          <button
-            onClick={() => {
-              decrementItem(setCart, product._id);
-            }}
-          >
-            -
+            Remove
           </button>
         </div>
-        <button
-          onClick={() => {
-            deleteItem(setCart, product._id);
-          }}
-        >
-          Remove
-        </button>
       </td>
       <td className="cart-list--table-body--item-total">
         ${(product.price * quantity).toFixed(2)}

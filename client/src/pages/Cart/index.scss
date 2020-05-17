@@ -78,13 +78,18 @@ main.cart {
       }
       &-body {
         &--item {
+          &-quantity {
+            div {
+              display: flex;
+              justify-content: space-around;
+            }
+          }
           &-product {
             a {
               display: flex;
               flex-direction: row;
               align-items: center;
               justify-content: space-evenly;
-              max-width: 350px;
               img {
                 height: 50px;
               }
