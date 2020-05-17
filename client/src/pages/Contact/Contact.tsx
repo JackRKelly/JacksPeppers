@@ -21,9 +21,9 @@ interface Props {
 
 const Contact: FC<Props> = (props) => {
   const [error, setError] = useState(["", "", ""]);
-  const [name, setName] = useState("Jack");
-  const [email, setEmail] = useState("kcjackkelly@gmail.com");
-  const [message, setMessage] = useState("Hello");
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
 
   const { setNotification } = props;
 
