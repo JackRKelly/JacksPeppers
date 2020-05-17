@@ -121,10 +121,13 @@ const App: FC = () => {
               <CSSTransition key={location.key} timeout={300} classNames="fade">
                 <Switch location={location}>
                   <Route exact path="/">
-                    <Home />
+                    <Home setIsLoading={setIsLoading} />
                   </Route>
                   <Route path="/contact">
-                    <Contact setNotification={setNotification} />
+                    <Contact
+                      setNotification={setNotification}
+                      setIsLoading={setIsLoading}
+                    />
                   </Route>
                   <Route path="/shop">
                     <Shop setIsLoading={setIsLoading} />
@@ -140,7 +143,7 @@ const App: FC = () => {
                     <Redirect to="/" />
                   </Route>
                   <Route path="/shipping">
-                    <Shipping />
+                    <Shipping setIsLoading={setIsLoading} />
                   </Route>
                   <Route path="/cart">
                     <Cart

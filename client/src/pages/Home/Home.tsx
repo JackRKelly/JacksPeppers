@@ -1,9 +1,16 @@
-import React, { FC, useEffect } from "react";
+import React, { FC, useEffect, Dispatch, SetStateAction } from "react";
 import { Link } from "react-router-dom";
 import "./index.scss";
 
-const Home: FC = () => {
+interface Props {
+  setIsLoading: Dispatch<SetStateAction<boolean>>;
+}
+
+const Home: FC<Props> = (props) => {
+  const { setIsLoading } = props;
+
   useEffect(() => {
+    setIsLoading(false);
     document.title = "Home | Jack's Peppers";
   }, []);
 

@@ -17,6 +17,7 @@ import { InputType } from "../../common/index";
 
 interface Props {
   setNotification: Dispatch<SetStateAction<NotificationItem[]>>;
+  setIsLoading: Dispatch<SetStateAction<boolean>>;
 }
 
 const Contact: FC<Props> = (props) => {
@@ -25,9 +26,10 @@ const Contact: FC<Props> = (props) => {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
 
-  const { setNotification } = props;
+  const { setNotification, setIsLoading } = props;
 
   useEffect(() => {
+    setIsLoading(false);
     document.title = "Contact | Jack's Peppers";
   }, []);
 

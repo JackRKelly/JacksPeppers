@@ -1,8 +1,15 @@
-import React, { FC, useEffect } from "react";
+import React, { FC, useEffect, Dispatch, SetStateAction } from "react";
 import "./index.scss";
 
-const Shipping: FC = () => {
+interface Props {
+  setIsLoading: Dispatch<SetStateAction<boolean>>;
+}
+
+const Shipping: FC<Props> = (props) => {
+  const { setIsLoading } = props;
+
   useEffect(() => {
+    setIsLoading(false);
     document.title = "Shipping | Jack's Peppers";
   }, []);
 

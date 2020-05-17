@@ -14,7 +14,7 @@ const Cart: FC<Props> = (props) => {
   const { cart, setCart, setIsLoading } = props;
 
   useEffect(() => {
-    if (cart.length > 0) {
+    if (cart.length === 0) {
       setIsLoading(false);
     } else {
       setIsLoading(true);
