@@ -18,10 +18,13 @@ interface Props {
   id: string | boolean;
   quantity: number;
   setCart: Dispatch<SetStateAction<CartItem[]>>;
+  index: number;
+  cartLength: number;
+  setIsLoading: Dispatch<SetStateAction<boolean>>;
 }
 
 const CartListItem: FC<Props> = (props) => {
-  const { id, quantity, setCart } = props;
+  const { id, quantity, setCart, index, cartLength, setIsLoading } = props;
 
   const [imagePath, setImagePath] = useState();
 
@@ -44,6 +47,9 @@ const CartListItem: FC<Props> = (props) => {
       .then((result) => {
         result.json().then((json) => {
           setProduct(json);
+          if (index + 1 === cartLength) {
+            setIsLoading(false);
+          }
           if (isSubscribed && json.image) {
             import(`../../assets/images/${json.image}`).then((image) =>
               setImagePath(image.default)

@@ -17,6 +17,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  @include ease-in-out(200ms);
   .loading-overlay--spinner {
     pointer-events: none;
     width: 2.5em;

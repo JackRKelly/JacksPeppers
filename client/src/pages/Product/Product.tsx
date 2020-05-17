@@ -51,7 +51,7 @@ const Product: FC<Props> = (props) => {
               setImagePath(image.default)
             );
           }
-          // setIsLoading(false);
+          setIsLoading(false);
           document.title = `${json.name} Pepper | Jack's Peppers`;
         });
       })
