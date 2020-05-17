@@ -64,7 +64,7 @@ const CartListItem: FC<Props> = (props) => {
     return () => {
       isSubscribed = false;
     };
-  }, [id]);
+  }, [id, setIsLoading, index, cartLength]);
 
   return (
     <tr className="cart-list--table-item">

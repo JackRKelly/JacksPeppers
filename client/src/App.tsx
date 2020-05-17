@@ -44,52 +44,56 @@ const App: FC = () => {
       />
       <LoadingOverlay loading={isLoading} />
       <Router>
-        <nav className="navigation desktop">
-          <ul className="navigation-list">
-            <li className="navigation-list--item">
-              <NavLink
-                className="navigation-list--link"
-                exact
-                to="/"
-                activeClassName="active"
-              >
-                Home
-              </NavLink>
-            </li>
-            <li className="navigation-list--item">
-              <NavLink
-                className="navigation-list--link"
-                to="/shop"
-                activeClassName="active"
-              >
-                Shop
-              </NavLink>
-            </li>
-            <li className="navigation-list--item">
-              <NavLink className="navigation-list--link logo" to="/">
-                <SVG src={Logo} />
-              </NavLink>
-            </li>
-            <li className="navigation-list--item">
-              <NavLink
-                className="navigation-list--link"
-                to="/contact"
-                activeClassName="active"
-              >
-                Contact
-              </NavLink>
-            </li>
-            <li className="navigation-list--item">
-              <NavLink
-                className="navigation-list--link cart"
-                to="/cart"
-                activeClassName="active"
-              >
-                Cart <span>{cart.length === 0 ? "" : countCart(cart)}</span>
-              </NavLink>
-            </li>
-          </ul>
-        </nav>
+        {isMobile ? (
+          <nav className="navigation mobile"></nav>
+        ) : (
+          <nav className="navigation desktop">
+            <ul className="navigation-list">
+              <li className="navigation-list--item">
+                <NavLink
+                  className="navigation-list--link"
+                  exact
+                  to="/"
+                  activeClassName="active"
+                >
+                  Home
+                </NavLink>
+              </li>
+              <li className="navigation-list--item">
+                <NavLink
+                  className="navigation-list--link"
+                  to="/shop"
+                  activeClassName="active"
+                >
+                  Shop
+                </NavLink>
+              </li>
+              <li className="navigation-list--item">
+                <NavLink className="navigation-list--link logo" to="/">
+                  <SVG src={Logo} />
+                </NavLink>
+              </li>
+              <li className="navigation-list--item">
+                <NavLink
+                  className="navigation-list--link"
+                  to="/contact"
+                  activeClassName="active"
+                >
+                  Contact
+                </NavLink>
+              </li>
+              <li className="navigation-list--item">
+                <NavLink
+                  className="navigation-list--link cart"
+                  to="/cart"
+                  activeClassName="active"
+                >
+                  Cart <span>{cart.length === 0 ? "" : countCart(cart)}</span>
+                </NavLink>
+              </li>
+            </ul>
+          </nav>
+        )}
 
         <Route
           render={({ location }) => (

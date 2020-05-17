@@ -46,7 +46,7 @@ const Shop: FC<Props> = (props) => {
       .catch((err) => {
         console.error(err);
       });
-  }, []);
+  }, [setIsLoading]);
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();

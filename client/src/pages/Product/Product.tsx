@@ -62,7 +62,7 @@ const Product: FC<Props> = (props) => {
     return () => {
       isSubscribed = false;
     };
-  }, [id]);
+  }, [id, setIsLoading, setImagePath]);
 
   return (
     <main className="product">

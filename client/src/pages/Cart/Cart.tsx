@@ -1,10 +1,4 @@
-import React, {
-  FC,
-  Dispatch,
-  SetStateAction,
-  useEffect,
-  useState,
-} from "react";
+import React, { FC, Dispatch, SetStateAction, useEffect } from "react";
 import CartListItem from "../../components/CartListItem/CartListItem";
 import "./index.scss";
 import CartSummary from "../../components/CartSummary/CartSummary";
@@ -22,7 +16,7 @@ const Cart: FC<Props> = (props) => {
   useEffect(() => {
     setIsLoading(true);
     document.title = "Cart | Jack's Peppers";
-  }, []);
+  }, [setIsLoading]);
 
   return (
     <main className="cart">
