@@ -79,32 +79,34 @@ const CartListItem: FC<Props> = (props) => {
           <img src={imagePath} alt="" />
           <p>{product.name}</p>
         </Link>
-        <button
-          onClick={() => {
-            deleteItem(setCart, product._id);
-          }}
-        >
-          Delete
-        </button>
       </td>
       <td className="cart-list--table-body--item-price">
         ${product.price.toFixed(2)}
       </td>
       <td className="cart-list--table-body--item-quantity">
+        <div>
+          <button
+            onClick={() => {
+              incrementItem(setCart, product._id);
+            }}
+          >
+            +
+          </button>
+          {quantity}
+          <button
+            onClick={() => {
+              decrementItem(setCart, product._id);
+            }}
+          >
+            -
+          </button>
+        </div>
         <button
           onClick={() => {
-            incrementItem(setCart, product._id);
+            deleteItem(setCart, product._id);
           }}
         >
-          +
-        </button>
-        {quantity}
-        <button
-          onClick={() => {
-            decrementItem(setCart, product._id);
-          }}
-        >
-          -
+          Remove
         </button>
       </td>
       <td className="cart-list--table-body--item-total">

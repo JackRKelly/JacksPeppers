@@ -32,7 +32,6 @@ const Cart: FC<Props> = (props) => {
       ) : (
         <div className="cart-list">
           <table className="cart-list--table">
-            <caption>Statement Summary</caption>
             <thead>
               <tr>
                 <th scope="col">Product</th>

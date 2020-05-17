@@ -21,12 +21,9 @@ main.cart {
       margin: 0;
       padding: 0;
       width: 100%;
-      table-layout: fixed;
+      table-layout: auto;
       @media screen and (max-width: $medium) {
         border: 0;
-        caption {
-          font-size: 1.3em;
-        }
         thead {
           border: none;
           clip: rect(0 0 0 0);
@@ -48,10 +45,6 @@ main.cart {
           margin-bottom: 0.625em;
         }
         td {
-          &:last-child {
-            width: 1%;
-            white-space: nowrap;
-          }
           @media screen and (max-width: $medium) {
             border-bottom: 1px solid #ddd;
             display: block;
@@ -87,6 +80,11 @@ main.cart {
         &--item {
           &-product {
             a {
+              display: flex;
+              flex-direction: row;
+              align-items: center;
+              justify-content: space-evenly;
+              max-width: 350px;
               img {
                 height: 50px;
               }
