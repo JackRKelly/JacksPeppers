@@ -2,9 +2,9 @@ import { Dispatch, SetStateAction } from "react";
 let count = 1;
 
 export enum NotificationType {
-  success = "success",
-  warning = "warning",
-  error = "error",
+  success,
+  warning,
+  error,
 }
 
 export interface NotificationItem {
@@ -17,6 +17,17 @@ export interface NotificationItemNoId {
   type: NotificationType;
   text: string;
 }
+
+export const notificationColor = (type: NotificationType): string => {
+  switch (type) {
+    case NotificationType.success:
+      return "#00bc8c";
+    case NotificationType.warning:
+      return "#f39c11";
+    default:
+      return "#e84c3d";
+  }
+};
 
 export const addItem = (
   setNotification: Dispatch<SetStateAction<NotificationItem[]>>,

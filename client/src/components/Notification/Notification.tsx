@@ -1,5 +1,9 @@
 import React, { FC, Dispatch, SetStateAction } from "react";
-import { removeItem, NotificationItem } from "../../common/notification";
+import {
+  removeItem,
+  NotificationItem,
+  notificationColor,
+} from "../../common/notification";
 import "./index.scss";
 
 interface Props {
@@ -13,7 +17,11 @@ const Notification: FC<Props> = (props) => {
   return (
     <div className="notification-container">
       {notification.map((notification, index) => (
-        <div className={`notification-container--item`} key={index}>
+        <div
+          className={`notification-container--item`}
+          key={index}
+          style={{ backgroundColor: notificationColor(notification.type) }}
+        >
           {notification.text}
           <button
             className="notification-container--item-dismiss"

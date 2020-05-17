@@ -9,7 +9,7 @@ interface Props {
   price: number;
   inStock: boolean;
   heat: number;
-  id: string;
+  id: string | boolean;
   image?: string;
 }
 

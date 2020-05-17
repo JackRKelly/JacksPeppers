@@ -25,9 +25,7 @@ export const heatSwitchColor = (heat: number): string => {
       return "#ecc304";
     case 4:
       return "#f37732";
-    case 5:
-      return "#ed2126";
     default:
-      return "";
+      return "#ed2126";
   }
 };
