@@ -8,24 +8,12 @@ import React, {
 } from "react";
 import "./index.scss";
 import FormInput from "../../components/FormInput/FormInput";
-import { addItem } from "../../common/notification";
-
-enum InputType {
-  Input,
-  Textarea,
-}
-
-interface NotificationItem {
-  id: number;
-  type: NotificationTypes;
-  text: string;
-}
-
-enum NotificationTypes {
-  success = "success",
-  warning = "warning",
-  error = "error",
-}
+import {
+  addItem,
+  NotificationItem,
+  NotificationType,
+} from "../../common/notification";
+import { InputType } from "../../common/index";
 
 interface Props {
   setNotification: Dispatch<SetStateAction<NotificationItem[]>>;
@@ -64,7 +52,7 @@ const Contact: FC<Props> = (props) => {
           setError(res.error);
           if (res.message) {
             addItem(setNotification, {
-              type: NotificationTypes.success,
+              type: NotificationType.success,
               text: res.message,
             });
           }

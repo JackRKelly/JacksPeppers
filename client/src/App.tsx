@@ -17,25 +17,8 @@ import Contact from "./pages/Contact/Contact";
 import Shipping from "./pages/Shipping/Shipping";
 import Notification from "./components/Notification/Notification";
 import Cart from "./pages/Cart/Cart";
-import { countCart } from "./common/cart";
-
-interface CartItem {
-  id: string | boolean;
-  price: number;
-  quantity: number;
-}
-
-enum NotificationTypes {
-  success = "success",
-  warning = "warning",
-  error = "error",
-}
-
-interface NotificationItem {
-  id: number;
-  type: NotificationTypes;
-  text: string;
-}
+import { countCart, CartItem } from "./common/cart";
+import { NotificationItem } from "./common/notification";
 
 const App: FC = () => {
   const [cart, setCart] = useState<Array<CartItem>>(

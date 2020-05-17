@@ -1,20 +1,20 @@
 import { Dispatch, SetStateAction } from "react";
 let count = 1;
 
-enum NotificationTypes {
+export enum NotificationType {
   success = "success",
   warning = "warning",
   error = "error",
 }
 
-interface NotificationItem {
+export interface NotificationItem {
   id: number;
-  type: NotificationTypes;
+  type: NotificationType;
   text: string;
 }
 
-interface NotificationItemNoId {
-  type: NotificationTypes;
+export interface NotificationItemNoId {
+  type: NotificationType;
   text: string;
 }
 

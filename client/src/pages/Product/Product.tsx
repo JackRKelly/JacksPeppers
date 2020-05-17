@@ -8,29 +8,16 @@ import React, {
 import { useParams, Link } from "react-router-dom";
 import { heatSwitch, heatSwitchColor } from "../../common/heat";
 import "./index.scss";
-import { addItem, checkDuplicate } from "../../common/cart";
-
-interface CartItem {
-  id: string | boolean;
-  price: number;
-  quantity: number;
-}
+import {
+  addItem,
+  checkDuplicate,
+  CartItem,
+  ProductItem,
+} from "../../common/cart";
 
 interface Props {
   cart: Array<CartItem>;
   setCart: Dispatch<SetStateAction<CartItem[]>>;
-}
-
-interface ProductItem {
-  colorList: Array<string>;
-  description: string;
-  heat: number;
-  image: string | undefined;
-  name: string;
-  price: number;
-  quantity: number;
-  seedCount: number;
-  _id: string | boolean;
 }
 
 const Product: FC<Props> = (props) => {

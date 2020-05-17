@@ -1,18 +1,6 @@
 import React, { FC, Dispatch, SetStateAction } from "react";
-import { removeItem } from "../../common/notification";
+import { removeItem, NotificationItem } from "../../common/notification";
 import "./index.scss";
-
-enum NotificationTypes {
-  success = "success",
-  warning = "warning",
-  error = "error",
-}
-
-interface NotificationItem {
-  id: number;
-  type: NotificationTypes;
-  text: string;
-}
 
 interface Props {
   notification: NotificationItem[];
@@ -25,10 +13,7 @@ const Notification: FC<Props> = (props) => {
   return (
     <div className="notification-container">
       {notification.map((notification, index) => (
-        <div
-          className={`notification-container--item ${notification.type}`}
-          key={index}
-        >
+        <div className={`notification-container--item`} key={index}>
           {notification.text}
           <button
             className="notification-container--item-dismiss"

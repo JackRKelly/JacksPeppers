@@ -11,18 +11,7 @@ import {
   convertToKind,
   colorName,
 } from "../../common/color";
-
-interface ProductItem {
-  colorList: Array<string>;
-  description: string;
-  heat: number;
-  image: string;
-  name: string;
-  price: number;
-  quantity: number;
-  seedCount: number;
-  _id: string;
-}
+import { ProductItem } from "../../common/cart";
 
 const Shop: FC = () => {
   const [showAdvanced, setShowAdvanced] = useState(false);

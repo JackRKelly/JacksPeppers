@@ -6,30 +6,18 @@ import React, {
   SetStateAction,
 } from "react";
 import { Link } from "react-router-dom";
-import { deleteItem, incrementItem, decrementItem } from "../../common/cart";
-
-interface CartItem {
-  id: string | boolean;
-  price: number;
-  quantity: number;
-}
+import {
+  deleteItem,
+  incrementItem,
+  decrementItem,
+  CartItem,
+  ProductItem,
+} from "../../common/cart";
 
 interface Props {
   id: string | boolean;
   quantity: number;
   setCart: Dispatch<SetStateAction<CartItem[]>>;
-}
-
-interface ProductItem {
-  colorList: Array<string>;
-  description: string;
-  heat: number;
-  image: string | undefined;
-  name: string;
-  price: number;
-  quantity: number;
-  seedCount: number;
-  _id: string | boolean;
 }
 
 const CartListItem: FC<Props> = (props) => {

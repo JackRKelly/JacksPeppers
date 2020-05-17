@@ -2,12 +2,7 @@ import React, { FC, Dispatch, SetStateAction, useEffect } from "react";
 import CartListItem from "../../components/CartListItem/CartListItem";
 import "./index.scss";
 import CartSummary from "../../components/CartSummary/CartSummary";
-
-interface CartItem {
-  id: string | boolean;
-  price: number;
-  quantity: number;
-}
+import { CartItem } from "../../common/cart";
 
 interface Props {
   cart: Array<CartItem>;

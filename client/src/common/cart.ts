@@ -1,9 +1,21 @@
 import { Dispatch, SetStateAction } from "react";
 
-interface CartItem {
+export interface CartItem {
   id: string | boolean;
   price: number;
   quantity: number;
+}
+
+export interface ProductItem {
+  colorList: Array<string>;
+  description: string;
+  heat: number;
+  image: string | undefined;
+  name: string;
+  price: number;
+  quantity: number;
+  seedCount: number;
+  _id: string | boolean;
 }
 
 export const deleteItem = (

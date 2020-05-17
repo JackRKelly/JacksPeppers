@@ -1,12 +1,6 @@
 import React, { FC, useEffect, useState } from "react";
 
-import { getTotalPrice } from "../../common/cart";
-
-interface CartItem {
-  id: string | boolean;
-  price: number;
-  quantity: number;
-}
+import { getTotalPrice, CartItem } from "../../common/cart";
 
 interface Props {
   cart: Array<CartItem>;
