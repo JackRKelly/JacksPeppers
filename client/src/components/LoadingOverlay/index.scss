@@ -1,1 +1,30 @@
 @import "../../assets/variables.scss";
+
+@keyframes loadingspin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: white;
+  z-index: 199;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .loading-overlay--spinner {
+    pointer-events: none;
+    width: 2.5em;
+    height: 2.5em;
+    border: 0.4em solid transparent;
+    border-color: #eee;
+    border-top-color: $red;
+    border-radius: 50%;
+    animation: loadingspin 1s linear infinite;
+  }
+}
