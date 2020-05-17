@@ -46,6 +46,8 @@ const App: FC = () => {
     localStorage.setItem("cart", JSON.stringify(cart));
   }, [cart]);
 
+  window.addEventListener("resize", checkMobile);
+
   return (
     <>
       <Notification
@@ -55,7 +57,15 @@ const App: FC = () => {
       <LoadingOverlay loading={isLoading} />
       <Router>
         {isMobile ? (
-          <nav className="navigation mobile"></nav>
+          <nav className="navigation mobile">
+            <ul className="navigation-list">
+              <li className="navigation-list--item">
+                <NavLink className="navigation-list--link logo" to="/">
+                  <SVG src={Logo} />
+                </NavLink>
+              </li>
+            </ul>
+          </nav>
         ) : (
           <nav className="navigation desktop">
             <ul className="navigation-list">
