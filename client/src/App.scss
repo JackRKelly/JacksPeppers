@@ -30,6 +30,18 @@
         font-size: 22px;
         position: relative;
         padding: 20px;
+        &.cart {
+          span {
+            position: absolute;
+            top: 13px;
+            background-color: white;
+            padding: 1px;
+            border-radius: 5px;
+            right: 6px;
+            color: $red;
+            font-size: 15px;
+          }
+        }
         &.close {
           cursor: pointer;
           border: none;
