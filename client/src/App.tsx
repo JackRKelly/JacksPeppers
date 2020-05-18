@@ -88,7 +88,7 @@ const App: FC = () => {
               className="navigation-full"
               style={{
                 maxHeight: menuOpen ? "1500px" : "0",
-                opacity: menuOpen ? "1" : "0",
+                top: menuOpen ? "0" : "-100vh",
               }}
             >
               <ul className="navigation-full--list">
@@ -98,13 +98,18 @@ const App: FC = () => {
                     setMenuOpen(false);
                   }}
                 >
-                  <button className="navigation-list--link menu">
+                  <button className="navigation-full--list-item--link close">
                     <SVG src={Close} />
                   </button>
                 </li>
-                <li className="navigation-full--list-item">
+                <li
+                  className="navigation-full--list-item"
+                  onClick={() => {
+                    setMenuOpen(false);
+                  }}
+                >
                   <NavLink
-                    className="navigation-full--list-link"
+                    className="navigation-full--list-item--link"
                     exact
                     to="/"
                     activeClassName="active"
@@ -112,27 +117,42 @@ const App: FC = () => {
                     Home
                   </NavLink>
                 </li>
-                <li className="navigation-full--list-item">
+                <li
+                  className="navigation-full--list-item"
+                  onClick={() => {
+                    setMenuOpen(false);
+                  }}
+                >
                   <NavLink
-                    className="navigation-full--list-link"
+                    className="navigation-full--list-item--link"
                     to="/shop"
                     activeClassName="active"
                   >
                     Shop
                   </NavLink>
                 </li>
-                <li className="navigation-full--list-item">
+                <li
+                  className="navigation-full--list-item"
+                  onClick={() => {
+                    setMenuOpen(false);
+                  }}
+                >
                   <NavLink
-                    className="navigation-full--list-link"
+                    className="navigation-full--list-item--link"
                     to="/contact"
                     activeClassName="active"
                   >
                     Contact
                   </NavLink>
                 </li>
-                <li className="navigation-full--list-item">
+                <li
+                  className="navigation-full--list-item"
+                  onClick={() => {
+                    setMenuOpen(false);
+                  }}
+                >
                   <NavLink
-                    className="navigation-full--list-link cart"
+                    className="navigation-full--list-item--link cart"
                     to="/cart"
                     activeClassName="active"
                   >

@@ -2,7 +2,7 @@
 
 .navigation-full {
   position: fixed;
-  top: 0;
+  top: -100vh;
   left: 0;
   right: 0;
   bottom: 0;
@@ -23,9 +23,47 @@
     justify-content: space-around;
     align-items: center;
     &-item {
-      a {
+      &--link {
         color: #333;
         text-decoration: none;
+        @include font(true);
+        font-size: 22px;
+        position: relative;
+        padding: 20px;
+        &.close {
+          cursor: pointer;
+          border: none;
+          background-color: transparent;
+          min-width: 50px;
+          padding: 5px;
+          @include ease-in-out(200ms);
+          &:hover {
+            transform: scale(1.1);
+          }
+          &::after {
+            display: none;
+          }
+        }
+        &.active {
+          color: $red;
+        }
+        &.active::after {
+          background-color: $red;
+        }
+        &::after {
+          content: "";
+          background-color: $gray;
+          width: 0;
+          position: absolute;
+          bottom: 10px;
+          height: 3px;
+          left: 50%;
+          transform: translateX(-50%);
+          @include bezier(150ms);
+        }
+        &:hover::after {
+          width: 80%;
+        }
       }
     }
   }
