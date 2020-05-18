@@ -8,18 +8,24 @@ import {
 } from "react-router-dom";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import "./App.scss";
+//SVG
 import SVG from "react-inlinesvg";
 import Logo from "./assets/svg/logo.svg";
+import Menu from "./assets/svg/menu.svg";
+import Close from "./assets/svg/close.svg";
+//Pages
 import Home from "./pages/Home/Home";
 import Shop from "./pages/Shop/Shop";
 import Product from "./pages/Product/Product";
 import Contact from "./pages/Contact/Contact";
 import Shipping from "./pages/Shipping/Shipping";
-import Notification from "./components/Notification/Notification";
 import Cart from "./pages/Cart/Cart";
+//Components
+import Notification from "./components/Notification/Notification";
+import LoadingOverlay from "./components/LoadingOverlay/LoadingOverlay";
+//Common
 import { countCart, CartItem } from "./common/cart";
 import { NotificationItem } from "./common/notification";
-import LoadingOverlay from "./components/LoadingOverlay/LoadingOverlay";
 
 const App: FC = () => {
   const [cart, setCart] = useState<Array<CartItem>>(
@@ -32,6 +38,7 @@ const App: FC = () => {
   const [notification, setNotification] = useState<NotificationItem[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const checkMobile = () => {
     if (window.innerWidth < 600) {
@@ -57,15 +64,84 @@ const App: FC = () => {
       <LoadingOverlay loading={isLoading} />
       <Router>
         {isMobile ? (
-          <nav className="navigation mobile">
-            <ul className="navigation-list">
-              <li className="navigation-list--item">
-                <NavLink className="navigation-list--link logo" to="/">
-                  <SVG src={Logo} />
-                </NavLink>
-              </li>
-            </ul>
-          </nav>
+          <>
+            <nav className="navigation mobile">
+              <ul className="navigation-list">
+                <li className="navigation-list--item">
+                  <NavLink className="navigation-list--link logo" to="/">
+                    <SVG src={Logo} />
+                  </NavLink>
+                </li>
+                <li
+                  className="navigation-list--item"
+                  onClick={() => {
+                    setMenuOpen(true);
+                  }}
+                >
+                  <button className="navigation-list--link menu">
+                    <SVG src={Menu} />
+                  </button>
+                </li>
+              </ul>
+            </nav>
+            <nav
+              className="navigation-full"
+              style={{
+                maxHeight: menuOpen ? "1500px" : "0",
+                opacity: menuOpen ? "1" : "0",
+              }}
+            >
+              <ul className="navigation-full--list">
+                <li
+                  className="navigation-full--list-item"
+                  onClick={() => {
+                    setMenuOpen(false);
+                  }}
+                >
+                  <button className="navigation-list--link menu">
+                    <SVG src={Close} />
+                  </button>
+                </li>
+                <li className="navigation-full--list-item">
+                  <NavLink
+                    className="navigation-full--list-link"
+                    exact
+                    to="/"
+                    activeClassName="active"
+                  >
+                    Home
+                  </NavLink>
+                </li>
+                <li className="navigation-full--list-item">
+                  <NavLink
+                    className="navigation-full--list-link"
+                    to="/shop"
+                    activeClassName="active"
+                  >
+                    Shop
+                  </NavLink>
+                </li>
+                <li className="navigation-full--list-item">
+                  <NavLink
+                    className="navigation-full--list-link"
+                    to="/contact"
+                    activeClassName="active"
+                  >
+                    Contact
+                  </NavLink>
+                </li>
+                <li className="navigation-full--list-item">
+                  <NavLink
+                    className="navigation-full--list-link cart"
+                    to="/cart"
+                    activeClassName="active"
+                  >
+                    Cart <span>{cart.length === 0 ? "" : countCart(cart)}</span>
+                  </NavLink>
+                </li>
+              </ul>
+            </nav>
+          </>
         ) : (
           <nav className="navigation desktop">
             <ul className="navigation-list">

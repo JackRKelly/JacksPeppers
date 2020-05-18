@@ -49,7 +49,6 @@ const CartListItem: FC<Props> = (props) => {
           setProduct(json);
           if (index + 1 === cartLength) {
             setIsLoading(false);
-            console.log("false from fetch");
           }
           if (isSubscribed && json.image) {
             import(`../../assets/images/${json.image}`).then((image) =>
