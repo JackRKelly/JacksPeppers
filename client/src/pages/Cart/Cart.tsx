@@ -3,7 +3,6 @@ import CartListItem from "../../components/CartListItem/CartListItem";
 import "./index.scss";
 import CartSummary from "../../components/CartSummary/CartSummary";
 import { CartItem } from "../../common/cart";
-import StripeCheckout from "react-stripe-checkout";
 
 interface Props {
   cart: Array<CartItem>;
@@ -13,22 +12,6 @@ interface Props {
 
 const Cart: FC<Props> = (props) => {
   const { cart, setCart, setIsLoading } = props;
-
-  const makePayment = (token: any) => {
-    const body = {
-      token,
-      cart,
-    };
-    fetch("/api/payment", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(body),
-    })
-      .then((response) => {
-        console.log(response);
-      })
-      .catch((err) => console.error(err));
-  };
 
   useEffect(() => {
     setIsLoading(true);
@@ -75,14 +58,6 @@ const Cart: FC<Props> = (props) => {
             </tbody>
           </table>
           <CartSummary cart={cart} />
-          <StripeCheckout
-            stripeKey="pk_test_U4qeTnEMoRXkfNUbF4SIyuqH00FpW8c4r2"
-            token={makePayment}
-            name="Checkout"
-            amount={10}
-          >
-            <button> Checkout</button>
-          </StripeCheckout>
         </div>
       )}
     </main>
