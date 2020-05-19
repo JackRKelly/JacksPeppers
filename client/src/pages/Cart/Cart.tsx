@@ -65,7 +65,7 @@ const Cart: FC<Props> = (props) => {
           </table>
           <CartSummary cart={cart} />
           <Elements stripe={stripePromise}>
-            <CheckoutForm />
+            <CheckoutForm cart={cart} />
           </Elements>
         </div>
       )}

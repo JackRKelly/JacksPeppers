@@ -2,8 +2,14 @@ import React, { FC, FormEvent } from "react";
 import "./index.scss";
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import { StripeCardElement, Stripe } from "@stripe/stripe-js";
+import { CartItem } from "../../common/cart";
 
-const CheckoutForm: FC = () => {
+interface Props {
+  cart: CartItem[];
+}
+
+const CheckoutForm: FC<Props> = (props) => {
+  const { cart } = props;
   const stripe = useStripe();
   const elements = useElements();
 
@@ -18,9 +24,28 @@ const CheckoutForm: FC = () => {
       card: elements?.getElement(CardElement) as StripeCardElement,
     });
 
-    if (!error) {
+    if (!error && paymentMethod) {
       console.log(paymentMethod);
       const { id } = paymentMethod;
+
+      const body = {
+        id: id,
+        amount: 1000,
+        cart: cart,
+      };
+
+      fetch("/api/payment", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(body),
+      })
+        .then((response) => {
+          console.log(response);
+          response.json().then((json) => {
+            console.log(json);
+          });
+        })
+        .catch((err) => console.error(err));
     }
   };
 
