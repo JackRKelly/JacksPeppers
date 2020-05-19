@@ -26,6 +26,11 @@ import LoadingOverlay from "./components/LoadingOverlay/LoadingOverlay";
 //Common
 import { countCart, CartItem } from "./common/cart";
 import { NotificationItem } from "./common/notification";
+//Stripe
+import { Elements } from "@stripe/react-stripe-js";
+import { loadStripe } from "@stripe/stripe-js";
+
+const stripePromise = loadStripe("pk_test_JJ1eMdKN0Hp4UFJ6kWXWO4ix00jtXzq5XG");
 
 const App: FC = () => {
   const [cart, setCart] = useState<Array<CartItem>>(
@@ -56,7 +61,7 @@ const App: FC = () => {
   window.addEventListener("resize", checkMobile);
 
   return (
-    <>
+    <Elements stripe={stripePromise}>
       <Notification
         notification={notification}
         setNotification={setNotification}
@@ -254,7 +259,7 @@ const App: FC = () => {
           )}
         />
       </Router>
-    </>
+    </Elements>
   );
 };
 
