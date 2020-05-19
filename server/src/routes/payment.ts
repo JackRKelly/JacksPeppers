@@ -1,7 +1,7 @@
 import { Router, Request, Response } from "express";
 import mongoose from "mongoose";
 import { Product } from "../models/product";
-const uuid = require("uuid");
+import { v4 as uuidv4 } from "uuid";
 const stripe = require("stripe")(process.env.stripe_sec);
 
 const router = Router();
@@ -12,7 +12,7 @@ router.post("/", (req: Request, res: Response) => {
   console.log(cart);
   console.log(token);
 
-  const idempotencyKey = uuid();
+  const idempotencyKey = uuidv4();
 
   return stripe.customers
     .create({
