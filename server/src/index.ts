@@ -9,6 +9,7 @@ const app: Application = express();
 import index from "./routes/index";
 import inventory from "./routes/inventory";
 import form from "./routes/form";
+import payment from "./routes/payment";
 
 //Database
 dotenv.config({ path: "../.env" });
@@ -37,6 +38,7 @@ app.use("/", index);
 app.use("/product", index);
 app.use("/api/inventory", inventory);
 app.use("/api/form", form);
+app.use("/api/payment", payment);
 
 app.listen(5000, () => {
   console.log("Server live at port 5000");
