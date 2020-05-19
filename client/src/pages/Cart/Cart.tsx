@@ -3,6 +3,9 @@ import CartListItem from "../../components/CartListItem/CartListItem";
 import "./index.scss";
 import CartSummary from "../../components/CartSummary/CartSummary";
 import { CartItem } from "../../common/cart";
+import CheckoutForm from "../../components/CheckoutForm/CheckoutForm";
+import { loadStripe } from "@stripe/stripe-js";
+import { Elements } from "@stripe/react-stripe-js";
 
 interface Props {
   cart: Array<CartItem>;
@@ -12,6 +15,9 @@ interface Props {
 
 const Cart: FC<Props> = (props) => {
   const { cart, setCart, setIsLoading } = props;
+  const stripePromise = loadStripe(
+    "pk_test_U4qeTnEMoRXkfNUbF4SIyuqH00FpW8c4r2"
+  );
 
   useEffect(() => {
     setIsLoading(true);
@@ -58,6 +64,9 @@ const Cart: FC<Props> = (props) => {
             </tbody>
           </table>
           <CartSummary cart={cart} />
+          <Elements stripe={stripePromise}>
+            <CheckoutForm />
+          </Elements>
         </div>
       )}
     </main>
