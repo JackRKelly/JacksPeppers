@@ -3,6 +3,7 @@ import CartListItem from "../../components/CartListItem/CartListItem";
 import "./index.scss";
 import CartSummary from "../../components/CartSummary/CartSummary";
 import { CartItem } from "../../common/cart";
+import StripeCheckout from "react-stripe-checkout";
 
 interface Props {
   cart: Array<CartItem>;
@@ -58,7 +59,14 @@ const Cart: FC<Props> = (props) => {
             </tbody>
           </table>
           <CartSummary cart={cart} />
-          <button className="cart-checkout">Checkout</button>
+          <StripeCheckout
+            stripeKey={process.env.STRIPE_PUB}
+            token={makePayment}
+            name="Checkout"
+            amount={10}
+          >
+            <button> Checkout</button>
+          </StripeCheckout>
         </div>
       )}
     </main>
