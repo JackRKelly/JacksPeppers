@@ -14,6 +14,22 @@ interface Props {
 const Cart: FC<Props> = (props) => {
   const { cart, setCart, setIsLoading } = props;
 
+  const makePayment = (token: any) => {
+    const body = {
+      token,
+      cart,
+    };
+    fetch("/api/payment", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(body),
+    })
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((err) => console.error(err));
+  };
+
   useEffect(() => {
     setIsLoading(true);
     document.title = "Cart | Jack's Peppers";
@@ -60,7 +76,7 @@ const Cart: FC<Props> = (props) => {
           </table>
           <CartSummary cart={cart} />
           <StripeCheckout
-            stripeKey={process.env.STRIPE_PUB}
+            stripeKey="pk_test_U4qeTnEMoRXkfNUbF4SIyuqH00FpW8c4r2"
             token={makePayment}
             name="Checkout"
             amount={10}
