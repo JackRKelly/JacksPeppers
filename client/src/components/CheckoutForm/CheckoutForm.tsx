@@ -2,7 +2,7 @@ import React, { FC, FormEvent, Dispatch, SetStateAction } from "react";
 import "./index.scss";
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import { StripeCardElement, Stripe } from "@stripe/stripe-js";
-import { CartItem } from "../../common/cart";
+import { CartItem, getTotalPrice } from "../../common/cart";
 import {
   NotificationType,
   addNotificationItem,
@@ -81,7 +81,13 @@ const CheckoutForm: FC<Props> = (props) => {
 
   return (
     <form onSubmit={handleSubmit} className="checkout-form">
-      <h2>Checkout - 20$</h2>
+      <h2>
+        Checkout - $
+        {(getTotalPrice(cart) < 10
+          ? getTotalPrice(cart) + 0.5
+          : getTotalPrice(cart)
+        ).toFixed(2)}
+      </h2>
       <CardElement />
       <button type="submit" disabled={!stripe}>
         Pay

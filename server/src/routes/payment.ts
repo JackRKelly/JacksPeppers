@@ -34,7 +34,7 @@ router.post("/", async (req: Request, res: Response) => {
 
           try {
             const payment = await stripe.paymentIntents.create({
-              amount: cartPrice,
+              amount: cartPrice < 1000 ? cartPrice + 50 : cartPrice,
               currency: "USD",
               description: cartDescription,
               payment_method: id,

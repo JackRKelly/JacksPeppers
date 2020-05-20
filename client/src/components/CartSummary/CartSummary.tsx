@@ -18,9 +18,12 @@ const CartSummary: FC<Props> = (props) => {
   return (
     <ul className="cart-summary">
       <li className="cart-summary--subtotal">Subtotal: ${total.toFixed(2)}</li>
-      <li className="cart-summary--shipping">Shipping: ${(0.5).toFixed(2)}</li>
+      <li className="cart-summary--shipping">
+        Shipping: ${(total < 10 ? 0.5 : 0).toFixed(2)}
+      </li>
+
       <li className="cart-summary--total">
-        Total: ${(total + 0.5).toFixed(2)}
+        Total: ${(total < 10 ? total + 0.5 : total).toFixed(2)}
       </li>
     </ul>
   );
