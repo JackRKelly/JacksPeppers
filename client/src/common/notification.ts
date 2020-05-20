@@ -29,7 +29,7 @@ export const notificationColor = (type: NotificationType): string => {
   }
 };
 
-export const addItem = (
+export const addNotificationItem = (
   setNotification: Dispatch<SetStateAction<NotificationItem[]>>,
   item: NotificationItemNoId
 ) => {
@@ -39,11 +39,11 @@ export const addItem = (
     { id: count, type: item.type, text: item.text },
   ]);
   setTimeout(() => {
-    removeItem(count, setNotification);
+    removeNotificationItem(count, setNotification);
   }, 10000);
 };
 
-export const removeItem = (
+export const removeNotificationItem = (
   id: number,
   setNotification: Dispatch<SetStateAction<NotificationItem[]>>
 ) => {

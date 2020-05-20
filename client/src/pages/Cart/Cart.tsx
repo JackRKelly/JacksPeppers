@@ -12,15 +12,17 @@ import { CartItem } from "../../common/cart";
 import CheckoutForm from "../../components/CheckoutForm/CheckoutForm";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
+import { NotificationItem } from "../../common/notification";
 
 interface Props {
   cart: Array<CartItem>;
   setCart: Dispatch<SetStateAction<CartItem[]>>;
   setIsLoading: Dispatch<SetStateAction<boolean>>;
+  setNotification: Dispatch<SetStateAction<NotificationItem[]>>;
 }
 
 const Cart: FC<Props> = (props) => {
-  const { cart, setCart, setIsLoading } = props;
+  const { cart, setCart, setIsLoading, setNotification } = props;
   const [modalOpen, setModalOpen] = useState(false);
   const stripePromise = loadStripe(
     "pk_test_U4qeTnEMoRXkfNUbF4SIyuqH00FpW8c4r2"
@@ -47,7 +49,11 @@ const Cart: FC<Props> = (props) => {
         }}
       >
         <Elements stripe={stripePromise}>
-          <CheckoutForm cart={cart} setModalOpen={setModalOpen} />
+          <CheckoutForm
+            cart={cart}
+            setModalOpen={setModalOpen}
+            setNotification={setNotification}
+          />
         </Elements>
       </div>
       <main className="cart">

@@ -1,6 +1,6 @@
 import React, { FC, Dispatch, SetStateAction } from "react";
 import {
-  removeItem,
+  removeNotificationItem,
   NotificationItem,
   notificationColor,
 } from "../../common/notification";
@@ -26,7 +26,7 @@ const Notification: FC<Props> = (props) => {
           <button
             className="notification-container--item-dismiss"
             onClick={() => {
-              removeItem(notification.id, setNotification);
+              removeNotificationItem(notification.id, setNotification);
             }}
           >
             Dismiss

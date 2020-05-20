@@ -9,7 +9,7 @@ import React, {
 import "./index.scss";
 import FormInput from "../../components/FormInput/FormInput";
 import {
-  addItem,
+  addNotificationItem,
   NotificationItem,
   NotificationType,
 } from "../../common/notification";
@@ -53,7 +53,7 @@ const Contact: FC<Props> = (props) => {
         if (res) {
           setError(res.error);
           if (res.message) {
-            addItem(setNotification, {
+            addNotificationItem(setNotification, {
               type: NotificationType.success,
               text: res.message,
             });

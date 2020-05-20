@@ -1,4 +1,5 @@
 import { Router, Request, Response } from "express";
+import { NotificationType } from "../models/common";
 
 const stripe = require("stripe")(process.env.STRIPE_SEC);
 const router = Router();
@@ -20,12 +21,14 @@ router.post("/", async (req: Request, res: Response) => {
     console.log(payment);
 
     res.status(200).json({
-      type: "success",
+      type: NotificationType.success,
       message: "Your payment will be processed momentarilty.",
     });
   } catch (error) {
     console.log(error);
-    res.status(400).json({ type: "error", message: error.message });
+    res
+      .status(400)
+      .json({ type: NotificationType.error, message: error.message });
   }
 });
 

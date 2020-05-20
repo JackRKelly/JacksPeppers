@@ -3,14 +3,20 @@ import "./index.scss";
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import { StripeCardElement, Stripe } from "@stripe/stripe-js";
 import { CartItem } from "../../common/cart";
+import {
+  NotificationType,
+  addNotificationItem,
+  NotificationItem,
+} from "../../common/notification";
 
 interface Props {
   cart: CartItem[];
   setModalOpen: Dispatch<SetStateAction<boolean>>;
+  setNotification: Dispatch<SetStateAction<NotificationItem[]>>;
 }
 
 const CheckoutForm: FC<Props> = (props) => {
-  const { cart, setModalOpen } = props;
+  const { cart, setModalOpen, setNotification } = props;
   const stripe = useStripe();
   const elements = useElements();
 
@@ -43,9 +49,27 @@ const CheckoutForm: FC<Props> = (props) => {
         .then((response) => {
           console.log(response);
           response.json().then((json) => {
-            //Notify
             console.log(json);
-            if (json.type === "success") {
+            switch (json.type) {
+              case NotificationType.success:
+                addNotificationItem(setNotification, {
+                  type: NotificationType.success,
+                  text: json.message,
+                });
+                setModalOpen(false);
+                break;
+              case NotificationType.warning:
+                addNotificationItem(setNotification, {
+                  type: NotificationType.warning,
+                  text: json.message,
+                });
+                break;
+              default:
+                addNotificationItem(setNotification, {
+                  type: NotificationType.error,
+                  text: json.message,
+                });
+                break;
             }
           });
         })

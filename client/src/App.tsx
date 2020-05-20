@@ -245,6 +245,7 @@ const App: FC = () => {
                     <Cart
                       cart={cart}
                       setCart={setCart}
+                      setNotification={setNotification}
                       setIsLoading={setIsLoading}
                     />
                   </Route>
