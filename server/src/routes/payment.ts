@@ -11,7 +11,18 @@ router.post("/", async (req: Request, res: Response) => {
 
   console.log(cart);
 
-  let totalPrice = 0;
+  let cartFound = [];
+
+  for (let i = 0; i < cart.length; i++) {
+    Product.findById(cart[i].id)
+      .exec()
+      .then((doc) => {
+        console.log(doc);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  }
 
   let cartString = "";
   cart.map(
