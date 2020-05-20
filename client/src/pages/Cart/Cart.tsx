@@ -1,4 +1,10 @@
-import React, { FC, Dispatch, SetStateAction, useEffect } from "react";
+import React, {
+  FC,
+  Dispatch,
+  SetStateAction,
+  useEffect,
+  useState,
+} from "react";
 import CartListItem from "../../components/CartListItem/CartListItem";
 import "./index.scss";
 import CartSummary from "../../components/CartSummary/CartSummary";
@@ -15,6 +21,7 @@ interface Props {
 
 const Cart: FC<Props> = (props) => {
   const { cart, setCart, setIsLoading } = props;
+  const [modalOpen, setModalOpen] = useState(false);
   const stripePromise = loadStripe(
     "pk_test_U4qeTnEMoRXkfNUbF4SIyuqH00FpW8c4r2"
   );
@@ -32,7 +39,13 @@ const Cart: FC<Props> = (props) => {
 
   return (
     <>
-      <div className="checkout-modal">
+      <div
+        className="checkout-modal"
+        style={{
+          opacity: modalOpen ? "1" : "0",
+          pointerEvents: modalOpen ? "auto" : "none",
+        }}
+      >
         <Elements stripe={stripePromise}>
           <CheckoutForm cart={cart} />
         </Elements>
@@ -70,7 +83,13 @@ const Cart: FC<Props> = (props) => {
               </tbody>
             </table>
             <CartSummary cart={cart} />
-            <button>Checkout</button>
+            <button
+              onClick={() => {
+                setModalOpen(true);
+              }}
+            >
+              Checkout
+            </button>
           </div>
         )}
       </main>
