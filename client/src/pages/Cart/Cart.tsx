@@ -47,7 +47,7 @@ const Cart: FC<Props> = (props) => {
         }}
       >
         <Elements stripe={stripePromise}>
-          <CheckoutForm cart={cart} />
+          <CheckoutForm cart={cart} setModalOpen={setModalOpen} />
         </Elements>
       </div>
       <main className="cart">

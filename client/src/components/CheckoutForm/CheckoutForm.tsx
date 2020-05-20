@@ -1,4 +1,4 @@
-import React, { FC, FormEvent } from "react";
+import React, { FC, FormEvent, Dispatch, SetStateAction } from "react";
 import "./index.scss";
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import { StripeCardElement, Stripe } from "@stripe/stripe-js";
@@ -6,10 +6,11 @@ import { CartItem } from "../../common/cart";
 
 interface Props {
   cart: CartItem[];
+  setModalOpen: Dispatch<SetStateAction<boolean>>;
 }
 
 const CheckoutForm: FC<Props> = (props) => {
-  const { cart } = props;
+  const { cart, setModalOpen } = props;
   const stripe = useStripe();
   const elements = useElements();
 
@@ -55,6 +56,13 @@ const CheckoutForm: FC<Props> = (props) => {
       <CardElement />
       <button type="submit" disabled={!stripe}>
         Pay
+      </button>
+      <button
+        onClick={() => {
+          setModalOpen(false);
+        }}
+      >
+        Close
       </button>
     </form>
   );
