@@ -24,8 +24,8 @@ interface Props {
 const Cart: FC<Props> = (props) => {
   const { cart, setCart, setIsLoading, setNotification } = props;
   const [modalOpen, setModalOpen] = useState(false);
-  const stripePromise = loadStripe(
-    "pk_test_U4qeTnEMoRXkfNUbF4SIyuqH00FpW8c4r2"
+  const [stripePromise] = useState(
+    loadStripe("pk_test_U4qeTnEMoRXkfNUbF4SIyuqH00FpW8c4r2")
   );
 
   useEffect(() => {
