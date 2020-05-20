@@ -3,3 +3,9 @@ export enum NotificationType {
   warning,
   error,
 }
+
+export interface CartItem {
+  id: string | boolean;
+  price: number;
+  quantity: number;
+}

@@ -40,7 +40,7 @@ const Cart: FC<Props> = (props) => {
   }, [cart, setIsLoading]);
 
   return (
-    <>
+    <div className="cart-container">
       <div
         className="checkout-modal"
         style={{
@@ -99,7 +99,7 @@ const Cart: FC<Props> = (props) => {
           </div>
         )}
       </main>
-    </>
+    </div>
   );
 };
 
