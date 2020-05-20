@@ -53,6 +53,7 @@ const Cart: FC<Props> = (props) => {
             cart={cart}
             setModalOpen={setModalOpen}
             setNotification={setNotification}
+            setIsLoading={setIsLoading}
           />
         </Elements>
       </div>

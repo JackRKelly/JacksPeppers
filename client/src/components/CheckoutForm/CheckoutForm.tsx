@@ -13,16 +13,16 @@ interface Props {
   cart: CartItem[];
   setModalOpen: Dispatch<SetStateAction<boolean>>;
   setNotification: Dispatch<SetStateAction<NotificationItem[]>>;
+  setIsLoading: Dispatch<SetStateAction<boolean>>;
 }
 
 const CheckoutForm: FC<Props> = (props) => {
-  const { cart, setModalOpen, setNotification } = props;
+  const { cart, setModalOpen, setNotification, setIsLoading } = props;
   const stripe = useStripe();
   const elements = useElements();
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-
     const {
       error,
       paymentMethod,
@@ -32,7 +32,6 @@ const CheckoutForm: FC<Props> = (props) => {
     });
 
     if (!error && paymentMethod) {
-      console.log(paymentMethod);
       const { id } = paymentMethod;
 
       const body = {
@@ -41,15 +40,18 @@ const CheckoutForm: FC<Props> = (props) => {
         cart: cart,
       };
 
+      setIsLoading(true);
+
       fetch("/api/payment", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body),
       })
         .then((response) => {
-          console.log(response);
           response.json().then((json) => {
-            console.log(json);
+            setTimeout(() => {
+              setIsLoading(false);
+            }, 100);
             switch (json.type) {
               case NotificationType.success:
                 addNotificationItem(setNotification, {
