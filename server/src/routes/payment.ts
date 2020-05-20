@@ -20,11 +20,12 @@ router.post("/", async (req: Request, res: Response) => {
     console.log(payment);
 
     res.status(200).json({
-      confirm: "Success",
+      type: "success",
+      message: "Your payment will be processed momentarilty.",
     });
   } catch (error) {
     console.log(error);
-    res.status(400).json({ error: error.message });
+    res.status(400).json({ type: "error", message: error.message });
   }
 });
 

@@ -43,7 +43,10 @@ const CheckoutForm: FC<Props> = (props) => {
         .then((response) => {
           console.log(response);
           response.json().then((json) => {
+            //Notify
             console.log(json);
+            if (json.type === "success") {
+            }
           });
         })
         .catch((err) => console.error(err));
@@ -58,6 +61,7 @@ const CheckoutForm: FC<Props> = (props) => {
         Pay
       </button>
       <button
+        type="button"
         onClick={() => {
           setModalOpen(false);
         }}
