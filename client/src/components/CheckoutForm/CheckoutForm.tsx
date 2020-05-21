@@ -143,17 +143,19 @@ const CheckoutForm: FC<Props> = (props) => {
         updateValue={setZipCode}
       />
       <CardElement />
-      <button type="submit" disabled={!stripe}>
-        Pay
-      </button>
-      <button
-        type="button"
-        onClick={() => {
-          setModalOpen(false);
-        }}
-      >
-        Close
-      </button>
+      <div className="button-container">
+        <button type="submit" disabled={!stripe}>
+          Pay
+        </button>
+        <button
+          type="button"
+          onClick={() => {
+            setModalOpen(false);
+          }}
+        >
+          Close
+        </button>
+      </div>
     </form>
   );
 };
