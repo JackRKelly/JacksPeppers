@@ -7,7 +7,7 @@ const stripe = require("stripe")(process.env.STRIPE_SEC);
 const router = Router();
 
 router.post("/", async (req: Request, res: Response) => {
-  const { cart, id, amount } = req.body;
+  const { cart, id, email, name, address, zipCode, state, city } = req.body;
 
   let cartFinal: CartItemFinal[] = [];
 
@@ -39,7 +39,20 @@ router.post("/", async (req: Request, res: Response) => {
               description: cartDescription,
               payment_method: id,
               confirm: true,
+              receipt_email: email,
+              shipping: {
+                name: name,
+                address: {
+                  line1: address,
+                  country: "US",
+                  city: city,
+                  state: state,
+                  postal_code: zipCode,
+                },
+              },
             });
+
+            console.log(payment);
 
             res.status(200).json({
               type: NotificationType.success,

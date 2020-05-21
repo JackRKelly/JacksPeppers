@@ -1,8 +1,15 @@
-import React, { FC, FormEvent, Dispatch, SetStateAction } from "react";
+import React, {
+  FC,
+  FormEvent,
+  Dispatch,
+  SetStateAction,
+  useState,
+} from "react";
 import "./index.scss";
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import { StripeCardElement, Stripe } from "@stripe/stripe-js";
 import { CartItem, getTotalPrice } from "../../common/cart";
+import CheckoutInput from "../CheckoutInput/CheckoutInput";
 import {
   NotificationType,
   addNotificationItem,
@@ -18,6 +25,12 @@ interface Props {
 
 const CheckoutForm: FC<Props> = (props) => {
   const { cart, setModalOpen, setNotification, setIsLoading } = props;
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [address, setAddress] = useState("");
+  const [zipCode, setZipCode] = useState("");
+  const [state, setState] = useState("");
+  const [city, setCity] = useState("");
   const stripe = useStripe();
   const elements = useElements();
 
@@ -36,8 +49,13 @@ const CheckoutForm: FC<Props> = (props) => {
 
       const body = {
         id: id,
-        amount: 1000,
         cart: cart,
+        email: email,
+        address: address,
+        zipCode: zipCode,
+        city: city,
+        state: state,
+        name: name,
       };
 
       setIsLoading(true);
@@ -88,6 +106,42 @@ const CheckoutForm: FC<Props> = (props) => {
           : getTotalPrice(cart)
         ).toFixed(2)}
       </h2>
+      <CheckoutInput
+        name="Name"
+        inputType="name"
+        value={name}
+        updateValue={setName}
+      />
+      <CheckoutInput
+        name="Email"
+        inputType="email"
+        value={email}
+        updateValue={setEmail}
+      />
+      <CheckoutInput
+        name="Address"
+        inputType="text"
+        value={address}
+        updateValue={setAddress}
+      />
+      <CheckoutInput
+        name="City"
+        inputType="text"
+        value={city}
+        updateValue={setCity}
+      />
+      <CheckoutInput
+        name="State"
+        inputType="text"
+        value={state}
+        updateValue={setState}
+      />
+      <CheckoutInput
+        name="Zip Code"
+        inputType="text"
+        value={zipCode}
+        updateValue={setZipCode}
+      />
       <CardElement />
       <button type="submit" disabled={!stripe}>
         Pay
