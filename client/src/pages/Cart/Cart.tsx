@@ -90,13 +90,15 @@ const Cart: FC<Props> = (props) => {
               </tbody>
             </table>
             <CartSummary cart={cart} />
-            <button
-              onClick={() => {
-                setModalOpen(true);
-              }}
-            >
-              Checkout
-            </button>
+            <div className="cart-button-container">
+              <button
+                onClick={() => {
+                  setModalOpen(true);
+                }}
+              >
+                Checkout
+              </button>
+            </div>
           </div>
         )}
       </main>
