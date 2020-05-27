@@ -142,6 +142,7 @@ const CheckoutForm: FC<Props> = (props) => {
         value={zipCode}
         updateValue={setZipCode}
       />
+      <label>Card Information:</label>
       <CardElement />
       <div className="button-container">
         <button type="submit" disabled={!stripe}>
