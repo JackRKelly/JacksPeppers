@@ -50,10 +50,32 @@
     .StripeElement {
       width: 100%;
       margin: 10px 0;
+      background-color: rgba(211, 211, 211, 0.5);
+      padding: 10px;
+      border-radius: 5px;
     }
     .button-container {
       width: 100%;
       margin: 10px 0;
+      display: flex;
+      justify-content: flex-end;
+      button {
+        border: none;
+        @include font(false);
+        display: inline-block;
+        padding: 5px 15px;
+        font-size: 18px;
+        background-color: $red;
+        text-decoration: none;
+        color: $white;
+        border-radius: 3px;
+        margin-left: 15px;
+        cursor: pointer;
+        @include bezier(200ms);
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
     }
   }
 }
