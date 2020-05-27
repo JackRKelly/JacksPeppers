@@ -38,7 +38,13 @@
       }
       input {
         width: 100%;
-        border: 1px black solid;
+        border: none;
+        padding: 7.5px;
+        margin-top: 5px;
+        background-color: rgba(211, 211, 211, 0.5);
+        border-radius: 5px;
+        @include ease-in-out(200ms);
+        @include font(false);
       }
     }
     .StripeElement {

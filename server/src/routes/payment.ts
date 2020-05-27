@@ -1,6 +1,6 @@
 import { Router, Request, Response } from "express";
 import { NotificationType } from "../models/common";
-import { CartItem, CartItemFinal, ProductResponse } from "../models/common";
+import { CartItemFinal, ProductResponse } from "../models/common";
 import { Product } from "../models/product";
 
 const stripe = require("stripe")(process.env.STRIPE_SEC);

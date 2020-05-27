@@ -13,7 +13,7 @@ const CheckoutForm: FC<Props> = (props) => {
   return (
     <div className="input-container">
       <label htmlFor={name} className="input-container--label">
-        {name}
+        {name}:
       </label>
       <input
         type={inputType}
@@ -21,6 +21,7 @@ const CheckoutForm: FC<Props> = (props) => {
         onChange={(e) => {
           updateValue(e.target.value);
         }}
+        placeholder={`${name} Input`}
         className="input-container--input"
         name={name}
       />
