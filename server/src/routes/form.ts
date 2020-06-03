@@ -37,13 +37,8 @@ router.post("/", async (req: Request, res: Response) => {
     const form = new Form({
       _id: new mongoose.Types.ObjectId(),
       name: name,
-      price: price,
-      seedCount: seedCount,
-      quantity: quantity,
-      heat: heat,
-      image: image,
-      colorList: colorList,
-      description: description,
+      email: email,
+      message: message,
     });
   
     form
