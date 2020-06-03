@@ -87,7 +87,7 @@ const CartListItem: FC<Props> = (props) => {
             >
               +
             </button>
-            {quantity}
+            <p>{quantity}</p>
             <button
               onClick={() => {
                 decrementItem(setCart, product._id);

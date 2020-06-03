@@ -84,6 +84,18 @@ main.cart {
               justify-content: space-around;
               font-size: 16px;
             }
+            button {
+              background-color: transparent;
+              border: none;
+              font-family: "WorkSans", sans-serif;
+              color: red;
+              text-decoration: underline;
+              cursor: pointer;
+              @include bezier(200ms);
+              &:hover {
+                transform: scale(1.1);
+              }
+            }
           }
           &-product {
             a {
@@ -91,6 +103,8 @@ main.cart {
               flex-direction: row;
               align-items: center;
               justify-content: space-evenly;
+              text-decoration: none;
+              color: black;
               img {
                 height: 50px;
               }
